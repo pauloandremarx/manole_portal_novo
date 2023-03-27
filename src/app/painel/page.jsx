@@ -2,18 +2,18 @@
 
  
 import { Suspense } from "react"; 
-import Layoutv2 from '@/components/Manole/Layoutv2'
+import Layoutv2 from '../../components/Manole/Layoutv2'
 
-import BannerBemvindo from '@/components/Manole/bannerBemvindo'
-import HeaderMeusCursos from '@/components/Manole/HeaderMeusCursos'
+import BannerBemvindo from '../../components/Manole/bannerBemvindo'
+import HeaderMeusCursos from '../../components/Manole/HeaderMeusCursos'
 import Config from '@/util/Config'
  
 
-import HeaderEventos from '@/components/Manole/HeaderEventos'
+import HeaderEventos from '../../components/Manole/HeaderEventos'
 
  import { cookies } from 'next/headers';
 import styles from './painel.module.css';
-import HeaderMinicursos from '@/components/Manole/HeaderMinicursos'
+import HeaderMinicursos from '../../components/Manole/HeaderMinicursos'
  
  
  
