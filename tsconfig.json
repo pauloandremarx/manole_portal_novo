@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",  
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -22,19 +26,14 @@
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "build/types/**/*.ts"
+    "build/types/**/*.ts", 
   ],
   "exclude": [
     "node_modules"
