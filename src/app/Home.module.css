@@ -1,0 +1,374 @@
+/*Home - Sobre nos */
+
+.text_border{
+    color: #fff;
+    font-size: 45px; 
+    text-shadow: 1px 0 0 rgba(133,133,138, 0.4), -1px 0 0 rgba(133,133,138, 0.4), 0 1px 0 rgba(133,133,138, 0.4), 0 -1px 0 rgba(133,133,138, 0.4), 1px 1px rgba(133,133,138, 0.4), -1px -1px 0 rgba(133,133,138, 0.4), 1px -1px 0 rgba(133,133,138, 0.4), -1px 1px 0 rgba(133,133,138, 0.4);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0px;
+    line-height: 100%;
+}
+
+.label_200{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0px;
+    max-width: 220px;
+}
+
+
+.label_400{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 370px;
+}
+
+.sobre_nos p{
+    text-align: left;
+    font-size: 18px;
+    line-height: 180%;
+    color: #171535;
+}
+
+@media (min-width:959px){
+    .sobre_nos p{
+        width: 100%;
+        max-width: 500px;
+    } 
+}
+
+.sobre_nos h1{
+    color: #110D82;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 900;
+    font-size: 68px;
+    margin: 0px;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label span{
+    border: 1px solid #FD874C; 
+    height: 28px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100px;
+    color: #FD874C;
+    font-size: clamp(10px 1.4vw, 14px);
+    border-radius: 80px;  
+    position: relative;
+    top: -1px;
+}
+
+/*Nosso Impacto*/
+
+.container_icons{
+    box-sizing: border-box;
+    padding: 0px 25px;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 950px;
+}
+
+.title{
+    font-weight: 700;
+    font-family: 'Maven Pro', sans-serif;
+    margin: 0px;
+    text-align: center;
+    color: #110D82;
+    font-size: 40px;
+    line-height: 100%;
+}
+
+  
+.icons_home img{
+    display: block;
+    height: 70px;
+    width: auto;
+}
+
+.icons_home h3{
+    margin: 0px;
+    font-weight: 700;
+    color: #110D82;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+
+.icons_home p{
+    margin: 0px;
+    text-align: center;
+    font-weight: 400;
+    color: #110D82;
+}
+
+
+/*BG CINZA - ITENS*/ 
+
+.bg_branco{
+    background-color: #fff;
+    padding: 50px 0px;
+    overflow: hidden !important;
+    position: relative;
+}
+
+@media (max-width:959px){
+.bg_home_patters_1, .bg_home_patters_2, .bg_home_patters_3, .bg_home_patters_4, .bg_home_patters_5{
+    display: none;
+     
+}
+}
+
+.bg_home_patters_1{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 10vw;
+    height: auto;
+    z-index: 0;
+    
+}
+
+.bg_home_patters_2{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 8vw;
+    height: auto;
+    z-index: 0;
+}
+
+.bg_home_patters_3{
+    position: absolute;
+    right: -25vw;
+    top: 600px;
+    width: 35vw;
+    height: auto;
+    z-index: 0;
+}
+
+.bg_home_patters_4{
+    position: absolute;
+    left: -15vw;
+    bottom: 0vw;
+    width: 30vw;
+    height: auto;
+    z-index: 0;
+}
+
+.bg_home_patters_5{
+    position: absolute;
+    right: 0vw;
+    bottom: 0vw;
+    width: 10vw;
+    height: auto;
+    z-index: 0;
+}
+ 
+
+.bg_cinza{
+    background-color: #F8F8F8;
+    padding: 50px 0px;
+    box-sizing: content-box;
+}
+
+.bg_cinza_t1{
+    background-color: #F8F8F8;  
+}
+
+.bg_cinza .container_padrao, .bg_cinza .container_slider{
+    position: relative;
+    z-index: 3;
+}
+
+.container_slider{
+    box-sizing: border-box;
+    padding: 0px 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    max-width: 100%;
+    margin: 0px auto;
+    width: 100%;
+}
+
+@media (min-width:960px){
+.slider_container_direita .swiper-wrapper{
+    justify-content: flex-end !important;
+}
+}
+
+.max_width_p{
+    text-align: right;
+    width:100%;
+    max-width: 650px;
+}
+
+@media (min-width:960px){
+    .container_slider{ 
+        padding: 0px 25px;  
+        max-width: 1400px;
+    }
+}
+
+.itens_bg_cinza{
+    padding: 50px 0px; 
+}
+
+.itens_bg_cinza h2{
+    margin: 0px;
+    font-size: clamp(33px, 4.3vw, 43px);
+    font-weight: 400;
+    line-height: 100%;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+@media (min-width:960px){
+    .itens_bg_cinza .border_right{  
+        box-sizing: border-box;
+        border-right: 2px solid #171535;
+    }
+
+    .itens_bg_cinza .border_left{  
+        box-sizing: border-box;
+        border-left: 2px solid #171535;
+    }
+}
+
+.itens_bg_cinza h3{
+    margin: 0px;
+    line-height: 100%;
+    font-size: clamp(58px, 4.5vw, 75px);
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.itens_bg_cinza p{
+    margin: 0px;
+    padding: 0px;
+    line-height: 190%; 
+    color: #171535;
+}
+
+
+.i_verde h2{
+ color: #22D1AF;
+}
+
+.i_verde .border_right{
+    border-color: #22D1AF;
+}
+
+.i_verde .border_left{
+    border-color: #22D1AF;
+}
+
+.i_verde h3{
+    color: #22D1AF;
+}
+
+/*laranja*/
+
+.i_laranja h2{
+    color: #EF7D52;
+   }
+   
+   .i_laranja .border_right{
+       border-color: #EF7D52;
+   }
+   
+   .i_laranja .border_left{
+       border-color: #EF7D52;
+   }
+   
+   .i_laranja h3{
+       color: #EF7D52;
+   }
+
+
+   /*azul*/
+
+   .i_azul h2{
+    color: #0D5BC7;
+   }
+   
+   .i_azul .border_right{
+       border-color: #0D5BC7;
+   }
+   
+   .i_azul .border_left{
+       border-color: #0D5BC7;
+   }
+   
+   .i_azul h3{
+       color: #0D5BC7;
+   }
+
+   
+
+.slider_bg_cinza img{
+    width: 100%;
+    height: auto;
+}
+
+.slider_bg_cinza .uk-panel div h1{  
+    font-size: clamp(0.8rem, 5vw, 1.2rem); 
+    min-height: 50px;
+    font-weight: 600;
+    padding: 0px 10px;
+    max-width: 240px;
+    text-align: center;
+}
+
+
+
+.dotnav_slider_bg_cinza  > * > * {
+    display: block;
+    box-sizing: border-box;
+    width: 25px;
+    height: 5px;
+    border-radius: 0%;
+    background: transparent;
+    /* 1 */
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 1px solid #110D82;
+    transition: 0.2s ease-in-out;
+    transition-property: background-color, border-color;
+  }
+  /* Hover */
+  .dotnav_slider_bg_cinza  > * > :hover {
+    background-color: #110D82;
+    border-color: transparent;
+  }
+  /* OnClick */
+  .dotnav_slider_bg_cinza  > * > :active {
+    background-color: #110D82;
+    border-color: transparent;
+  }
+  /* Active */
+  .dotnav_slider_bg_cinza  > .uk-active > * {
+    background-color: #110D82;
+    border-color: transparent;
+  }
+
+
+
+
+  .youtube_modal .uk-modal-body{
+    width: 80vw;
+    height: 80vh;
+    background-color: transparent;
+  }
+
+  .youtube_height{
+    height: 80vh;
+  }
+

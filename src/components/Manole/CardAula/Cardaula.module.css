@@ -1,0 +1,131 @@
+
+.card_item_aula{
+    height: 100%;
+    border: 1px solid #E6E6ED;
+    border-radius: 29px;
+    padding: 15px;
+}
+
+.card_item_aula img{
+    border-radius: 19px; 
+}
+
+.card_item_aula h2{
+    text-align: center;
+    color: #110D82;
+    font-size: 19px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600; 
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height: 140%;
+    min-height: 70px;
+
+}   
+
+.card_item_aula p{
+    text-align: center;
+    color: #7F8991;
+    font-size: 17px;
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100px;
+}
+
+.card_item_aula a{
+    background-color: #0F5CE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    color: #fff;
+    border-radius: 35px;
+    margin-top: 18px;
+    font-size: 19px;
+    font-weight: 600; 
+}
+
+.card_item_aula a:hover{
+    text-decoration: none;
+    filter: brightness(80%);
+}
+
+
+/*MODAL*/
+
+.Modal {
+    position: relative; 
+    display: flex;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: none !important;
+    outline: none !important;
+   
+  }
+
+  .Overlay {
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(50, 37, 130, 0.6);
+    padding: 15px 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.15s linear; 
+    border: none !important;
+    outline: none !important;
+ 
+  }
+
+   /* width */
+   .Overlay::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.Overlay::-webkit-scrollbar-track {
+  background: #050F0C;
+  width: 15px;
+}
+
+/* Handle */
+.Overlay::-webkit-scrollbar-thumb {
+  background: #E65B20;
+}
+
+/* Handle on hover */
+.Overlay::-webkit-scrollbar-thumb:hover {
+  background: #E65B20;
+}
+
+.Overlay{ 
+  overflow-y: scroll;
+  scrollbar-color: #E65B20 #050F0C;
+  scrollbar-width: thin;
+  
+}
+  
+  .ReactModal__Content--after-open .uk-modal-dialog {
+    opacity: 1;
+  }
+
+  .dentro_modal{
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .notStyle{
+    background-color: transparent;
+    color: #fff;
+    font-size: 1em;
+    border: none;
+  }

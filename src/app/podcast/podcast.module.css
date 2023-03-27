@@ -1,0 +1,49 @@
+.bg_podcast{
+    background-image: linear-gradient(to right, #FD5F5F, #110D82);
+    padding: 50px 0px;
+
+ 
+}
+
+.bg_podcast h2{
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: clamp(48px, 6.8vw, 68px);
+    margin:0px;
+    line-height: 90%;
+    position:relative;
+}
+
+.border_bottom_branca{
+    margin-top:15px;
+    margin-bottom:15px;
+    border-bottom: 1px solid #fff;
+}
+
+.como_escutar h3{
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    font-size: 18px;
+}
+
+.como_escutar p{
+    color: #fff;
+    text-align: left;
+    font-size: 16px;
+    margin-left: 0px;
+    max-width: 350px;
+}
+
+.boder_branca{
+    background-color: #fff;
+    padding: 5px 45px;
+    border-radius: 80px;
+    box-sizing: border-box;
+}
+
+.itunes_top{
+    position:relative;
+    top:-5px;
+}

@@ -1,0 +1,97 @@
+.container_painel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1em 1.5em;
+  margin: 0px auto;
+  overflow: auto;
+  position: relative;
+}
+
+.padding_top_large {
+  box-sizing: content-box;
+  padding-top: 8em;
+  background-color: #fafafa;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  color: #000;
+  font-size: 0.9em;
+}
+
+.container_painel_enventos {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1300px;
+  padding: 1em 1.5em;
+  margin: auto;
+  overflow: visible !important;
+  position: relative;
+}
+
+.container_form .label_circle {
+  font-size: 0.8em;
+  color: #000;
+}
+
+.container_form input {
+  border: #045bc8;
+}
+
+.padding_l_r {
+  box-sizing: content-box;
+  padding: 0px 1em;
+}
+
+.informacoes_perfil {
+  /* 24px/bold */
+  color: #353535;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.voltar_perfil {
+  font-size: 0.8em;
+}
+
+.card_cursos_notas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2em 1em;
+  margin-bottom: 1em;
+}
+
+.card_cursos_notas {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(#ef7d52, #49c5b1) 27;
+}
+
+.card_cursos_notas .text_curso {
+  font-size: 0.9em;
+}
+
+.card_cursos_notas span {
+  color: #ef7d52;
+}
+
+.accordion_title {
+  font-weight: 500;
+  color: #000;
+  font-size: 1em;
+  text-decoration: none !important;
+}
+
+.accordion_title:hover {
+  text-decoration: none !important;
+}
+
+.acordion_content {
+  padding-bottom: 1.6em;
+  border-bottom: 0.1em solid #cdcdcd;
+}

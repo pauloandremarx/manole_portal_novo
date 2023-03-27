@@ -1,0 +1,74 @@
+.bg_single_post{
+    box-sizing: border-box;
+    padding: 50px 0px;
+    height:auto;
+    padding-bottom: 250px;
+    background-image: linear-gradient(to right, #1480DA, #110D82);
+}
+ 
+
+.bg_single_post h2{
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: clamp(48px, 6.8vw, 68px);
+    margin:0px;
+    line-height: 90%;
+    position:relative;
+}
+
+.bg_single_post h1{
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: clamp(30px, 3.8vw, 38px);
+    margin-top: 25px;
+}
+
+.bg_single_post h3{
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: clamp(20px, 2.5vw, 25px);
+    margin-top: 15px;
+}
+
+.container_thumb{ 
+    position:relative;
+
+    height:550px;
+    margin-top: -200px;
+}
+
+.container_thumb > div{
+    border-radius: 11px;
+}
+
+.container_thumb a{
+    background-color:#0F5CE8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    min-height:40px;
+    border-radius:18px;
+    margin-top: 25px;    
+}
+
+.container_thumb a:hover{
+    text-decoration: none;
+    filter:brightness(80%);
+}
+ 
+.aulas_title{
+    color:#110D82;
+    font-size: clamp(35px, 4.5vw, 45px);
+    line-height: 100%;
+    margin-bottom: 35px;
+    font-weight: 700;
+    margin-top: 100px;
+}
+
+ 

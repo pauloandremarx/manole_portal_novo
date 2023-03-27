@@ -1,0 +1,99 @@
+
+
+
+.width_title div{
+  width: 100%;
+}
+
+ .Myeventos{
+  overflow: visible !important; 
+  max-width: none;
+ 
+ }
+
+.width_title .mytitle span,.width_title{
+    line-height: 100%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+ 
+
+      .curso_min_card{
+          /* Neutral Colors - HIGH/Light-50 */ 
+            background: #FFFFFF;
+            /* BRAND COLORS/2/Pure - 500 - 2 */ 
+            border-width: 0px 1px 1px 0px;
+            border-style: solid;
+            border-color: #EF7D52;
+            border-radius: 4px;
+            padding: 14px 0px;
+            -webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.05);
+            -moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.05);
+            box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.05);
+            margin: 4px;
+      }
+
+
+      
+      .curso_min_card .padding{
+        padding: 0px 15px;
+      }
+  
+      .curso_min_card .img_mini_curso{
+       background-position: center;
+       background-size: cover;
+       height: 130px;
+       width: 100%;
+      }
+ 
+      .curso_min_card h2{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 21px */
+         margin: 0px;
+        text-align: center;
+            height: 80px;
+
+        /* TEXT COLORS/Pure - 500 */
+        
+        color: #353535;
+      }
+
+      .curso_min_card p{
+        margin: 0px;
+      font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        text-align: center;
+
+        /* TEXT COLORS/Pure - 500 */
+
+        color: #353535;
+      }
+
+      .curso_min_card a{
+        background: #045BC8;
+        border-radius: 8px;
+        margin-top: 30px;
+        color: #fff;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        padding: 10px 15px;
+        /* TEXT COLORS/White - 100 */
+
+        color: #FFFFFF;
+
+      }

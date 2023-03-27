@@ -1,0 +1,139 @@
+
+.card_item_produto{
+    height: 100%; 
+    border-radius: 29px;
+    padding: 15px;
+    width:100%;
+    display: block;
+    transition: all 0.2s ease-in-out;
+}
+
+.card_item_produto:hover{
+    
+    box-shadow: 0px 3px 10px #00000029;
+}
+
+.card_item_produto img{
+    border-radius: 19px; 
+}
+
+.card_item_produto {
+    text-decoration: none !important;
+}
+
+.card_item_produto h2{
+    text-align: center;
+    color: #7F8991; 
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400; 
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height: 140%;
+    text-decoration: none;
+    font-size: 1em;
+    min-height: 90px;
+
+}   
+
+.card_item_produto a:hover{
+    text-decoration: none;
+}
+
+.card_item_produto a{
+    background-color: #65CC94;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;;
+    justify-content: center;
+    height: 35px;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    width:100%; 
+    max-width: 140px;
+}
+
+
+/*MODAL*/
+
+.Modal {
+    position: relative; 
+    display: flex;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: none !important;
+    outline: none !important;
+   
+  }
+
+  .Overlay {
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(50, 37, 130, 0.6);
+    padding: 15px 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.15s linear; 
+    border: none !important;
+    outline: none !important;
+ 
+  }
+
+   /* width */
+   .Overlay::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.Overlay::-webkit-scrollbar-track {
+  background: #050F0C;
+  width: 15px;
+}
+
+/* Handle */
+.Overlay::-webkit-scrollbar-thumb {
+  background: #E65B20;
+}
+
+/* Handle on hover */
+.Overlay::-webkit-scrollbar-thumb:hover {
+  background: #E65B20;
+}
+
+.Overlay{ 
+  overflow-y: scroll;
+  scrollbar-color: #E65B20 #050F0C;
+  scrollbar-width: thin;
+  
+}
+  
+  .ReactModal__Content--after-open .uk-modal-dialog {
+    opacity: 1;
+  }
+
+  .dentro_modal{
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+.uk-select{
+  border-radius: 10px;
+  padding-left: 20px !important;
+padding-right: 20px !important;
+min-height: 60px;
+}

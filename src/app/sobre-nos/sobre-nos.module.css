@@ -1,0 +1,234 @@
+.linha_do_tempo .text h1{
+    color: #8B8C42;
+    font-size: 80px;
+    font-weight: 700;
+    margin-top: 45px;
+    
+    position: relative;
+}
+
+.linha_do_tempo .text p{
+    color: #434336;
+    font-size: 18px;
+    line-height: 190%;
+    font-weight: 500;
+    margin-bottom: 45px;
+     position: relative;
+}
+
+
+.container_historia{
+    max-width: 1100px;
+    padding: 0px 50px;
+}
+
+@media (min-width:960px){
+
+    .padding_top{
+        padding-top: 100px;
+    }
+    
+    .linha_do_tempo .text p, .linha_do_tempo .text h1{
+        text-align: right;
+        padding-right: 0px;
+      
+    } 
+
+    .linha_do_tempo .text{
+        position: relative;
+    }
+
+    .linha_do_tempo .image{
+        padding-left: 90px;
+    }
+
+    .linha_do_tempo .text::after{
+        height: calc(100% + 40px);
+        width: 15px;
+        position: absolute;
+        content: "";
+        right: -50px;
+       
+        top: 0px;
+        background-color: #f5937f;
+        
+        z-index: 2;
+    }
+
+    .linha_do_tempo .text h1::after{
+        content: "";
+        position: absolute;
+        right: -47.5px;
+        top: calc(50% - 5px);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #330C72;
+        z-index: 5;
+    }
+
+    .master_line :first-child.linha_do_tempo .text::after{
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
+    }
+
+    .master_line :last-child.linha_do_tempo .text::after{
+        border-bottom-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+    }
+
+    .logo_manole_linha img{
+        width: 110px;
+    }
+
+    .logo_manole_linha{
+        position: relative;
+        margin-bottom: 25px;
+    }
+   
+}
+
+ 
+@media (max-width:1199px){ 
+    
+    .logo_manole_linha{
+        position: relative;
+        left: 10px;
+    }
+}
+
+
+@media (max-width:959px){ 
+    .linha_do_tempo{
+        position: relative;
+    }
+
+
+    .logo_manole_linha{
+        position: relative;
+        left: -45px;
+    }
+
+    .logo_manole_linha img{
+        width: 55px;
+    }
+
+    .linha_do_tempo::before{
+        height: calc(100% + 40px);
+        width: 15px;
+        position: absolute;
+        content: "";
+        left: 4.5px;
+         
+        top: 0px;
+        background-color: #f5937f;
+        z-index: 2;
+      
+    }
+
+    .linha_do_tempo .text h1::before{
+        content: "";
+        position: absolute;
+        left: -22.5px;
+        top: calc(50% - 5px);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #330C72;
+        z-index: 5;
+    }
+
+    .master_line :first-child.linha_do_tempo::before{
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
+    }
+
+    .master_line :last-child.linha_do_tempo::before{
+        border-bottom-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+    }
+}
+
+
+   
+.bg_degrade{ 
+    padding: 50px 0px;
+    background: rgb(232,124,86);
+    background: linear-gradient(117deg, rgba(232,124,86,1) 0%, rgba(255,0,69,1) 20%, rgba(19,16,123,1) 60%, rgba(17,13,130,1) 100%); 
+}
+
+.bg_degrade h1{
+    text-align: center;
+    color: #fff;
+    font-size: 75px;
+    font-weight: 700;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.bg_degrade .text_history{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 180%;
+}
+
+.fundador{
+    color: #fff;
+}
+ 
+.bg_img .uk-grid{
+    margin-top: 0px; 
+}
+
+
+.bg_img{
+    padding: 60px 0px;
+    background-image: url('../../../public/manole/sobre_nos/bg_img.webp');
+    background-repeat: repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.linha div{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 15px;
+    background-color:#FD684A;
+    opacity: 0.4; 
+    border-radius: 900px;
+    
+}
+
+.navigation_right{
+    position: absolute;
+    top: -50px;
+    left: 100%;
+    width: max-content;
+}
+
+.navigation_right a{
+    color: #FD684A;
+    font-weight: 700;
+    transition: all ease-in-out 0.2s;
+}
+
+.navigation_right a:hover{
+    text-decoration: none;
+    color: #8b8c42;
+    
+}
+
+ 
+
+.linha_do_tempo .text h1 span{
+    position: absolute;
+    top: -130px;
+}
+
+.navigation_right a{
+    display: block;
+    margin: 5px 0px;
+}

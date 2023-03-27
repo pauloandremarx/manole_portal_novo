@@ -1,0 +1,41 @@
+
+.mybreadcrumb{
+    margin-bottom: 20px;
+}
+
+.mybreadcrumb > * > * {
+    font-size: 0.875rem;
+    color: #fff; 
+  }
+ 
+  .mybreadcrumb > * > :hover {
+    color: #fff; 
+    text-decoration: underline;
+  }
+ 
+  .mybreadcrumb > :last-child > span,
+  .mybreadcrumb > :last-child > a:not([href]) {
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+
+  .mybreadcrumb > li a{
+    color: #fff !important;
+}
+
+  .mybreadcrumb > li a:hover{
+      color: #fff !important;
+  }
+ 
+  .mybreadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+    content: ">";
+    display: inline-block; 
+    margin: 0 10px 0 calc(10px - 4px); 
+    font-size: 0.875rem;
+    color: #fff;
+  }
+
+  .navborder a{
+    color: #fff;
+  }

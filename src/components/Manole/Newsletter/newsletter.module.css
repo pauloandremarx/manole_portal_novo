@@ -1,0 +1,122 @@
+
+  .newsletter{
+    box-sizing: border-box;
+    padding: 30px 25px;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1200px; 
+    position: relative;
+    border-radius: 35px;
+
+}
+
+.newsletter > div{
+    box-sizing: border-box;
+    padding: 30px 25px;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1200px;
+    
+    background-image: url('/manole/newsletter/bg_newsller.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: relative;
+    border-radius: 35px;
+}
+
+.newsletter > div::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-image: url('/manole/newsletter/newsletter-line.webp');
+ 
+    background-size: 105% 120%;
+    background-position: center;
+}
+
+.newsletter >div > div{
+    position: relative;
+    z-index: 2; 
+}
+
+.newsletter h2{
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    margin: 0px;
+    font-size: 1.1em;
+}
+
+.newsletter p{
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    margin: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.newsleter_container{
+    margin: 0px auto;
+    box-sizing: border-box;
+    max-width: 450px;
+    padding: 0px 25px;
+     
+}
+
+.newsleter_container input[type="email"]{
+    background-color: #fff;
+    width: 100%;
+    padding: 9px 0px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+.newsleter_container input[type="submit"]{
+    outline: none;
+    border: none;
+    background-color: #110D82;
+    width: 100%;
+    padding: 9px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.uk_checkbox{
+    background-color: #fff;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+@media (min-width:960px){
+    .newsleter_container input[type="email"]{
+        box-sizing: content-box;
+    }
+
+    .newsleter_container input[type="submit"]{
+        margin: 0px;
+    }
+}
+
+.text_plotica{
+    color: #fff;
+    font-size: 12px;
+    top: -3px;
+    position: relative;
+}
+
+.bg_cinza_t1{
+    background-color: #f8f8f8;
+}

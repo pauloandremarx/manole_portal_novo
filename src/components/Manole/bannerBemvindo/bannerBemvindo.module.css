@@ -1,0 +1,81 @@
+.Bgbanner{
+    background-image: url('../../../../public/manole/perfil/bg_painel.webp');
+    height: 508px;
+    padding-top: 105px;
+    background-size: 120vw 100% ;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.tamanho_image_banner_perfil{
+    width: 100%;
+    max-width: 600px;
+}
+
+
+
+.text_perfil{
+    margin-bottom: 50px;
+}
+
+.text_perfil h1{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0px;
+    line-height: 34px;
+    /* identical to box height */ 
+    /* TEXT COLORS/Pure - 500 */ 
+    color: #353535;
+    margin-bottom: 12px;
+}
+
+.text_perfil p{
+    margin: 0px;
+    /* 20px/Regular */ 
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+
+
+    /* TEXT COLORS/Pure - 500 */
+
+    color: #353535;
+}
+
+.max_container_banner{
+    max-width: 1100px;
+}
+
+.max_img_container{
+    width: 100% !important;
+    max-width: 57% !important;
+    min-width: 57% !important;
+}
+
+@media (max-width:959px){
+        .max_img_container{
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+    }
+
+    
+    .Bgbanner{ 
+        margin-bottom: 110px;
+    }
+
+
+    .tamanho_image_banner_perfil{
+        position: relative;
+        top: 50px;
+    }
+ 
+}
+
+

@@ -1,0 +1,140 @@
+.container_painel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1em 1.5em;
+  margin: 0px auto;
+  overflow: auto;
+  position: relative;
+}
+
+.padding_top_large {
+  box-sizing: content-box;
+  padding-top: 8em;
+  background-color: #fafafa;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  color: #000;
+  font-size: 0.9em;
+}
+
+.container_painel_enventos {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1300px;
+  padding: 1em 1.5em;
+  margin: auto;
+  overflow: visible !important;
+  position: relative;
+}
+
+.container_painel_enventos::before {
+  content: '';
+  position: absolute;
+  height: 500px;
+  left: -490px;
+  bottom: 0px;
+  width: 500px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.widht_100Over {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+.container_form label {
+  display: block;
+  font-size: 0.7em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.container_form .label_circle {
+  font-size: 0.8em;
+  color: #000;
+}
+
+.container_form input {
+  border: #045bc8;
+}
+
+.padding_l_r {
+  box-sizing: content-box;
+  padding: 0px 1em;
+}
+
+.container_form input {
+  border: 1px solid #045bc8;
+}
+
+.container_form > div {
+  margin-bottom: 30px;
+}
+
+.atualizar_btn,
+.cancelar_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  padding: 5px 10px;
+  border: 1px solid #045bc8;
+  border-radius: 7px;
+  margin: 20px 0px;
+}
+
+.atualizar_btn {
+  color: #fff;
+  background-color: #045bc8;
+}
+
+.atualizar_btn:hover {
+  text-decoration: none;
+  background-color: #ffff;
+  color: #045bc8;
+}
+
+.cancelar_btn {
+  color: #045bc8;
+}
+
+.cancelar_btn:hover {
+  text-decoration: none;
+  background-color: #045bc8;
+  color: #ffff;
+}
+
+.container_form .input_perfil {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.box_right_perfil .input_perfil {
+  padding-right: 3.8em !important;
+}
+
+.container_form svg {
+  color: #045bc8;
+}
+
+.informacoes_perfil {
+  /* 24px/bold */
+  color: #353535;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.form_visible_icon {
+  right: 2em;
+}
+
+.voltar_perfil {
+  font-size: 0.8em;
+}

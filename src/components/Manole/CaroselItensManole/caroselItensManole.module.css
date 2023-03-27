@@ -1,0 +1,15 @@
+  .thum_mail_home_card{
+      height: 220px;
+      position: relative;
+      overflow: hidden; 
+      border-top-left-radius:18px;
+      border-top-right-radius:0px;
+      border-bottom-right-radius:18px;
+      border-top-left-radius:18px;
+  }
+
+.h1_card h1{
+    font-size: 1em;
+    color: #fff;
+}
+ 
