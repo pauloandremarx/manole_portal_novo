@@ -69,16 +69,7 @@ const CardProduto = (props) => {
     nascimento: false,
   });
 
-  useEffect(() => {
-    const value = getUFsLocalJson();
-    setUFs(value);
-  }, []);
-
-  useEffect(() => {
-    if (selectUF !== "") {
-      fetchCitiesFromUF(Number(selectUF)).then((value) => setCities(value));
-    }
-  }, [selectUF]);
+ 
 
   function handleSubmitForm(e) {
     event.preventDefault();

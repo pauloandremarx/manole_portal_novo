@@ -1,48 +1,62 @@
 'use client';
  
 import Config from '@/util/Config'
-import { Suspense } from "react"; 
-import { useQuery } from "@tanstack/react-query";
+
+import {  useQueries } from "@tanstack/react-query";
 
 
 async function getBanner() {
-  const res = await fetch( Config.API_URL + 'banner/controllers/getBanners.php?limit=3', {
-      method: 'GET',
-      mode: 'no-cors',
+    const res = await fetch(Config.API_URL + `banner/controllers/getBanners.php?limit=3`, {
+        method: "GET",
         headers: {
-            'Content-Type': 'application/json',  
-         
-        }, 
-    } );
-  
-  return res.json();
+            'Accept': 'application/json',
+        },
+
+    });
+
+    if (!res.ok) {
+        throw new Error("Falha ao carregar, tentando novamente...");
+    }
+
+    const banners = await res.json();
+    return banners;
 }
 
+  
 
 export default function BannerHome( props ) {
 
-const { data, isLoading, isFetching, error } = useQuery({
-    queryKey: ["data-banners"],
-    queryFn: () => getBanner(),
-  });
+ const [banners] =
+    useQueries({
+            queries: [
+                {
+                    queryKey: ["data-banners"],
+                    queryFn: () =>  getBanner(),
+                },
+  
+            ],
+    } ); 
+    
+    if (banners.isLoading) return "Caregando banners...";
+
+    if (banners.error)
+        return "An error has occurred: " + banners.error.message;
 
   
   return <>
       <header>
-          
-          { error ? (
-            <div className="uk-container" ><p className="uk-margin-top">Erro ao carregar imagem do banner!</p></div>
-              ) : isLoading || isFetching ? (
-                    <div class="uk-margin-top loader-manole"></div> 
-            ) : data ? (
+
+          {banners.error ? (
+                    "error"
+                ) : (
                   <div className="uk-position-relative uk-slideshow" data-uk-slideshow="ratio: 8:3; min-height: 400;">
 
                   <div className="uk-position-relative uk-visible-toggle uk-light" >
                  
                       <ul className="uk-slideshow-items">
                           {
-              
-                              data.map( ( item ) => (
+
+                              banners.data.map( ( item ) => (
                                   <li key={ item.link }>
                                       <a href={ item.href } target="_blank">
                             
@@ -66,10 +80,6 @@ const { data, isLoading, isFetching, error } = useQuery({
                       </div>
                   </div>
               </div> 
-                  ) : (
-                          
-                          <div className="uk-container" ><p>Vetor de imagem vazios!</p></div>
-     
         )}
             
 

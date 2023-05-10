@@ -1,16 +1,16 @@
 "use client";
 
 import styles from "./formPerfil.module.css";
-import React, {useState } from "react";
+import React, {useEffect, useState} from "react";
 import { getLocalStorage} from "@/util/Helpers";
 import { useQuery } from "@tanstack/react-query";
-import { InputMaskedUnico, Select } from "@/components/Manole/FormElements";
+import { InputMaskedUnico } from "@/components/Manole/FormElements";
 import useAtualizarPerfil from "@/services/atualizarPerfil/useAtualizarPerfil";
 import Swal from "sweetalert2";
 import { SelectEstado } from "@/components/Manole/Ufs/SelectEstado";
 import { SelectCidade } from "@/components/Manole/Ufs/SelectCidade";
 import Config from "@/util/Config";
-
+import Select from "react-select";
 
 async function getPerfilNormal(token) {
   const res = await fetch(Config.API_URL + `auth/profile`, {
@@ -29,6 +29,7 @@ export default function PerfilNormal() {
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["perfil-normal"],
     queryFn: () => getPerfilNormal(getLocalStorage("token")),
+    refetchOnWindowFocus: false,
   });
 
 
@@ -38,19 +39,24 @@ export default function PerfilNormal() {
   const [selectUF, setSelectUF ] = useState( "" );
   const [selectCity, setSelectCity] = useState("");
   const [selectedUf, setSelectedUf] = useState("");
+  const [SelectedCity, setSelectedCity] = useState("");
+
   // The user will store more cities here
   const [citiesServed, setCitiesServed] = useState([]);
 
   const [ phone, setPhone ] = useState( [] );
 
+
+
   const [ formdata, setFormdata ] = useState( {
-    nome: "",
-    sobrenome: "",
-    data_nasc: "",
-    cep: "",
-    estado: "",
-    cidade: "",
+    nome:  "",
+    sobrenome:  "",
+    data_nasc:  "",
+    cep:  "",
+    estado:  "",
+    cidade:  "",
     telefone: "",
+    sexo: "",
   } );
   const [errorFormData, setErrorFormData] = useState({
     nome: false,
@@ -62,25 +68,8 @@ export default function PerfilNormal() {
     endereco: false,
     cep: false,
     nascimento: false,
+    sexo: false,
   });
-
-  /*
-  useEffect( () => {
-    setFormdata( {
-      ...formdata,
-      nome: meuperfil.nome,
-      sobrenome: meuperfil.sobrenome,
-      data_nasc: meuperfil.data_nascimento,
-      cep: meuperfil.cep,
-      estado: meuperfil.estado,
-      cidade: meuperfil.cidade,
-      telefone: meuperfil.telefone,
-    } );
-  }, [] );*/
-
-
-
-
 
 
 
@@ -117,36 +106,84 @@ export default function PerfilNormal() {
     setDisabledEndereco( !disabledEndereco );
   };
 
+  useEffect(() => {
+    setFormdata({
+      ...formdata,
+      estado: selectedUf,
+    });
+  },[selectedUf]);
+
+  useEffect(() => {
+    setFormdata({
+      ...formdata,
+      cidade: SelectedCity,
+    });
+  },[SelectedCity]);
 
 
   const submitAtualizar = async ( event ) => {
     event.preventDefault();
+    alert( SelectedCity );
+    alert( JSON.stringify( formdata ) );
+
+
+    const data = {
+      ...formdata,
+    };
+
+
 
     //Remover este setTimeout
     setTimeout( () => {
-      const data = {
-        ...formdata,
-      };
-
       useAtualizarPerfil
-        .atualizacaoPerfil( getLocalStorage( "token" ), data )
+        .atualizacaoPerfil( getLocalStorage( "refleshToken" ), data )
         .then( ( response ) => {
           Swal.fire( {
             icon: "success",
             title: "Cadastro",
-            text: "Atualizado com sucesso!",
+            text: response.data.message,
             confirmButtonText: "Confirmar",
           } );
         } )
-        .catch( ( error ) => {
+        .catch( ( error, response ) => {
           Swal.fire( {
             icon: "error",
             title: "Opps!",
-            text: "Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
+            text: error,
           } );
         } );
     }, 1000 );
   };
+
+  const options_sexo = [
+    { value: 'M', label: 'masculino' },
+    { value: 'F', label: 'feminino' },
+  ]
+  const [selectedSexo, setSelectedSexo] = useState(null);
+
+
+  const selectedOptionSexo = options_sexo.find(
+      (e) => e.value === selectedSexo
+  );
+
+
+  useEffect(() => {
+    if(!error && !isLoading && !isFetching && data) {
+      setFormdata({
+        ...formdata,
+        nome: data.nome,
+        sobrenome: data.sobrenome,
+        data_nasc: data.data_nascimento,
+        cep: data.cep,
+        estado: data.estado,
+        cidade: data.cidade,
+        telefone:data.telefone,
+        sexo:data.sexo,
+      });
+
+      setSelectedSexo(data.sexo);
+    }
+  },[data]);
 
   return (
   <>
@@ -158,8 +195,8 @@ export default function PerfilNormal() {
 
         data ? (
             <>
-              <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>
-                <div>
+              <form className={`${styles.container_form} form_border`} onSubmit={submitAtualizar}>
+                <div className={`uk-margin`}>
                   <label>Nome</label>
                   <div className="uk-inline uk-width-1-1">
                     <a
@@ -183,7 +220,7 @@ export default function PerfilNormal() {
                   </div>
                 </div>
 
-                <div>
+                <div className={`uk-margin`}>
                   <label>Sobrenome</label>
                   <div className="uk-inline uk-width-1-1">
                     <a
@@ -207,7 +244,7 @@ export default function PerfilNormal() {
                   </div>
                 </div>
 
-                <div>
+                <div className={`uk-margin`}>
                   <label>E-mail</label>
                   <div className="uk-inline uk-width-1-1">
                     <a
@@ -224,7 +261,7 @@ export default function PerfilNormal() {
                   </div>
                 </div>
 
-                <div>
+                <div className={`uk-margin`}>
                   <label>Telefone</label>
                   <div className="uk-inline uk-width-1-1">
                     <a
@@ -236,7 +273,7 @@ export default function PerfilNormal() {
                         label="Telefone"
                         name="telefone"
                         disabled={disabledTelefone}
-                        value={phone}
+                        value={data.telefone}
                         onChange={(e) => {
                           setPhone(e.target.value);
                           const { value } = e.target;
@@ -250,7 +287,24 @@ export default function PerfilNormal() {
                   </div>
                 </div>
 
-                <div>
+                <div className={`uk-margin`}>
+                  <label>Sexo</label>
+                  <Select
+                      placeholder="Selecione um sexo"
+                      options={options_sexo}
+                      defaultValue={{ label: data.sexo === 'M' ? 'Masculino' : 'Feminino', value: data.sexo }}
+
+                      onChange={(e) => {
+                        setFormdata({
+                          ...formdata,
+                          sexo: e.value,
+                        });
+                      }}
+                  />
+
+                </div>
+
+                <div className={`uk-margin`}>
                   <label>Quem pode ver seu e-mail</label>
                   <div className="uk-form-controls">
                     <label className={`${styles.label_circle} `}>
@@ -270,26 +324,20 @@ export default function PerfilNormal() {
                   </div>
                 </div>
 
-                <div>
-                  <label>Descrição</label>
-                  <div className="uk-inline uk-width-1-1">
-                    <a
-                        className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
-                        onClick={handleClickDescricao}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
-                    <input
-                        className={`uk-input ${styles.input_perfil} `}
-                        type="text"
-                        disabled={disabledDescricao}
+
+
+                <div className={`uk-margin`}>
+                  <div>
+                    <label>Estado</label>
+                    <SelectEstado
+                        onChange={setSelectedUf}
+                        recover={data.estado}
+
                     />
                   </div>
-                </div>
 
-                <div>
-                  <SelectEstado onChange={setSelectedUf} />
 
-                  {selectedUf ? (<SelectCidade uf={selectedUf} />) : ('')}
+                  {selectedUf ? (<div className={`uk-margin`}><label>Cidade</label><SelectCidade uf={selectedUf} onChange={setSelectedCity} recover={data.cidade} /></div> ) : ('')}
 
                 </div>
                 <div>

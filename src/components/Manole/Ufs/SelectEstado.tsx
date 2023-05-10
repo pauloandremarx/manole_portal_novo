@@ -1,6 +1,6 @@
 
 
-import { useState } from "react";
+import {useEffect, useState, useRef} from "react";
 import Select from "react-select";
 import { useEstados } from "@/services/ufs/useEstado";
 import Config from "@/util/Config";
@@ -24,7 +24,14 @@ async function getEstado() {
   return estados_data;
 }
 
-export const SelectEstado = ({ onChange }) => {
+export const SelectEstado = ({ onChange, recover }) => {
+
+  const [selectedEstado, setSelectedEstado] = useState<number | null>(null);
+
+
+  useEffect(() => {
+     onChange(recover);
+  },[recover]);
 
   const [estados_data] =
       useQueries({
@@ -33,12 +40,9 @@ export const SelectEstado = ({ onChange }) => {
             queryKey: ["estados"],
             queryFn: () => getEstado(),
           },
-
         ],
       });
 
-
-  const [selectedEstado, setSelectedEstado] = useState<number | null>(null);
 
   if (estados_data.isLoading) return "Caregando meu perfil...";
 
@@ -48,14 +52,12 @@ export const SelectEstado = ({ onChange }) => {
 
     const estadoOptions = estados_data.data.map((estado) => ({
       value: estado.id,
-      label: estado.nome
+      label: estado.sigla
     }));
 
-    const selectedOptionEstado = estadoOptions.find(
-        (e) => e.value === selectedEstado
-    );
-
-
+  const selectedOptionEstado = estadoOptions.find(
+      (e) => e.value === selectedEstado
+  );
 
 
   const handleEstadoUpdate = (event) => {
@@ -64,17 +66,34 @@ export const SelectEstado = ({ onChange }) => {
     onChange(selectedUf);
   };
 
+
+
+
+
   return (
       <>
           {estados_data.error ? (
                 "error"
             ) : (
-                <Select
-                  placeholder="Selecione um estado"
-                  options={estadoOptions}
-                  value={selectedOptionEstado}
-                  onChange={handleEstadoUpdate}
-                />
+              <>
+                {recover? (
+
+                    <Select
+                      placeholder="Selecione um estado"
+                      options={estadoOptions}
+                      value={selectedOptionEstado}
+                      onChange={handleEstadoUpdate}
+                      defaultValue={{ label: recover, value: recover }}
+                  />) : (
+
+                      <Select
+                      placeholder="Selecione um estado"
+                      options={estadoOptions}
+                      value={selectedOptionEstado}
+                      onChange={handleEstadoUpdate}
+
+                  />)}
+              </>
             )}
       </>
   );

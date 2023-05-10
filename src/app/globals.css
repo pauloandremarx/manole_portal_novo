@@ -375,3 +375,7 @@ transition: all ease-in-out 0.2s;
 .painel_select select{
    border: 1px solid #045bc8 !important;
 }
+
+.form_border .uk-input, .form_border .uk-radio, .form_border .css-13cymwt-control {
+  border: 1px solid #045bc8 !important;
+}

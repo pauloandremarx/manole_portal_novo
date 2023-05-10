@@ -1,7 +1,7 @@
 import Select from "react-select";
 import {useQueries, useQuery, useInfinityQueries } from "@tanstack/react-query";
 import Config from "@/util/Config";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 
 
@@ -24,7 +24,7 @@ async function getCidades(UF) {
 
 export const SelectCidade = (props) => {
 
-
+    const [selectedCidade, setSelectedCidade] = useState<number | null>(null);
 
   const [cidades_data] =
       useQueries({
@@ -52,22 +52,47 @@ export const SelectCidade = (props) => {
     label: cidade.nome
   }));
 
+    const handleCidadeUpdate = (event) => {
+        setSelectedCidade(event.value);
+        const selectedCidade = cidades_data.data.find((e) => e.codigo_ibge === event.value)?.nome;
+        props.onChange(selectedCidade);
+
+    };
+
 
     return (
         <>
           {cidades_data.error ? (
               "error"
           ) : (
-              <Select
-              isLoading={cidades_data.isLoading}
-              loadingMessage={() => "Estamos carregando as cidades, aguarde ..."}
-              isDisabled={cidades_data.isLoading }
-              options={cidadeOptions}
-              placeholder="Selecione uma cidade"
-          />
-          )}</>
+                <>
+                    {props.recover ? (
+                        <Select
+                        isLoading={cidades_data.isLoading}
+                        loadingMessage={() => "Estamos carregando as cidades, aguarde ..."}
+                        isDisabled={cidades_data.isLoading }
+                        options={cidadeOptions}
+                        placeholder="Selecione uma cidade"
+                        defaultValue={{ label: props.recover, value: props.recover }}
+                        onChange={handleCidadeUpdate}
+                        />
+                    ) : (
 
-);
+                        <Select
+                            isLoading={cidades_data.isLoading}
+                            loadingMessage={() => "Estamos carregando as cidades, aguarde ..."}
+                            isDisabled={cidades_data.isLoading }
+                            options={cidadeOptions}
+                            placeholder="Selecione uma cidade"
+                            onChange={handleCidadeUpdate}
+                        />
+                    )}
+                </>
+
+                )}
+
+          </>
+        );
 };
 
 
