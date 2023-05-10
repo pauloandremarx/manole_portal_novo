@@ -1,7 +1,7 @@
  
 
 .nav{ 
-  z-index: 200 !important;   
+  z-index: 900 !important;   
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
@@ -304,7 +304,7 @@
 }
 .username_dropdown{
   border: 1px solid  #EF7D52;
-  background: #f7eae5; 
+  background: #f7eae5 !important;
   position: absolute;
   min-width: 60%;
   padding: 7px 0px;
@@ -488,6 +488,8 @@
   padding: 12px 10px;
   margin-top: 20px;
   margin-bottom: 7px;
+
+  
 }
 
 
@@ -499,7 +501,7 @@
     left: 95px;
     height: 20px;
     width: 20px;
-    background: #f7eae5;
+    background: #f7eae5 !important;
     transform: rotate(225deg);
     border-bottom:inherit;
     border-right:inherit;

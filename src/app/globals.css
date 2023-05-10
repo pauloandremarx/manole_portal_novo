@@ -17,6 +17,7 @@ body {
 
 html{
   scroll-behavior: smooth !important;
+  overflow-x:  hidden !important;
 }
 
 div{
@@ -317,4 +318,60 @@ transition: all ease-in-out 0.2s;
 }
 .uk-open > .parent_title::before {
   background-image: url("/manole/perfil/arrow-down.svg");
+}
+
+.loader-manole {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #E65B20;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+ /* Flip modifier */
+.uk-offcanvas-flip .uk-offcanvas-bar_v1 {
+  left: auto;
+  right: -100vw;
+}
+/* Tablet landscape and bigger */
+@media (min-width: 640px) {
+  .uk-offcanvas-flip .uk-offcanvas-bar_v1 {
+    right: -100vw;
+  }
+}
+
+.uk-offcanvas-bar_v1 {
+  /* 1 */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -100vw;
+  /* 2 */
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 20px 20px;
+   background-color: rgba(17, 13, 130, 0.45); 
+  backdrop-filter: blur(20px);
+  /* 3 */
+  overflow-y: auto;
+}
+
+.painel_select select{
+   border: 1px solid #045bc8 !important;
 }

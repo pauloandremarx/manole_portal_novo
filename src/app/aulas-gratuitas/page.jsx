@@ -5,7 +5,7 @@ import Layout from '@/components/Manole/Layout';
 import Newsletter from '@/components/Manole/Newsletter'
 import Config from '@/util/Config' 
 import ContainerAulasGratuitas from '@/components/Manole/ContainerAulasGratuitas'
-
+import styles from './aulasgratuitas.module.css';
 
  
  async function getAulas() {

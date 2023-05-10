@@ -42,7 +42,7 @@ export default function Login() {
     useLogin.login(data)
     .then((response) => {
        console.log(response);   
-       router.push("/painel/")
+       router.push(`/painel/${getLocalStorage('username')}/${getLocalStorage('userid')}`)
        
     
     })

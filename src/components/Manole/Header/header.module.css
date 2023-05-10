@@ -2,7 +2,7 @@
 
 .nav{
   position: relative; 
-  z-index: 9999 !important;  
+  z-index: 150 !important;  
   border-top: 5px solid #E65B20;
   box-sizing: border-box;
   padding: 0px;
@@ -149,7 +149,7 @@
 }
 
 .hamburgue{
-  color: #110D82;
+  color: #110D82 !important;
 }
 
 .loja_virtual div {
@@ -181,18 +181,8 @@
 
 
 
-.uk-offcanvas-bar{
-  width: 100vw;
-  background-color: rgba(17, 13, 130, 0.95); 
  
-  backdrop-filter: blur(20px);
-}
-
-.uk-offcanvas-flip .uk-offcanvas-bar {
-  right: -100vw;
  
-}
-
 .nav_mobile_header_container{
   margin-left: auto;
   margin-right: auto;

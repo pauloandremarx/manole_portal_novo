@@ -27,6 +27,10 @@
   .mybreadcrumb > li a:hover{
       color: #fff !important;
   }
+
+   .mybreadcrumb > li span{
+     color: #fff !important;
+   }
  
   .mybreadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
     content: ">";

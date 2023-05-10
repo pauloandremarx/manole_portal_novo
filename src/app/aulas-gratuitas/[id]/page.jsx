@@ -8,9 +8,7 @@ import CardAula from '@/components/Manole/CardAula'
 
 import useAulasgratuitas from '@/services/aulasgratuitas/useAulasgratuitas'
  
-
- 
- 
+  
 
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'

@@ -3,7 +3,8 @@
  
 import axios from 'axios';
 import Config from '@/util/Config'
-import { useState } from "react" 
+import { useState } from "react"
+
 
 interface MeusCursos {
    id: Number;
@@ -34,8 +35,9 @@ export default function useMeuPerf(token: string | number) {
          url: Config.API_URL + `auth/profile`,
          method: "GET", 
          headers: headers, 
-     }).then((response) => {
-      setmeuperfil(response.data); 
+      }).then((response) => { 
+         setmeuperfil(response.data);  
+         
 
      }).catch((error) => { 
       console.log(error);
@@ -43,6 +45,7 @@ export default function useMeuPerf(token: string | number) {
  
    } 
 
+     
    return { 
       meuperfil, 
       getMeuPerfil,  

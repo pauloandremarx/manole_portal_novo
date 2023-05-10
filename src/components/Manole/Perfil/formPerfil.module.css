@@ -1,0 +1,61 @@
+
+
+.container_form label {
+  display: block;
+  font-size: 0.7em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.container_form .label_circle {
+  font-size: 0.8em;
+  color: #000;
+}
+
+ 
+.container_form input {
+   border: 1px solid #045bc8 !important;
+}
+
+ .myicon{
+  color: #045bc8 !important;
+}
+
+.container_form .input_perfil {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.atualizar_btn,
+.cancelar_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  padding: 5px 10px;
+  border: 1px solid #045bc8;
+  border-radius: 7px;
+  margin: 20px 0px;
+}
+
+.atualizar_btn {
+  color: #fff;
+  background-color: #045bc8;
+}
+
+.atualizar_btn:hover {
+  text-decoration: none;
+  background-color: #ffff;
+  color: #045bc8;
+}
+
+.cancelar_btn {
+  color: #045bc8;
+}
+
+.cancelar_btn:hover {
+  text-decoration: none;
+  background-color: #045bc8;
+  color: #ffff;
+}
+

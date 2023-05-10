@@ -4,43 +4,18 @@ import YoutubeEmbed from '@/components/Manole/Youtube'
 import Newsletter from '@/components/Manole/Newsletter'
 import BannerHome from '@/components/Manole/BannerHome'
 import Config from '@/util/Config'
- 
-
-import {Carosel1, Carosel2, Carosel3 } from '@/components/Manole/CaroselItensManole';  
-
-import { Suspense } from "react";
-
-async function getData() {
-  const res = await fetch( Config.API_URL + 'banner/controllers/getBanners.php?limit=3', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',   
-         
-        }, 
-    } );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import { cookies } from 'next/headers'; 
 
 
+import {Carosel1, Carosel2, Carosel3 } from '@/components/Manole/CaroselItensManole';   
 
 export default async function Home() {
  
-    const banners = await getData(); 
-    
-    console.log(banners);
+
   return (
       <Layout>
       
-     <BannerHome banners={banners} />
+     <BannerHome  />
     
       <section className="uk-margin-large-top">
                 <div className="container_padrao ">
