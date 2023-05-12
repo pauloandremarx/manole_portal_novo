@@ -1,7 +1,8 @@
 import Select from "react-select";
 import {useQueries, useQuery, useInfinityQueries } from "@tanstack/react-query";
 import Config from "@/util/Config";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import {ErrorBlock} from "@/components/Manole/FormElements/style";
 
 
 
@@ -68,6 +69,7 @@ export const SelectCidade = (props) => {
                 <>
                     {props.recover ? (
                         <Select
+
                         isLoading={cidades_data.isLoading}
                         loadingMessage={() => "Estamos carregando as cidades, aguarde ..."}
                         isDisabled={cidades_data.isLoading }
@@ -75,6 +77,7 @@ export const SelectCidade = (props) => {
                         placeholder="Selecione uma cidade"
                         defaultValue={{ label: props.recover, value: props.recover }}
                         onChange={handleCidadeUpdate}
+                        required
                         />
                     ) : (
 
@@ -85,6 +88,7 @@ export const SelectCidade = (props) => {
                             options={cidadeOptions}
                             placeholder="Selecione uma cidade"
                             onChange={handleCidadeUpdate}
+                            required
                         />
                     )}
                 </>

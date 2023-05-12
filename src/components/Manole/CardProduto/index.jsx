@@ -15,10 +15,10 @@ import { Input, InputMasked, Select, InputHidden } from "../FormElements";
 import { Region } from "../FormElements/style";
 import { getLocalStorage } from "@/util/Helpers";
 import { useRouter } from "next/navigation";
-
-
 import { SelectEstado } from "@/components/Manole/Ufs/SelectEstado";
 import { SelectCidade } from "@/components/Manole/Ufs/SelectCidade";
+
+
 var logado = false;
 
 if (
@@ -39,7 +39,8 @@ const CardProduto = (props) => {
   const [cities, setCities] = useState([]);
   const [ selectUF, setSelectUF ] = useState( "" );
   const [id_uf, set_id_uf] = useState("");
-  const [selectCity, setSelectCity] = useState("");
+  const [selectedUf, setSelectedUf] = useState("");
+  const [SelectedCity, setSelectedCity] = useState("");
   const [statusForm, setStatusForm] = useState("none");
   // The user will store more cities here
   const [citiesServed, setCitiesServed] = useState([]);
@@ -69,7 +70,19 @@ const CardProduto = (props) => {
     nascimento: false,
   });
 
- 
+  useEffect(() => {
+    setFormdata({
+      ...formdata,
+      estado: selectedUf,
+    });
+  },[selectedUf]);
+
+  useEffect(() => {
+    setFormdata({
+      ...formdata,
+      cidade: SelectedCity,
+    });
+  },[SelectedCity]);
 
   function handleSubmitForm(e) {
     event.preventDefault();
@@ -79,6 +92,8 @@ const CardProduto = (props) => {
       setStatusForm("invalid");
       return;
     }
+
+
 
     //Remover este setTimeout
     setTimeout(() => {
@@ -90,7 +105,7 @@ const CardProduto = (props) => {
       };
 
       useCadastro
-        .cadastroAulasGratuitas(data)
+        .cadastroMiniCursos(data)
         .then((response) => {
           console.log(response);
 
@@ -209,6 +224,7 @@ const CardProduto = (props) => {
       tipo: "minicurso",
       conteudo: e.target.attributes.getNamedItem("data-Id").value,
     };
+
 
     useCadastroLogado
       .cadastroLogadoMiniCursos(data_logado)
@@ -388,45 +404,20 @@ const CardProduto = (props) => {
                 }}
               />
 
-              <Region>
-                <Select
-                  name="estado"
-                  label="Estado"
-                  placeholder="Selecione um Estado"
-                  value={selectUF}
-                  options={UFs}
-                  error={errorFormData.estado}
-                  helperText={"Selecione um Estado 2"}
-                  onChange={(e) => {
-                    const idUF = e.target.value;
-                    const index = e.target.selectedIndex;
-                    const nameUF = e.target[ index ].textContent;
-                    const array_de_ufs = idUF.split("-");
-                     
-                      
-                    setFormdata({ ...formdata, estado: nameUF ?? array_de_ufs[1] });
-                      setSelectUF( array_de_ufs[1] ); 
-                  }}
-                />
+              <div className="tamanho_select">
+                <div>
+                  <label>Estado</label>
+                  <SelectEstado
+                      onChange={setSelectedUf}
+                      required
 
-                {selectUF !== "" && (
-                  <Select
-                    name="cidade"
-                    label="Cidade"
-                    placeholder="Selecione uma cidade"
-                    error={errorFormData.cidade}
-                    helperText={"Selecione uma cidade"}
-                    value={selectCity}
-                    onChange={(e) => {
-                      const index = e.target.selectedIndex;
-                      const nameCity = e.target[index].textContent;
-                      setSelectCity(e.target.value);
-                      setFormdata({ ...formdata, cidade: nameCity ?? "-" });
-                    }}
-                    options={cities}
                   />
-                )}
-              </Region>
+                </div>
+              </div>
+
+
+              {selectedUf ? (<div className="tamanho_select"><label>Cidade</label><SelectCidade uf={selectedUf} onChange={setSelectedCity}     /></div> ) : ('')}
+
 
               <Input
                 icon="world"

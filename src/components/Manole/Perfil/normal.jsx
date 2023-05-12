@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import { getLocalStorage} from "@/util/Helpers";
 import { useQuery } from "@tanstack/react-query";
 import { InputMaskedUnico } from "@/components/Manole/FormElements";
-import useAtualizarPerfil from "@/services/atualizarPerfil/useAtualizarPerfil";
+import { atualizarPerfil as useAtualizarPerfil } from "@/services/atualizarPerfil/useAtualizarPerfil";
 import Swal from "sweetalert2";
 import { SelectEstado } from "@/components/Manole/Ufs/SelectEstado";
 import { SelectCidade } from "@/components/Manole/Ufs/SelectCidade";
@@ -33,19 +33,9 @@ export default function PerfilNormal() {
   });
 
 
-  //const mask = "[0-9]{0,1}[0-9]{4}-[0-9]{4}";
-  const [UFs, setUFs] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [selectUF, setSelectUF ] = useState( "" );
-  const [selectCity, setSelectCity] = useState("");
+
   const [selectedUf, setSelectedUf] = useState("");
   const [SelectedCity, setSelectedCity] = useState("");
-
-  // The user will store more cities here
-  const [citiesServed, setCitiesServed] = useState([]);
-
-  const [ phone, setPhone ] = useState( [] );
-
 
 
   const [ formdata, setFormdata ] = useState( {
@@ -123,14 +113,12 @@ export default function PerfilNormal() {
 
   const submitAtualizar = async ( event ) => {
     event.preventDefault();
-    alert( SelectedCity );
-    alert( JSON.stringify( formdata ) );
+
 
 
     const data = {
       ...formdata,
     };
-
 
 
     //Remover este setTimeout

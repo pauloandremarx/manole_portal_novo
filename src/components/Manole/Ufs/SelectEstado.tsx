@@ -1,6 +1,6 @@
 
 
-import {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import Select from "react-select";
 import { useEstados } from "@/services/ufs/useEstado";
 import Config from "@/util/Config";
@@ -24,7 +24,7 @@ async function getEstado() {
   return estados_data;
 }
 
-export const SelectEstado = ({ onChange, recover }) => {
+export const SelectEstado = ({ onChange, recover, error }) => {
 
   const [selectedEstado, setSelectedEstado] = useState<number | null>(null);
 
@@ -32,6 +32,10 @@ export const SelectEstado = ({ onChange, recover }) => {
   useEffect(() => {
      onChange(recover);
   },[recover]);
+
+  var error_text = "";
+
+
 
   const [estados_data] =
       useQueries({
@@ -68,10 +72,16 @@ export const SelectEstado = ({ onChange, recover }) => {
 
 
 
-
+  if(error){
+    error_text =   <span style={{color:"red"}}>Campo incorreto</span> ;
+  }
+  else{
+    error_text =   <span></span> ;
+  }
 
   return (
       <>
+        {error}
           {estados_data.error ? (
                 "error"
             ) : (
@@ -84,6 +94,7 @@ export const SelectEstado = ({ onChange, recover }) => {
                       value={selectedOptionEstado}
                       onChange={handleEstadoUpdate}
                       defaultValue={{ label: recover, value: recover }}
+                      required
                   />) : (
 
                       <Select
@@ -91,10 +102,14 @@ export const SelectEstado = ({ onChange, recover }) => {
                       options={estadoOptions}
                       value={selectedOptionEstado}
                       onChange={handleEstadoUpdate}
+                      required
 
                   />)}
               </>
             )}
+        {error_text}
+
       </>
+
   );
 };

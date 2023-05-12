@@ -9,9 +9,8 @@ class AtualizarPerfilService{
         const headers = { 
             'Content-Type': 'application/json',     
             'Authorization': token,
-
         };
-     
+
         return axios({
             url: Config.API_URL + `auth/profile`,
             method: "PUT",
@@ -25,6 +24,31 @@ class AtualizarPerfilService{
     } 
 }
 
-const atualizarPerfil = new AtualizarPerfilService()
+class AtualizarPerfilAcademicService{
+    async atualizacaoPerfilAcademic( token, data ) {
 
-export default atualizarPerfil
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        };
+
+
+
+        return axios({
+            url: Config.API_URL + `auth/profile/academy`,
+            method: "POST",
+            data: JSON.stringify(data),
+            headers: headers
+        }).then((response) => {
+            return response;
+        }).catch((error) => {
+            return error;
+        })
+    }
+}
+
+const atualizarPerfil = new AtualizarPerfilService();
+const atualizarPerfilAcademic = new AtualizarPerfilAcademicService();
+
+
+export {atualizarPerfilAcademic, atualizarPerfil};

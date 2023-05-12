@@ -97,7 +97,7 @@ export default function MeuPerfil() {
                                             <PerfilNormal/>
                                         </div>
                                     </li>
-                                    <li >
+                                    <li className="uk-open" >
                         <span className={`uk-accordion-title ${styles.informacoes_perfil}`}>
                          Formacão Acadêmica
                         </span>
@@ -105,7 +105,7 @@ export default function MeuPerfil() {
                                             <PerfilAcademico/>
                                         </div>
                                     </li>
-                                    <li className="uk-open">
+                                    <li >
                         <span className="uk-accordion-title">
                           Item 3
                         </span>

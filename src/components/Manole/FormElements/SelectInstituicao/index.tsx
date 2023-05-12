@@ -32,8 +32,9 @@ const SelectInstituicao: React.FC<SelectProps> = ({ label, name, options, placeh
         { ...rest }
         className={ error === true ? "error uk-select" : "uk-select" }
       >
-
+          <option selected disabled>Selecione a opção: </option>
         {
+
           options.map((item, index) => {
             return (
               <>

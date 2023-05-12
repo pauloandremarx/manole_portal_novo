@@ -19,11 +19,8 @@ class CadastroService{
             mode: 'no-cors',
             data: data,
             headers: headers
-        }).then((response) => { 
-             
+        }).then((response) => {
             console.log(response);
-            
-           
         }).catch((error) => {  
             console.log(error);
             console.log('deu errado dentro');
