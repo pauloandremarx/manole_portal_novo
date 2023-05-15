@@ -1,122 +1,39 @@
 "use client";
 
 import styles from "./formPerfil.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useEffectX } from "use-effect-x";
 import { getLocalStorage } from "@/util/Helpers";
-import {
-    SelectInstituicao,
-    SelectTipoFormacao,
+import { SelectInstituicao, SelectTipoFormacao,
 } from "@/components/Manole/FormElements";
 import {atualizarPerfilAcademic, atualizarPerfil} from "@/services/atualizarPerfil/useAtualizarPerfil";
 import Swal from "sweetalert2";
 import { useQuery, useQueries, usersQuery } from "@tanstack/react-query";
 
 import { usePathname, useRouter } from "next/navigation";
-import Config from "@/util/Config";
+import { useForm, Controller } from "react-hook-form";
+import { getPerfilAcademico, getInstituicoes, getFormacao, getMeuCursos, getMeuSpecialty } from "@/services/formProfile/useFormProfile";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import Select from 'react-select';
 
-async function getPerfilAcademico(token) {
-    const res = await fetch(Config.API_URL + `auth/profile/academy`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            Authorization: token,
-            Accept: "application/json",
-        },
-    });
-
-    if (!res.ok) {
-        throw new Error("Falha ao carregar, tentando novamente...");
-    }
-
-    const minhaformacao = await res.json();
-    return minhaformacao;
-}
-
-async function getInstituicoes() {
-    const res = await fetch(
-        Config.API_URL + `auth/profile/institutions?search=`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                Authorization: Config.API_KEY,
-                Accept: "application/json",
-            },
-        }
-    );
-
-    if (!res.ok) {
-        throw new Error("Falha ao carregar, tentando novamente...");
-    }
-
-    const instituicoes_total = await res.json();
-    const instituicoes = instituicoes_total.instituicoes;
-    return instituicoes;
-}
-
-async function getFormacao() {
-    const res = await fetch(Config.API_URL + `auth/profile/academicEducation`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            Authorization: Config.API_KEY,
-            Accept: "application/json",
-        },
-    });
-
-    if (!res.ok) {
-        throw new Error("Falha ao carregar, tentando novamente...");
-    }
-
-    const academicEducation_total = await res.json();
-    const academicEducation = academicEducation_total.academicEducation;
-    return academicEducation;
-}
-
-async function getMeuCursos() {
-    const res = await fetch(Config.API_URL + `auth/profile/courses?search=`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            Authorization: Config.API_KEY,
-            Accept: "application/json",
-        },
-    });
-
-    if (!res.ok) {
-        throw new Error("Falha ao carregar, tentando novamente...");
-    }
-
-    const meus_cursos_total = await res.json();
-    const meus_cursos = meus_cursos_total.courses;
-    return meus_cursos;
-}
-
-
-
-async function getMeuSpecialty() {
-    const res = await fetch(
-        Config.API_URL + `auth/profile/specialty?search=`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                Authorization: Config.API_KEY,
-                Accept: "application/json",
-            },
-        }
-    );
-
-    if (!res.ok) {
-        throw new Error("Falha ao carregar, tentando novamente...");
-    }
-
-    const meu_specialty_total = await res.json();
-    const meu_specialty = meu_specialty_total.specialty
-    return meu_specialty;
-}
-
+import AdicionarFormacao from "@/components/Manole/Perfil/AdicionarFormacao";
+import EditarFormacao from "@/components/Manole/Perfil/EditarFormacao";
+import {FaEdit} from "react-icons/fa";
 export default function PerfilAcademico() {
+
+    const registerForm = () => {
+        const { register, formState: { errors }, handleSubmit, control } = useForm();
+        return { register, formState: { errors }, handleSubmit, control  };
+    }
+
+
+    const forms = {
+        profissao: registerForm(),
+        perfil: registerForm(),
+        especialidade: registerForm(),
+    }
+
 
     const router = useRouter();
 
@@ -124,8 +41,8 @@ export default function PerfilAcademico() {
         useQueries({
             queries: [
                 {
-                    queryKey: ["academico-total"],
-                    queryFn: () => getPerfilAcademico(getLocalStorage("token")),
+                    queryKey: ["minhaformacao"],
+                    queryFn: () => getPerfilAcademico(getLocalStorage("refleshToken")),
                 },
 
                 {
@@ -155,11 +72,6 @@ export default function PerfilAcademico() {
 
     /* ------------------------------------------------- Fim tipo de  cursos ------------------------------------------------- */
 
-
-    const { select_active_tipo_formacoes, set_select_active_tipo_formacoes } =  useState();
-
-    const [campo_cursos, set_campo_cursos] = useState([]);
-    const [select_active_tipo_cursos, set_select_active_tipo_cursos] = useState();
     const [select_active_tipo_especialidades, set_select_active_tipo_especialidades] = useState();
 
 
@@ -182,23 +94,146 @@ export default function PerfilAcademico() {
         ],
         trabalho: {
             local_trabalho: "",
-            cargo: ""
+            cargo: "",
         },
     });
 
 
-    const [formdataFormacao, setformdataFormacao] = useState({
-        formacaoAcademica: [{
-            inst_id: 0,
-            curso_id: 0,
-            ano_conclusao: 0,
-            tipo_formacao_id: 0,
-        }]
-    });
 
 
 
+    const submitAtualizar = async (event) => {
+        event.preventDefault();
 
+        //Remover este setTimeout
+        setTimeout(() => {
+            const data = {
+                ...formdata,
+            };
+
+            alert(JSON.stringify(formdata));
+
+            atualizarPerfilAcademic
+                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data)
+                .then((response) => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Cadastro",
+                        text:  response == 200 ? "Cadastro atualizado com sucesso!" : "Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
+                        confirmButtonText: "Confirmar",
+                    });
+                })
+                .catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Opps!",
+                        text: "Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
+                    });
+                });
+        }, 1000);
+    };
+
+    const [disabledName, setDisabledName] = useState(true);
+    const handleClickNome = () => {
+        setDisabledName(!disabledName);
+    };
+
+
+    const excluirFormcao = async (event) => {
+      const formacaoExclude= {
+          formacaoAcademica: [
+              {
+                  id:  parseInt( event.target.closest(`a`).dataset.exclude),
+                  delete: true
+              }
+          ]};
+
+
+        setTimeout(() => {
+            const data_formacao_exclude = {
+                ...formacaoExclude,
+            };
+
+            atualizarPerfilAcademic
+                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
+                .then((response) => {
+
+                    response == 200
+                        ?
+                    Swal.fire({
+                        icon: "success",
+                        title: "Formação!",
+                        text:  "Formação excluida com sucesso!",
+                        confirmButtonText: "Confirmar",
+                    }) :
+                        Swal.fire({
+                            icon: "error",
+                            title: "Opps!",
+                            text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
+                        });
+                })
+                .catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Opps!",
+                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
+                    });
+                });
+
+            setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
+
+        }, 500);
+
+    };
+
+
+
+    const EditarFormcao = async (event) => {
+
+        const formacaoExclude= {
+            formacaoAcademica: [
+                {
+                    id:  parseInt(event.target.dataset.exclude),
+                    delete: true
+                }
+            ]};
+
+        setTimeout(() => {
+            const data_formacao = {
+                ...formdataFormacao,
+            };
+
+            atualizarPerfilAcademic
+                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), formacaoExclude)
+                .then((response) => {
+
+                    response == 200
+                        ?
+                        Swal.fire({
+                            icon: "success",
+                            title: "Formação!",
+                            text:  "Formação excluida com sucesso!",
+                            confirmButtonText: "Confirmar",
+                        }) :
+                        Swal.fire({
+                            icon: "error",
+                            title: "Opps!",
+                            text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
+                        });
+                })
+                .catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Opps!",
+                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
+                    });
+                });
+
+            setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
+
+        }, 500);
+
+    };
 
     useEffect(() => {
         if(!minhaformacao.error && !minhaformacao.isLoading && !minhaformacao.isFetching && minhaformacao.data) {
@@ -228,127 +263,22 @@ export default function PerfilAcademico() {
 
 
         }
-    },[minhaformacao]);
-
-    const submitAtualizar = async (event) => {
-        event.preventDefault();
-
-        //Remover este setTimeout
-        setTimeout(() => {
-            const data = {
-                ...formdata,
-            };
-
-            atualizarPerfil
-                .atualizacaoPerfil(getLocalStorage("refleshToken"), data)
-                .then(() => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Cadastro",
-                        text: "Atualizado com sucesso!",
-                        confirmButtonText: "Confirmar",
-                    });
-                })
-                .catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Opps!",
-                        text: "Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
-                    });
-                });
-        }, 1000);
-    };
-
-    const [disabledName, setDisabledName] = useState(true);
-    const handleClickNome = () => {
-        setDisabledName(!disabledName);
-    };
+    },[!minhaformacao.isLoading]);
 
 
-    const AdicionarFormacao = async (event) => {
-        //Remover este setTimeout
-        setTimeout(() => {
-            const data_formacao = {
-                ...formdataFormacao,
-            };
+    const [openEdit, setOpenEdit] = useState(false);
+    const [openExclude, setOpenExclude] = useState(false);
+    const [editar_id, setEditar_id] = useState(false);
 
-
-            alert(JSON.stringify(formdataFormacao))
-
-            atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao)
-                .then((response) => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Cadastro",
-                        text:  JSON.stringify(response),
-                        confirmButtonText: "Confirmar",
-                    });
-                })
-                .catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Opps!",
-                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
-                    });
-                });
-
-            setTimeout(() => {if (window && window.location) window.location.reload(); }, 91000);
-
-        }, 1000);
-    };
-
-
-    const excluirFormcao = async (event) => {
-
-      const formacaoExclude= {
-          formacaoAcademica: [
-              {
-                  id:  parseInt(event.target.dataset.exclude),
-                  delete: true
-              }
-          ]};
-
-
-
-        setTimeout(() => {
-            const data_formacao = {
-                ...formdataFormacao,
-            };
-
-
-            atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), formacaoExclude)
-                .then((response) => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Formação!",
-                        text:  response.status == 200 ? "Formação excluida com sucesso!" : "Erro ao excluir formação!",
-                        confirmButtonText: "Confirmar",
-                    });
-                })
-                .catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Opps!",
-                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
-                    });
-                });
-
-            setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
-
-        }, 500);
-
-
-
-    };
-
+    const onOpenEditModal = () => setOpenEdit(true);
+    const onCloseEditModal = () => setOpenEdit(false);
 
     if (minhaformacao.isLoading) return "Caregando meu perfil...";
     if (instituicoes.isLoading) return "Caregando instituições...";
     if (academicEducation.isLoading) return "Caregando formação...";
     if (meus_cursos.isLoading) return "Caregando cursos...";
     if (meu_specialty.isLoading) return "Caregando cursos...";
+
 
     if (minhaformacao.error)
         return "An error has occurred: " + minhaformacao.error.message;
@@ -358,234 +288,100 @@ export default function PerfilAcademico() {
         return "An error has occurred: " + academicEducation.error.message;
     if (meus_cursos.error)
         return "An error has occurred: " + academicEducation.error.message;
-
     if (meu_specialty.error)
         return "An error has occurred: " + meu_specialty.error.message;
 
 
 
-    return (
+    const instituicoesOptions = instituicoes.data.map((item) => ({
+        value: item.inst_id,
+        label: item.inst_nome
+    }));
+
+    const coursesOptions = meus_cursos.data.map((item) => ({
+        value: item.id,
+        label: item.nome
+    }));
+
+    const academicEducationOptions = academicEducation.data.map((item) => ({
+        value: item.id,
+        label: item.nome
+    }));
+
+
+   return (
         <>
-            <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>
 
+            <AdicionarFormacao   />
                 {/*Start*/}
-
-                <button className="uk-button uk-button-default" type="button"
-                        uk-toggle="target: .toggle-animation-queued; animation: uk-animation-fade; queued: true; duration: 300">Adicionar formação
-                </button>
-                <div className={`toggle-animation-queued uk-margin-top`} hidden>
-                    <h1 className={`uk-heading-line uk-text-default`}>
-                        <span>Adcionar Formação Acadêmica  </span>
-                    </h1>
-
-                    <div className={`uk-margin`}>
-                        <label>Ano de conclusão</label>
-                        <div className="uk-inline uk-width-1-1">
-                            <a
-                                className="uk-form-icon uk-form-icon-flip"
-                                onClick={handleClickNome}
-                                data-uk-icon="icon: file-edit"
-                            ></a>
-                            <input
-                                className={`uk-input ${styles.input_perfil} `}
-                                 type="number" min="1900" max="2100" required
-
-
-                                onChange={(e) => {
-                                    const { value } = e.target;
-
-                                    setformdataFormacao({
-                                        ...formdataFormacao,
-                                        formacaoAcademica: [{ ...formdataFormacao.formacaoAcademica[0], ano_conclusao: parseInt(value)}],
-                                    });
-                                }}
-                            />
-                        </div>
-                    </div>
-
-                        <div className={`painel_select `}>
-                            <SelectInstituicao
-                                name="Instituições"
-                                label="Instituições"
-                                placeholder="Selecione uma Instituições"
-                                value={select_active_tipo_especialidades}
-                                options={instituicoes.data}
-                                helperText={"Selecione uma Instituições"}
-                                onChange={(e) => {
-                                    const idActive = e.target.value;
-                                    setformdataFormacao({
-                                        ...formdataFormacao,
-                                        formacaoAcademica: [{ ...formdataFormacao.formacaoAcademica[0], inst_id:  parseInt(idActive)}],
-                                    });
-
-                                }}
-                            />
-                        </div>
-
-
-                        <div className={`painel_select `}>
-                            <SelectTipoFormacao
-
-                                name="Formação"
-                                label="Formação"
-                                placeholder="Selecione um formação"
-                                value={select_active_tipo_formacoes}
-                                options={academicEducation.data}
-                                helperText={"Selecione um Formação"}
-                                onChange={(e) => {
-                                    const idActive = e.target.value;
-
-                                    setformdataFormacao({
-                                        ...formdataFormacao,
-                                        formacaoAcademica: [{ ...formdataFormacao.formacaoAcademica[0], tipo_formacao_id:  parseInt(idActive)}],
-                                    });
-
-                                }}
-                            />
-                        </div>
-
-
-
-
-                        <div className={`painel_select `}>
-                            <SelectTipoFormacao
-
-                                name="Curso"
-                                label="Curso"
-                                placeholder="Selecione um curso"
-                                value={select_active_tipo_formacoes}
-                                options={meus_cursos.data}
-                                helperText={"Selecione um Curso"}
-                                onChange={(e) => {
-                                    const idActive = e.target.value;
-
-                                    setformdataFormacao({
-                                        ...formdataFormacao,
-                                        formacaoAcademica: [{ ...formdataFormacao.formacaoAcademica[0], curso_id:  parseInt(idActive)}],
-                                    });
-
-                                }}
-                            />
-                        </div>
-
-
-
-                    <a className="uk-button uk-button-primary"  onClick={AdicionarFormacao} >Cadastrar</a>
-                </div>
-
-
                 {minhaformacao.data?.formacaoAcademica.map(function(item, i){
+
                     return (
                         <>
-                            <h1 className={`uk-heading-line uk-text-default`}>
-                                <span>Formação Acadêmica {i + 1}   <a style={{color:"red"}} onClick={excluirFormcao} data-exclude={item.id}>Excluir</a> </span>
-
+                            <h1 className={`uk-text-default  uk-flex uk-flex-between`}>
+                                    <span className={`uk-heading-bullet`}>
+                                        Formação Acadêmica {i + 1}
+                                    </span>
+                                    <span>
+                                        <a className={styles.hover_icone} onClick={excluirFormcao} data-exclude={item.id}> <img width={25} src="/manole/perfil/icons8-x-67.png" /></a>
+                                          <EditarFormacao  id_formation={item.id}   />
+                                    </span>
                             </h1>
 
-                            {instituicoes.error ? (
-                                "error"
-                            ) : (
-                                <div className={`painel_select `}>
-                                    <SelectInstituicao
-                                        recover={item?.inst_id}
-                                        name="Instituições"
-                                        label="Instituições"
-                                        placeholder="Selecione uma Instituições"
-                                        value={select_active_tipo_especialidades}
-                                        options={instituicoes?.data}
-                                        helperText={"Selecione uma Instituições"}
-                                        onChange={(e) => {
-                                            const idActive = e.target.value;
-
-                                            setFormdata({
-                                                ...formdata,
-
-                                            });
-                                            set_select_active_tipo_especialidades(idActive);
-                                        }}
-                                    />
-                                </div>
-                            )}
-
-                            {academicEducation.error ? (
-                                "error"
-                            ) : (
-                                <div className={`painel_select `}>
-                                    <SelectTipoFormacao
-                                        recover={item.tipo_formacao_id}
-                                        name="Formação"
-                                        label="Formação"
-                                        placeholder="Selecione um formação"
-                                        value={select_active_tipo_formacoes}
-                                        options={academicEducation.data}
-                                        helperText={"Selecione um Formação"}
-                                        onChange={(e) => {
-                                            const idActive = e.target.value;
-
-                                            setFormdata({
-                                                ...formdata,
-
-                                            });
-                                            set_select_active_tipo_formacoes(idActive);
-                                        }}
-                                    />
-                                </div>
-                            )}
-
-                            {meus_cursos.error ? (
-                                "error"
-                            ) : (
-                                <div className={`painel_select `}>
-                                    <SelectTipoFormacao
-                                        recover={item.curso_id}
-                                        name="Curso"
-                                        label="Curso"
-                                        placeholder="Selecione um curso"
-                                        value={select_active_tipo_formacoes}
-                                        options={meus_cursos.data}
-                                        helperText={"Selecione um Curso"}
-                                        onChange={(e) => {
-                                            const idActive = e.target.value;
-
-                                            setFormdata({
-                                                ...formdata,
-                                                estado: idActive,
-                                            });
-                                            set_select_active_tipo_formacoes(idActive);
-                                        }}
-                                    />
-                                </div>
-                            )}
 
                             <div className={`uk-margin`}>
-                                <label>Ano de conclusão</label>
+                                <label>Instituicoes</label>
                                 <div className="uk-inline uk-width-1-1">
-                                    <a
-                                        className="uk-form-icon uk-form-icon-flip"
-                                        onClick={handleClickNome}
-                                        data-uk-icon="icon: file-edit"
-                                    ></a>
                                     <input
                                         className={`uk-input ${styles.input_perfil} `}
                                         type="text"
-                                        disabled={disabledName}
-                                        defaultValue={
-                                            item.ano_conclusao
-                                        }
-                                        onChange={(e) => {
-                                            const { value } = e.target;
-                                            setFormdata({
-                                                ...formdata,
-                                                nome: value,
-                                            });
-                                        }}
+                                        disabled
+                                        defaultValue={instituicoes?.data.find(word => word.inst_id ===  item.inst_id ).inst_nome }
                                     />
                                 </div>
                             </div>
+
+                            <div className={`uk-margin`}>
+                                <label>Tipo de formação</label>
+                                <div className="uk-inline uk-width-1-1">
+                                    <input
+                                        className={`uk-input ${styles.input_perfil} `}
+                                        type="text"
+                                        disabled
+                                        defaultValue={academicEducation?.data.find(word => word.id ===  item.tipo_formacao_id ).nome }
+                                    />
+                                </div>
+                            </div>
+
+                            <div className={`uk-margin`}>
+                                <label>Curso</label>
+                                <div className="uk-inline uk-width-1-1">
+                                    <input
+                                        className={`uk-input ${styles.input_perfil} `}
+                                        type="text"
+                                        disabled
+                                        defaultValue={meus_cursos?.data.find(word => word.id ===  item.curso_id ).nome }
+                                    />
+                                </div>
+                            </div>
+                            <div className={`uk-margin`}>
+                                <label>Ano de conclusão</label>
+                                <div className="uk-inline uk-width-1-1">
+                                    <input
+                                        className={`uk-input ${styles.input_perfil} `}
+                                        type="text"
+                                        disabled
+                                        defaultValue={
+                                            item.ano_conclusao
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <hr />
                         </>
                     )
                 })}
-
+            <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>
                 {/*END*/}
                 {meu_specialty.error ? (
                     "error"
@@ -605,10 +401,9 @@ export default function PerfilAcademico() {
                         helperText={"Selecione uma especialidade"}
                         onChange={(e) => {
                             const idActive = e.target.value;
-
                             setFormdata({
                                 ...formdata,
-                                estado: idActive,
+                                especialidades: [{ ...formdata.especialidades[0], esp_id: parseInt(idActive)}],
                             });
                             set_select_active_tipo_especialidades(idActive);
                         }}
@@ -622,21 +417,20 @@ export default function PerfilAcademico() {
                 <div className={`uk-margin`}>
                     <label>Local de trabalho</label>
                     <div className="uk-inline uk-width-1-1">
-                        <a
-                            className="uk-form-icon uk-form-icon-flip"
-                            onClick={handleClickNome}
-                            data-uk-icon="icon: file-edit"
-                        ></a>
+                        <a  className="uk-form-icon uk-form-icon-flip"
+                             >
+                            <FaEdit />
+                        </a>
                         <input
                             className={`uk-input ${styles.input_perfil} `}
                             type="text"
-                            disabled={disabledName}
+
                             defaultValue={minhaformacao.data.trabalho[0].local_trabalho}
                             onChange={(e) => {
                                 const { value } = e.target;
                                 setFormdata({
                                     ...formdata,
-                                    nome: value,
+                                    trabalho: { ...formdata.trabalho, local_trabalho:  value}
                                 });
                             }}
                         />
@@ -648,21 +442,24 @@ export default function PerfilAcademico() {
                     <div className="uk-inline uk-width-1-1">
                         <a
                             className="uk-form-icon uk-form-icon-flip"
-                            onClick={handleClickNome}
-                            data-uk-icon="icon: file-edit"
-                        ></a>
+
+
+                        >   <FaEdit />  </a>
                         <input
                             className={`uk-input ${styles.input_perfil} `}
                             type="text"
-                            disabled={disabledName}
+
                             defaultValue={minhaformacao.data.trabalho[0].cargo_funcao}
+
                             onChange={(e) => {
                                 const { value } = e.target;
                                 setFormdata({
                                     ...formdata,
-                                    nome: value,
+                                    trabalho: { ...formdata.trabalho, cargo:  value}
                                 });
                             }}
+
+
                         />
                     </div>
                 </div>

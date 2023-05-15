@@ -186,8 +186,8 @@ html{
 }
 
 .uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input, .uk-select {
-  padding-left: 60px !important;
-  padding-right: 60px !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
   min-height: 60px;
   border-radius: 10px;
 }
@@ -384,3 +384,16 @@ transition: all ease-in-out 0.2s;
   min-height: 59px !important;
   border-radius: 10px !important;
 }
+
+.homeBannerSkeleton{
+  min-height: 36vw;
+}
+
+.react-responsive-modal-modal {
+  border-radius: 7px !important;
+}
+
+.uk-button, .uk-input{
+  border-radius: 7px;
+}
+

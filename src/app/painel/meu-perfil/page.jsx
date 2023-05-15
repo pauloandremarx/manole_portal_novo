@@ -7,6 +7,7 @@ import styles from "./meu-perfil.module.css";
 import Link from "next/link";
 import {getLocalStorage} from '@/util/Helpers'
 import {useRouter} from 'next/navigation'
+import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 
 export default function MeuPerfil() {
 
@@ -15,6 +16,28 @@ export default function MeuPerfil() {
     if (getLocalStorage('username') == null) {
         router.push('/login');
     }
+
+    /**
+     * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
+     */
+    const AccordionItem = ({ header, ...rest }) => (
+        <Item
+            {...rest}
+            header={
+                <>
+                    {header}
+                    <img className={styles.chevron} src="/manole/perfil/arrow-down.svg/" alt="Chevron Down" />
+                </>
+            }
+            className={styles.item}
+            buttonProps={{
+                className: ({ isEnter }) =>
+                    `${styles.itemBtn} ${isEnter && styles.itemBtnExpanded}`
+            }}
+            contentProps={{ className: styles.itemContent }}
+            panelProps={{ className: styles.itemPanel }}
+        />
+    );
 
     return (
         <Layoutv2>
@@ -85,39 +108,18 @@ export default function MeuPerfil() {
                                     </div>
                                 </div>
 
-                                <ul data-uk-accordion="collapsible: false">
-                                    <li >
-                        <span
-                            className={`uk-accordion-title ${styles.informacoes_perfil}`}
+                                <div className={`uk-margin`}>
+                                <Accordion>
+                                    <AccordionItem header="Informações do perfil">
+                                        <PerfilNormal/>
+                                    </AccordionItem>
 
-                        >
-                          Informações do perfil
-                        </span>
-                                        <div className="uk-accordion-content">
-                                            <PerfilNormal/>
-                                        </div>
-                                    </li>
-                                    <li className="uk-open" >
-                        <span className={`uk-accordion-title ${styles.informacoes_perfil}`}>
-                         Formacão Acadêmica
-                        </span>
-                                        <div className="uk-accordion-content">
-                                            <PerfilAcademico/>
-                                        </div>
-                                    </li>
-                                    <li >
-                        <span className="uk-accordion-title">
-                          Item 3
-                        </span>
-                                        <div className="uk-accordion-content">
-                                            <p>
-                                                Duis aute irure dolor in reprehenderit in voluptate
-                                                velit esse cillum dolore eu fugiat nulla pariatur.
-                                                Excepteur sint occaecat cupidatat proident.
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                    <AccordionItem header="Formacão Acadêmica">
+                                        <PerfilAcademico/>
+                                    </AccordionItem>
+                                </Accordion>
+                                </div>
+
                             </div>
                             <div>
                                 <div>

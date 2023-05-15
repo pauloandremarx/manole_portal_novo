@@ -18,6 +18,14 @@ import { useRouter } from "next/navigation";
 import { SelectEstado } from "@/components/Manole/Ufs/SelectEstado";
 import { SelectCidade } from "@/components/Manole/Ufs/SelectCidade";
 
+import {FaUserAlt} from "react-icons/fa";
+import { GoMail } from "react-icons/go";
+import { AiFillPhone } from "react-icons/ai";
+import { AiFillIdcard } from "react-icons/ai";
+import { MdDateRange } from "react-icons/md";
+import {FaStreetView} from "react-icons/fa";
+import {FaCity} from "react-icons/fa";
+import {BsFillHouseDoorFill} from "react-icons/bs";
 
 var logado = false;
 
@@ -306,7 +314,7 @@ const CardProduto = (props) => {
               <Input
                 label="Nome"
                 name="nome"
-                icon="user"
+                icon={<FaUserAlt />}
                 placeholder=""
                 error={errorFormData.nome}
                 helperText={"Insira seu nome"}
@@ -320,7 +328,7 @@ const CardProduto = (props) => {
               />
 
               <Input
-                icon="mail"
+                icon={<GoMail/>}
                 label="E-mail"
                 name="email"
                 placeholder=""
@@ -336,7 +344,7 @@ const CardProduto = (props) => {
               />
 
               <InputMasked
-                icon="phone"
+                icon={<AiFillPhone/>}
                 mask={"(99) 9999-99999"}
                 label="Telefone"
                 name="telefone"
@@ -353,7 +361,7 @@ const CardProduto = (props) => {
               />
 
               <InputMasked
-                icon="hashtag"
+                icon={<AiFillIdcard />}
                 mask={"999.999.999-99"}
                 label="CPF"
                 type="text"
@@ -371,7 +379,7 @@ const CardProduto = (props) => {
               />
 
               <InputMasked
-                icon="clock"
+                icon={<MdDateRange />}
                 mask={"99/99/9999"}
                 label="Data de nascimento"
                 name="nascimento"
@@ -388,7 +396,7 @@ const CardProduto = (props) => {
               />
 
               <InputMasked
-                icon="world"
+                icon={<FaStreetView />}
                 mask={"999-999-99"}
                 label="Cep"
                 name="cep"
@@ -420,7 +428,7 @@ const CardProduto = (props) => {
 
 
               <Input
-                icon="world"
+                icon={<BsFillHouseDoorFill />}
                 label="Endereço Matriz"
                 name="endereco"
                 error={errorFormData.endereco}

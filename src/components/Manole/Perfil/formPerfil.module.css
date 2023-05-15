@@ -13,23 +13,38 @@
 }
 
 
-
- .myicon{
-  color: #045bc8 !important;
-}
-
 .container_form .input_perfil {
   width: 100%;
   border-radius: 7px;
 }
 
-.atualizar_btn,
+.atualizar_btn  {
+  display: block;
+  cusor: pointer !important;
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 5px;
+  border: 1px solid #045bc8;
+  transition: all ease-in-out 0.2s;
+  box-sizing: border-box;
+  border: 1px solid #045bc8;
+  border-radius: 7px;
+  margin: 20px 0px;
+  text-align: center;
+  font-size: 1em;
+}
+
+
 .cancelar_btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 35px;
-  padding: 5px 10px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  cusor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #045bc8;
+  transition: all ease-in-out 0.2s;
+  box-sizing: border-box;
   border: 1px solid #045bc8;
   border-radius: 7px;
   margin: 20px 0px;
@@ -41,6 +56,7 @@
 }
 
 .atualizar_btn:hover {
+  cusor: pointer !important;
   text-decoration: none;
   background-color: #ffff;
   color: #045bc8;
@@ -54,5 +70,37 @@
   text-decoration: none;
   background-color: #045bc8;
   color: #ffff;
+}
+
+.modal_custom {
+  width: 600px;
+}
+
+.adicionar_formacao{
+  display: inline-block;
+  margin-bottom: 10px;
+  background: #ef7d52;
+  color: #fff;
+  box-sizinh:border box;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ef7d52;
+  transition: all ease-in-out 0.2s;
+}
+
+.adicionar_formacao, .adicionar_formacao:hover{
+  text-decoration:  none;
+}
+.adicionar_formacao:hover{
+  color: #ef7d52;
+  background: #fff;
+  border: 1px solid #ef7d52;
+}
+
+
+.hover_icone:hover, .adicionar_formacao:hover img{
+  text-decoration:  none;
+  filter: brightness(0) saturate(100%) invert(69%) sepia(72%) saturate(4660%) hue-rotate(358deg) brightness(99%) contrast(104%);
+  transition: all ease-in-out 0.1s;
 }
 

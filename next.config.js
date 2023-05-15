@@ -2,7 +2,7 @@
 const nextConfig = {
 
   distDir: 'build',
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   experimental: {
     appDir: true, 

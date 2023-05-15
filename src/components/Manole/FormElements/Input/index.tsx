@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ icon, label, name, secondLabel, error, he
     <div className="margin_card" >
             <label>{label}</label>
             <div className="uk-inline uk-width-1-1" >
-                <span className="uk-form-icon margin_left" data-uk-icon={icon}></span>
+                <span className="uk-form-icon " >{icon}</span>
                 <input className={ error === true ? "uk-input uk-width-1-1 padding_left error" : "uk-input uk-width-1-1 padding_left" }  { ...rest }  id={ name } type="text" name={ name } placeholder={helperText} />
             </div>
             {

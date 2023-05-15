@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0ab1bc3-ae1b-470a-b479-27a6903f378c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/painel/cursos-disponiveis/cdisponiveis.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/cursos-disponiveis/page.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/meu-perfil/meu-perfil.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/meu-perfil/page.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/meus-cursos/m_cursos.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/meus-cursos/page.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/minha-senha/minha-senha.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/minha-senha/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/notas/notas.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/notas/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painel/painel.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.env.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/login/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/cursos-disponiveis/cdisponiveis.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/cursos-disponiveis/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/meu-perfil/meu-perfil.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/meu-perfil/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/meus-cursos/m_cursos.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/meus-cursos/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/minha-senha/minha-senha.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/minha-senha/page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/notas/notas.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/notas/page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/painel/[username]/[userid]/painel.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../components/Manole/FormElements/SelectInstituicao/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../components/Manole/FormElements/SelectInstituicao/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../components/Manole/FormElements/SelectTipoFormacao/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../components/Manole/FormElements/SelectTipoFormacao/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../components/Manole/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../components/Manole/Header/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../components/Manole/Headerv2/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../components/Manole/Headerv2/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../components/Manole/Perfil/academico.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../components/Manole/Perfil/academico.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2Phh6kjrJ41UtiAn9MqGYpVTcyo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0ab1bc3-ae1b-470a-b479-27a6903f378c" name="Changes" comment="" />
+      <created>1683915048482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683915048482</updated>
+      <workItem from="1683915049739" duration="39000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

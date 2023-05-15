@@ -16,7 +16,7 @@ const InputMasked: React.FC<InputProps> = ({ icon, label, name, secondLabel, err
     <div className="margin_card" >
             <label>{label}</label>
             <div className="uk-inline uk-width-1-1" >
-                <span className="uk-form-icon margin_left" data-uk-icon={icon}></span>
+                <span className="uk-form-icon margin_left"  >{icon}</span>
                   <InputMaskedContainer
                     mask={mask}        
                     type="text"

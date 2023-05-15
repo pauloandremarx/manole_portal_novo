@@ -9,7 +9,7 @@ import { localStorageExpires, getLocalStorage, setLocalStorage} from '@/util/Hel
 import useLogin from '@/services/login/useLogin'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
-
+import { GoMail } from "react-icons/go";
 
 export default function Login() {
 
@@ -42,7 +42,7 @@ export default function Login() {
     useLogin.login(data)
     .then((response) => {
        console.log(response);   
-       router.push(`/painel/${getLocalStorage('username')}/${getLocalStorage('userid')}`)
+       router.push(`/painel/`)
        
     
     })
@@ -59,7 +59,7 @@ export default function Login() {
   if( getLocalStorage('username') == 'undefined' || getLocalStorage('username') == null || getLocalStorage('username') == '' ){
     console.log( getLocalStorage('username') );
 return ( 
-    <header className={`${styles.bg_login}`}>
+    <header className={`${styles.bg_login} nav_stick`}>
         <div  className={`${styles.container_login}`}>
             <div className='uk-width-1-1 uk-flex uk-flex-center uk-flex-right@m'>
                 <FormCuston
@@ -72,7 +72,7 @@ return (
                             placeholder ="E-mail"
                             value = {email} 
                             type="email"
-                            icon = "icon: mail"
+                            icon =  {<GoMail />}
                             handleOnchange = {e => setEmail(e.target.value)}
                         />
 

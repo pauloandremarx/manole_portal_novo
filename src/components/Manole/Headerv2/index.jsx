@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { getLocalStorage, removeStorage } from "../../../util/Helpers";
 import { usePathname, useRouter } from "next/navigation";
+import {useEffect, useRef} from "react";
 
 const Header = () => {
   const pathname = usePathname();
@@ -25,12 +26,10 @@ const Header = () => {
   const navigation = [
     {
       name: "Painel",
-      href: `/painel/${getLocalStorage("username")}/${getLocalStorage(
-        "userid"
-      )}`,
+      href: `/painel/`,
       className: url_painel,
     },
-    { name: "Meus cursos", href: "/meus-cursos/", className: url_meus_cursos },
+    { name: "Meus cursos", href: "/painel/meus-cursos/", className: url_meus_cursos },
     {
       name: "Cursos disponiveis",
       href: "/cursos-disponiveis/",
@@ -62,12 +61,29 @@ const Header = () => {
     logado = true;
   }
 
+
+  const stickyHeader = useRef();
+
+  // Sticky Menu Area
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+
+  });
+
+  /* Method that will fix header after a specific scrollable */
+  const isSticky = (e) => {
+    let fixedTop = 200;
+    const header = document.querySelector('.nav_stick');
+    window.pageYOffset > fixedTop && window.pageYOffset <= (document.body.offsetHeight - 1100) ? header.classList.add(`${styles.is_sticky}`) : header.classList.remove( `${styles.is_sticky}`);
+  };
+
+
   return (
     <>
-      <div className={`${styles.nav} uk-position-top`}>
+      <div className={`${styles.nav}   nav_stick`} ref={stickyHeader}>
         <div
           id={`${styles.id_nav}`}
-          data-uk-sticky={`animation: uk-animation-slide-top; sel-target: .bg_stick; cls-active: ${styles.uk_navbar_sticky} ; top: 200; end:#end_nav;`}
+
         >
           <div className={`${styles.bg_stick}`}>
             <nav
@@ -86,9 +102,7 @@ const Header = () => {
                   </li>
                   <li className="uk-visible@m">
                     <Link
-                      href={`/painel/${getLocalStorage(
-                        "username"
-                      )}/${getLocalStorage("userid")}`}
+                      href={`/painel`}
                       legacyBehavior
                     >
                       <a className={`${styles.zero_min_height}`}>
@@ -107,9 +121,7 @@ const Header = () => {
                 <ul className="uk-navbar-nav uk-flex uk-flex-middle uk-height-1-1 ">
                   <li>
                     <Link
-                      href={`/painel/${getLocalStorage(
-                        "username"
-                      )}/${getLocalStorage("userid")}`}
+                      href={`/painel`}
                       legacyBehavior
                     >
                       <a className={`${styles.zero_min_height}`}>
@@ -129,9 +141,7 @@ const Header = () => {
                   <li className="uk-visible@m">
                     <span className={`${styles.navborder} `}>
                       <Link
-                        href={`/painel/${getLocalStorage(
-                          "username"
-                        )}/${getLocalStorage("userid")} `}
+                        href={`/painel`}
                         legacyBehavior
                       >
                         <a
@@ -150,11 +160,11 @@ const Header = () => {
 
                   <li className="uk-visible@m">
                     <span className={`${styles.navborder} `}>
-                      <Link href="/meus-cursos/" legacyBehavior>
+                      <Link href="/painel/meus-cursos" legacyBehavior>
                         <a
                           title="Meus cursos"
                           className={
-                            pathname == "/meus-cursos"
+                            pathname == "/painel/meus-cursos"
                               ? `uk-button ${styles.button_active}`
                               : "uk-button uk-button-text"
                           }
@@ -167,11 +177,11 @@ const Header = () => {
 
                   <li className="uk-visible@m">
                     <span className={`${styles.navborder} `}>
-                      <Link href="/cursos-disponiveis/" legacyBehavior>
+                      <Link href="/painel/cursos-disponiveis" legacyBehavior>
                         <a
                           title="Cursos disponiveis"
                           className={
-                            pathname == "/cursos-disponiveis"
+                            pathname == "/painel/cursos-disponiveis"
                               ? `uk-button ${styles.button_active}`
                               : "uk-button uk-button-text"
                           }
@@ -223,7 +233,7 @@ const Header = () => {
                           className={`${styles.username_dropdown} `}
                           data-uk-dropdown="mode: click;pos: bottom-center"
                         >
-                          <Link href="/meus-cursos" legacyBehavior>
+                          <Link href="/painel/meus-cursos" legacyBehavior>
                             <a>
                               •<strong>"Novo aviso"</strong>
                             </a>
@@ -255,9 +265,7 @@ const Header = () => {
                           data-uk-dropdown="mode: click;pos: bottom-center"
                         >
                           <Link
-                            href={`/painel/${getLocalStorage(
-                              "username"
-                            )}/${getLocalStorage("userid")}/meu-perfil`}
+                            href={`/painel/meu-perfil`}
                             legacyBehavior
                           >
                             <a>
@@ -266,9 +274,7 @@ const Header = () => {
                             </a>
                           </Link>
                           <Link
-                            href={`/painel/${getLocalStorage(
-                              "username"
-                            )}/${getLocalStorage("userid")}/minha-senha`}
+                            href={`/painel/minha-senha`}
                             legacyBehavior
                           >
                             <a>
@@ -389,10 +395,10 @@ const Header = () => {
                   <aside
                     className={`${styles.username_dropdown} ${styles.username_dropdown_off_canvas}`}
                   >
-                    <a href="/meus-cursos/">
+                    <a href="painel/meus-cursos">
                       <img src="/manole/perfil/meu_perfil.svg" /> Meu Perfil{" "}
                     </a>
-                    <a>
+                    <a href="painel/minha-senha">
                       <img src="/manole/perfil/minha_senha.svg" /> Minha Senha{" "}
                     </a>
                     <a>

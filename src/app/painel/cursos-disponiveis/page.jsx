@@ -1,4 +1,4 @@
- 
+ 'use client'
 
  
 import Layoutv2 from '@/components/Manole/Layoutv2'
@@ -13,13 +13,14 @@ import Link from 'next/link'
 import { getLocalStorage, removeStorage } from '@/util/Helpers' 
 import { useRouter } from 'next/navigation'
  
-
-export default function CursosDisponiveis() {
- 
-    if (getLocalStorage('username') == null) {
+   if (getLocalStorage('username') == null) {
     const router = useRouter()
     router.push('/login')
     }
+
+export default function CursosDisponiveis() {
+ 
+ 
 
   return (
     <Layoutv2>

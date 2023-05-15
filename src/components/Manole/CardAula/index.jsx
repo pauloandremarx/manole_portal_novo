@@ -11,8 +11,13 @@ import FormCuston from '../Form'
 import InputCuston from '../InputCuston';
 import InputRadio from '../InputRadio' 
  
-import { getLocalStorage } from '@/util/Helpers' 
- 
+import { getLocalStorage } from '@/util/Helpers'
+
+
+import {FaUserAlt} from "react-icons/fa";
+import { GoMail } from "react-icons/go";
+import { AiFillPhone } from "react-icons/ai";
+
 let logado = true;
 
  
@@ -192,7 +197,7 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
                             type="text"
                             name="nome"
                             placeholder="Nome"
-                            icon="icon: user"
+                            icon= {<FaUserAlt />}
                             value={firstName} 
                             handleOnchange = {e => setFirstName(e.target.value)}
                             filter = "name"
@@ -203,14 +208,13 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
                             type="text"
                             name="email"
                             placeholder="E-mail"
-                            icon="icon: mail"
-
+                            icon= {<GoMail />}
                             value={email} 
                             handleOnchange = {e => setEmail(e.target.value)}
                         />
 
 <InputMasked
-                       icon = "phone"
+                       icon =  {<AiFillPhone />}
                        mask={ "(99) 9999-99999" }
                       
                        

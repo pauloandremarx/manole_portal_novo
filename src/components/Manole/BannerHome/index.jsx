@@ -3,7 +3,8 @@
 import Config from '@/util/Config'
 
 import {  useQueries } from "@tanstack/react-query";
-
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 async function getBanner() {
     const res = await fetch(Config.API_URL + `banner/controllers/getBanners.php?limit=3`, {
@@ -37,7 +38,13 @@ export default function BannerHome( props ) {
             ],
     } ); 
     
-    if (banners.isLoading) return "Caregando banners...";
+    if (banners.isLoading)
+        return  (
+            <SkeletonTheme  baseColor="#A9A9A9" highlightColor="#444">
+        <p>
+            <Skeleton count={1}  className={`homeBannerSkeleton`}  />
+        </p>
+    </SkeletonTheme>);
 
     if (banners.error)
         return "An error has occurred: " + banners.error.message;

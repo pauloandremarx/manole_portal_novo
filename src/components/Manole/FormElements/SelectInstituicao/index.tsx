@@ -28,7 +28,7 @@ const SelectInstituicao: React.FC<SelectProps> = ({ label, name, options, placeh
       <SelectContainer
         id={ name }
         value=""
-
+        required
         { ...rest }
         className={ error === true ? "error uk-select" : "uk-select" }
       >

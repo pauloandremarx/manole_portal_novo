@@ -11,24 +11,15 @@ import { SelectEstado } from "@/components/Manole/Ufs/SelectEstado";
 import { SelectCidade } from "@/components/Manole/Ufs/SelectCidade";
 import Config from "@/util/Config";
 import Select from "react-select";
+import { getPerfilNormal } from "@/services/formProfile/useFormProfile";
+import { FaEdit } from "react-icons/fa";
 
-async function getPerfilNormal(token) {
-  const res = await fetch(Config.API_URL + `auth/profile`, {
-    method: "GET",
-    headers: {
-      'Content-Type': "application/json; charset=utf-8",
-      Authorization: token,
-      'Accept': 'application/json'
-    },
-  });
-  const perfil_normal = await res.json();
-  return perfil_normal;
-}
+
 export default function PerfilNormal() {
 
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["perfil-normal"],
-    queryFn: () => getPerfilNormal(getLocalStorage("token")),
+    queryFn: () => getPerfilNormal(getLocalStorage("refleshToken")),
     refetchOnWindowFocus: false,
   });
 
@@ -190,8 +181,10 @@ export default function PerfilNormal() {
                     <a
                         className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
                         onClick={handleClickNome}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
+
+                    >
+                        <FaEdit />
+                    </a>
                     <input
                         className={`uk-input ${styles.input_perfil} `}
                         type="text"
@@ -214,8 +207,8 @@ export default function PerfilNormal() {
                     <a
                         className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
                         onClick={handleClickSobrenome}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
+
+                    >   <FaEdit />  </a>
                     <input
                         className={`uk-input ${styles.input_perfil} `}
                         type="text"
@@ -238,8 +231,8 @@ export default function PerfilNormal() {
                     <a
                         className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
                         onClick={handleClickEmail}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
+
+                    >   <FaEdit />  </a>
                     <input
                         className={`uk-input ${styles.input_perfil} `}
                         type="text"
@@ -255,8 +248,8 @@ export default function PerfilNormal() {
                     <a
                         className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
                         onClick={handleClickTelefone}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
+
+                    >   <FaEdit />  </a>
                     <InputMaskedUnico
                         label="Telefone"
                         name="telefone"
@@ -334,8 +327,8 @@ export default function PerfilNormal() {
                     <a
                         className={`uk-form-icon uk-form-icon-flip ${styles.myicon}`}
                         onClick={handleClickEndereco}
-                        data-uk-icon="icon: file-edit"
-                    ></a>
+
+                    >   <FaEdit />  </a>
                     <input
                         className={`uk-input ${styles.input_perfil} `}
                         type="text"
