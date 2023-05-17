@@ -142,7 +142,7 @@ export default function EditarFormacao(props) {
                             {openTAdd && (
                             <Modal open={openTAdd} onClose={onCloseTModal }   >
                                 <div className=" ">
-                                    <button className="uk-modal-close-default" type="button" data-uk-close></button>
+
                                     <form className={`toggle-animation-queued uk-margin-top`} onSubmit={forms.profissao.handleSubmit(  EditarFormacao )} >
                                         <h1 className={`uk-heading-line uk-text-default`}>
                                             <span>Adicionar Formação Acadêmica  </span>

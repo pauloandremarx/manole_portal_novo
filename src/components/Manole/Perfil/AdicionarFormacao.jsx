@@ -120,7 +120,7 @@ export default function AdicionarFormacao(props) {
             {openAdd && (
             <Modal open={openAdd} onClose={onCloseModal }  >
                 <div className={`${styles.modal_custom}`}>
-                    <a className="uk-modal-close-default" type="button" data-uk-close></a>
+                    <a className="uk-modal-close-default" type="button"  ></a>
                     <form className={` uk-margin-top`} onSubmit={forms.profissao.handleSubmit(  AdicionarFormacao )} >
                         <h1 className={`uk-heading-line uk-text-default`}>
                             <span>Adicionar Formação Acadêmica  </span>

@@ -18,7 +18,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Select from 'react-select';
 import AdicionarFormacao from "@/components/Manole/Perfil/AdicionarFormacao";
+import AdicionarEspecialidade from "@/components/Manole/Perfil/AdicionarEspecialidade";
 import EditarFormacao from "@/components/Manole/Perfil/EditarFormacao";
+
+import EditarEspecialidade from "@/components/Manole/Perfil/EditarEspecialidade";
 import {FaEdit} from "react-icons/fa";
 export default function PerfilAcademico() {
 
@@ -27,13 +30,11 @@ export default function PerfilAcademico() {
         return { register, formState: { errors }, handleSubmit, control  };
     }
 
-
     const forms = {
         profissao: RegisterForm(),
         perfil: RegisterForm(),
         especialidade: RegisterForm(),
     }
-
 
     const router = useRouter();
 
@@ -104,14 +105,11 @@ export default function PerfilAcademico() {
 
     const submitAtualizar = async (event) => {
         event.preventDefault();
-
         //Remover este setTimeout
         setTimeout(() => {
             const data = {
                 ...formdata,
             };
-
-
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data)
                 .then((response) => {
@@ -138,21 +136,26 @@ export default function PerfilAcademico() {
     };
 
 
-    const excluirFormcao = async (event) => {
+    const excluirEspecialidade = async (event) => {
+
+
+
       const formacaoExclude= {
-          formacaoAcademica: [
+          especialidades: [
               {
-                  id:  parseInt( event.target.closest(`a`).dataset.exclude),
+                  esp_id:  parseInt( event.target.closest(`a`).dataset.exclude),
                   delete: true
               }
           ]};
 
 
+
+        alert(JSON.stringify( formacaoExclude));
+
         setTimeout(() => {
             const data_formacao_exclude = {
                 ...formacaoExclude,
             };
-
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
                 .then((response) => {
@@ -174,7 +177,43 @@ export default function PerfilAcademico() {
             setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
 
         }, 500);
+    };
 
+
+
+    const excluirFormcao = async (event) => {
+        const formacaoExclude= {
+            formacaoAcademica: [
+                {
+                    id:  parseInt( event.target.closest(`a`).dataset.exclude),
+                    delete: true
+                }
+            ]};
+        setTimeout(() => {
+            const data_formacao_exclude = {
+                ...formacaoExclude,
+            };
+            atualizarPerfilAcademic
+                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
+                .then((response) => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Formação!",
+                        text:  response.status == 200 ? "Formação excluida com sucesso!" : response.status + ": Não foi possivel excluir, tente novamente mais tarde!",
+                        confirmButtonText: "Confirmar",
+                    })
+                })
+                .catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Opps!",
+                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
+                    });
+                });
+
+            setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
+
+        }, 500);
     };
 
 
@@ -255,9 +294,8 @@ export default function PerfilAcademico() {
 
    return (
         <>
-
             <AdicionarFormacao   />
-                {/*Start*/}
+
                 {minhaformacao.data?.formacaoAcademica.map(function(item, i){
 
                     return (
@@ -267,7 +305,7 @@ export default function PerfilAcademico() {
                                         Formação Acadêmica {i + 1}
                                     </span>
                                     <span>
-                                        <a className={styles.hover_icone} onClick={excluirFormcao} data-exclude={item.id}> <Image width={25} height={25} className={`next_img`} src="/manole/perfil/icons8-x-67.png" alt={"Icone Excluir Imagem"} /></a>
+                                          <a className={styles.hover_icone} onClick={excluirFormcao} data-exclude={item.id}> <Image width={25} height={25} className={`next_img`} src="/manole/perfil/icons8-x-67.png" alt={"Icone Excluir Imagem"} /></a>
                                           <EditarFormacao  id_formation={item.id}   />
                                     </span>
                             </h1>
@@ -325,36 +363,37 @@ export default function PerfilAcademico() {
                         </article>
                     )
                 })}
-            <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>
-                {/*END*/}
-                {meu_specialty.error ? (
-                    "error"
-                ) : (<>
-                <h1 className={`uk-heading-line uk-text-default`}>
-                    <span>Especialidades</span>
-                </h1>
 
-                <div className={`painel_select `}>
-                    <SelectTipoFormacao
-                        recover={minhaformacao.data.especialidades[0].esp_id}
-                        name="Especialidade"
-                        label="Especialidade"
-                        placeholder="Selecione uma especialidade"
-                        value={select_active_tipo_especialidades}
-                        options={meu_specialty.data}
-                        helperText={"Selecione uma especialidade"}
-                        onChange={(e) => {
-                            const idActive = e.target.value;
-                            setFormdata({
-                                ...formdata,
-                                especialidades: [{ ...formdata.especialidades[0], esp_id: parseInt(idActive)}],
-                            });
-                            set_select_active_tipo_especialidades(idActive);
-                        }}
-                    />
-                </div>
-                    </>
-            )}
+            <AdicionarEspecialidade   />
+            {minhaformacao.data?.especialidades.map(function(item, i){
+                return (
+                    <section className={`uk-margin`}>
+                        <h1 className={`uk-text-default  uk-flex uk-flex-between`} key={`Item_${item.id}_formacao_academica`}>
+                                    <span className={`uk-heading-bullet`}>
+                                       Especialidades {i + 1}
+                                    </span>
+                            <span>
+                                            <a className={styles.hover_icone} onClick={excluirEspecialidade} data-exclude={item.esp_id}> <Image width={25} height={25} className={`next_img`} src="/manole/perfil/icons8-x-67.png" alt={"Icone Excluir Imagem"} /></a>
+                                          <EditarEspecialidade  id_especiality={item.esp_id}   />
+                                    </span>
+                        </h1>
+
+
+                        <div className={`painel_select `}>
+                            <input
+                                className={`uk-input ${styles.input_perfil} `}
+                                type="text"
+                                disabled
+                                defaultValue={meu_specialty?.data.find(word => word.id ===  item.esp_id ).nome }
+                            />
+
+
+                        </div>
+                    </section>
+                )
+            })}
+
+            <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>
                 <h1 className={`uk-heading-line uk-text-default`}>
                     <span>Trabalho </span>
                 </h1>

@@ -12,18 +12,14 @@ import HeaderEventos from "@/components/Manole/HeaderEventos";
  
 import styles from "./painel.module.css";
 
-import { getLocalStorage } from '@/util/Helpers';
  
-import { useRouter } from 'next/navigation';
 
 export default function Painel() {
  
 
   return (
-    <>
-      
-      <Layoutv2>
-    
+    <>  
+      <Layoutv2> 
         <BannerBemvindo />
 
         <section className={` uk-margin-large-top ${styles.container_painel}`}>

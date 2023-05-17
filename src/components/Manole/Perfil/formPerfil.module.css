@@ -12,6 +12,13 @@
   color: #000;
 }
 
+.tamanho_largura_modal {
+  width: 100%;
+  min-width: 600px;
+  min-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .container_form .input_perfil {
   width: 100%;
