@@ -1,10 +1,11 @@
 'use client';
 
-import Config from '@/util/Config'
+import Config from '@/util/Config';
 
 import {  useQueries } from "@tanstack/react-query";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
+import Image from 'next/image';
 
 async function getBanner() {
     const res = await fetch(Config.API_URL + `banner/controllers/getBanners.php?limit=3`, {
@@ -64,8 +65,8 @@ export default function BannerHome( props ) {
                               banners.data.map( ( item ) => (
                                   <li key={ item.link } className="uk-width-1-1" >
                                       <a href={ item.href } target="_blank"  className="uk-width-1-1 uk-display-block"  >
-                                          <img className="uk-visible@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link } alt={ item.titulo } data-uk-img   />
-                                          <img className="uk-hidden@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link_mobile } alt={ item.titulo } data-uk-img  />
+                                          <Image className="uk-visible@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link } alt={ item.titulo }  width={3000} height={1500}   />
+                                          <Image className="uk-hidden@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link_mobile } alt={ item.titulo }  width={3000} height={1500}  />
                                       </a>
                                   </li>
 

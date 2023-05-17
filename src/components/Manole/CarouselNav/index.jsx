@@ -4,9 +4,10 @@ import styles from './carousel.module.css';
 import Breadcrumb from '../Breadcrumb'
 
  
-import useCategorias from '../../../services/categorias/useCategorias' 
+import useCategorias from '@/services/categorias/useCategorias' 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 
 const CarouselNav = ({nome, placeholder, action, cor1, cor2, direction, setItems, json_api, nome_buscado, categoria_buscada}) => {

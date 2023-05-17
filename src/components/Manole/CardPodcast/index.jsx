@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from'./podecastcard.module.css';
- 
+ import Image from 'next/image';
 
 
 const CardPodcast = ({titulo, lista, resumo, img, spotify }) => { 
@@ -24,7 +24,7 @@ const CardPodcast = ({titulo, lista, resumo, img, spotify }) => {
                                 <ul className={` ${styles.lista_epsodios} `} >
                                 { lista.map( (item) => <li key={item.titulo } className="uk-flex uk-flex-between uk-flex-middle"><div><p>{  item.titulo }</p></div>
                                 
-                                {item.players.map( (player) => <div key={player.id_player}>{ <a href={player.url}><img className={` ${styles.iconPodcast} `}  src={player.icon} /></a> }</div> )} </li>) }
+                                {item.players.map( (player) => <div key={player.id_player}>{ <a href={player.url}><Image className={` ${styles.iconPodcast} next_img`}  src={player.icon} alt="Item podcast" width={500} height={500} /></a> }</div> )} </li>) }
                                 </ul>
                             </div>
                         </div>

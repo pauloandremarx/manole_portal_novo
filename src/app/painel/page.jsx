@@ -12,8 +12,9 @@ import HeaderEventos from "@/components/Manole/HeaderEventos";
  
 import styles from "./painel.module.css";
 
-import { getLocalStorage } from '@/util/Helpers'
-import { useRouter } from 'next/navigation'
+import { getLocalStorage } from '@/util/Helpers';
+ 
+import { useRouter } from 'next/navigation';
 
 export default function Painel() {
   const router = useRouter();

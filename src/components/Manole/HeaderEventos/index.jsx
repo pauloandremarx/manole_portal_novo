@@ -8,6 +8,8 @@ import styles from "./headerEventos.module.css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Image from "next/image";
+
 async function getAllWebinares() {
   const res = await fetch(Config.API_URL + `webinar`, {
     method: "GET",
@@ -89,7 +91,7 @@ export default function HeaderMeusEventos(props) {
                     </div>
 
                     <div className={`${styles.img_mini_curso}`}>
-                      <img src={validate_thumb(item, index)} />
+                      <Image src={validate_thumb(item, index)} alt="Itens do minicurso" width={500} height={500}/>
                     </div>
 
                     <div className={`${styles.padding} uk-flex uk-flex-right`}>

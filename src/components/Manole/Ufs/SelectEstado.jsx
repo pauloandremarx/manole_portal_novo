@@ -26,7 +26,7 @@ async function getEstado() {
 
 export const SelectEstado = ({ onChange, recover, error }) => {
 
-  const [selectedEstado, setSelectedEstado] = useState<number | null>(null);
+  const [selectedEstado, setSelectedEstado] = useState(null);
 
 
   useEffect(() => {

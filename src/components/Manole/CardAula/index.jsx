@@ -13,6 +13,7 @@ import InputRadio from '../InputRadio'
  
 import { getLocalStorage } from '@/util/Helpers'
 
+import Image from "next/image";
 
 import {FaUserAlt} from "react-icons/fa";
 import { GoMail } from "react-icons/go";
@@ -153,7 +154,7 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
     return ( 
         <div>
             <div   className={`${styles.card_item_aula} `}>
-                <img src={url_img || ""}  />
+                <Image src={url_img || ""} alt={titulo} className="next_img" width={500} height={500} />
                 <h2>
                     {titulo}
                 </h2>

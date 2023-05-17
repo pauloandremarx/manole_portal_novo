@@ -41,17 +41,17 @@ const Footer = () => {
                         <h2>Contatos</h2>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <Image src="/manole/perfil/fi_map-pin.svg" width={180} height={180} className='img_next' />
+                                    <Image src="/manole/perfil/fi_map-pin.svg" width={180} height={180} className='img_next' alt='Icone da rua' />
                                     <span>Av. Marcos Penteado de Ulhôa Rodrigues, 1119 - Tamboré, Barueri - SP, 06460-040</span>
                              </div>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <Image src="/manole/perfil/u_phone.svg" width={180} height={180} className='img_next'/>
+                                    <Image src="/manole/perfil/u_phone.svg" width={180} height={180} className='img_next' alt='Icone do telefone'/>
                                     <span>Telefone : (11) 4196-6000</span>
                              </div>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <Image src="/manole/perfil/fi_mail.svg" width={180} height={180} className='img_next' />
+                                    <Image src="/manole/perfil/fi_mail.svg" width={180} height={180} className='img_next' alt='Icone do email' />
                                     <span>E-mail : ead@manoleeducacao.com.br</span>
                              </div>
                         </div>
@@ -59,11 +59,11 @@ const Footer = () => {
 
                     <div className='uk-flex uk-flex-top'>
                         <div className={`${styles.container_redes_footer}`} > 
-                            <Image src="/manole/perfil/youtube_bnt.svg" width={180} height={180} className='img_next'/>
+                            <Image src="/manole/perfil/youtube_bnt.svg" width={180} height={180} className='img_next' alt='Icone do youtube'/>
 
-                            <Image src="/manole/perfil/instagran_bnt.svg" width={180} height={180} className='img_next' />
+                            <Image src="/manole/perfil/instagran_bnt.svg" width={180} height={180} className='img_next' alt="icon do instagran" />
 
-                            <Image src="/manole/perfil/facebook_bnt.svg" width={180} height={180} className='img_next'/>
+                            <Image src="/manole/perfil/facebook_bnt.svg" width={180} height={180} className='img_next' alt='Icone do facebook'/>
 
                             
                         </div>

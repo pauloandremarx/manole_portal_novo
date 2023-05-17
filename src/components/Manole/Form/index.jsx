@@ -7,7 +7,7 @@ const FormCuston = ({children, titulo, tamanho='0px', submit}) => {
     return (
        
           <div className={`${styles.form_container}`} style={{ maxWidth: tamanho }}>
-              <div className='uk-flex uk-flex-center uk-position-relative'><img  className={`${styles.form_logo}`}  src="/manole/form/manole-educao.webp" /></div>
+              <div className='uk-flex uk-flex-center uk-position-relative'><Image  className={`${styles.form_logo} next_img`}  width={100} height={100} src="/manole/form/manole-educao.webp" alt='Logo manole' /></div>
               <h2>{titulo}</h2>
               <form onSubmit={submit}>
 

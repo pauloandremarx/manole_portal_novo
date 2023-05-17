@@ -178,9 +178,9 @@ export default function HeaderMeusCursos(props) {
                             <div className="uk-flex uk-flex-top">
                               <div className={styles.min_width_icon}>
                                 {props.complete ? (
-                                  <img src="/manole/perfil/completeIcon.svg" />
+                                  <Image src="/manole/perfil/completeIcon.svg" width={100} height={100} alt="Icone COmplete" />
                                 ) : (
-                                  <img src="/manole/perfil/cursoIcon.svg" />
+                                  <Image src="/manole/perfil/cursoIcon.svg" width={100} height={100} alt="Icone Curso"  />
                                 )}
                               </div>
                               <div>
@@ -223,9 +223,9 @@ export default function HeaderMeusCursos(props) {
                             <div className="uk-flex uk-flex-top">
                               <div className={styles.min_width_icon}>
                                 {props.complete ? (
-                                  <img src="/manole/perfil/completeIcon.svg" />
+                                  <Image src="/manole/perfil/completeIcon.svg" width={100} height={100} alt="Icone COmplete" />
                                 ) : (
-                                  <img src="/manole/perfil/cursoIcon.svg" />
+                                  <Image src="/manole/perfil/cursoIcon.svg" width={100} height={100} alt="Icone COmplete"  />
                                 )}
                               </div>
                               <div>

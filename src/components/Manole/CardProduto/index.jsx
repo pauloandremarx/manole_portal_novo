@@ -27,6 +27,8 @@ import {FaStreetView} from "react-icons/fa";
 import {FaCity} from "react-icons/fa";
 import {BsFillHouseDoorFill} from "react-icons/bs";
 
+import Image from "next/image";
+
 var logado = false;
 
 if (
@@ -262,7 +264,7 @@ const CardProduto = (props) => {
     <div>
       <div className={`${styles.card_item_produto} `}>
         <div className="uk-flex uk-flex-center">
-          <img src={props.url_img} width="250" height="250" />
+          <Image src={props.url_img} width="250" height="250" alt="Imagem produto" className="next_img"/>
         </div>
         <h2>{props.titulo}</h2>
 

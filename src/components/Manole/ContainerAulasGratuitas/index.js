@@ -3,7 +3,7 @@
 import CarouselNav from '@/components/Manole/CarouselNav'
 import CardAula from '@/components/Manole/CardAula' 
 import { useState } from "react"
- 
+
 
 export default function CoontainerAulasGratuitas( props ) {
     

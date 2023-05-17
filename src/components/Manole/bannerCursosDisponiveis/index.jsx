@@ -1,7 +1,8 @@
 'use client' 
 
 import styles from './bannerCursosDisponiveis.module.css';
-
+import Image
+    from 'next/image';
 export default function  bannerCursosDisponiveis ()  {
  
 
@@ -22,11 +23,11 @@ export default function  bannerCursosDisponiveis ()  {
                 <div className={`${styles.max_img_container}`}>
                     <div  className={`uk-flex  `}>   
                         <div  className={` ${styles.img_item}`}>
-                            <div><img className={`${styles.item1_b2}`} src="/manole/perfil/b2-item1.png" /> </div>
-                            <div><img className={`${styles.item2_b2}`} src="/manole/perfil/b2-item2.png" /> </div>
-                            <div><img className={`${styles.item3_b2}`} src="/manole/perfil/b2-item3.png" /> </div>
+                            <div><Image className={`${styles.item1_b2} next_img`} src="/manole/perfil/b2-item1.png" alt='Background item 1' width={3000} height={1500} /> </div>
+                            <div><Image className={`${styles.item2_b2} next_img`} src="/manole/perfil/b2-item2.png" alt='Background item 2'  width={3000} height={1500}/> </div>
+                            <div><Image className={`${styles.item3_b2} next_img`} src="/manole/perfil/b2-item3.png" alt='Background item 3' width={3000} height={1500} /> </div>
                         </div>
-                        <img className={`${styles.tamanho_image_banner_circle}`} src="/manole/perfil/b2-circle.png" /> 
+                        <Image className={`${styles.tamanho_image_banner_circle}`} src="/manole/perfil/b2-circle.png" alt='Background circulo 1' width={800} height={800} /> 
                     </div>
 
                     <p  className={`uk-hidden@m ${styles.text_down}`}>Os cursos são produzidos em <strong>parceria com sociedades de classe, renomadas instituições e professores que são referências científicas nacionais</strong> em suas diversas especialidades.</p>

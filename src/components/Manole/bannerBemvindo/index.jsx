@@ -2,6 +2,8 @@
   
 import styles from './bannerBemvindo.module.css';
 
+import Image from 'next/image';
+
 const bannerBemvindo = () => {
  
 
@@ -18,7 +20,7 @@ const bannerBemvindo = () => {
                 </div>
 
                 <div className={`${styles.max_img_container}`}>
-                    <div>   <img className={`${styles.tamanho_image_banner_perfil}`} src="/manole/perfil/imagem_perfil.png" /> </div>
+                    <div>   <Image className={`${styles.tamanho_image_banner_perfil} next_img`} src="/manole/perfil/imagem_perfil.png" alt="Imagem de perfil" width={800} height={800} /> </div>
                 </div>
             </div>
         </section>

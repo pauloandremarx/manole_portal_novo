@@ -25,7 +25,7 @@ async function getCidades(UF) {
 
 export const SelectCidade = (props) => {
 
-    const [selectedCidade, setSelectedCidade] = useState<number | null>(null);
+    const [selectedCidade, setSelectedCidade] = useState(null);
 
   const [cidades_data] =
       useQueries({
