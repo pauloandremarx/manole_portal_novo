@@ -9,6 +9,10 @@ import {getLocalStorage} from '@/util/Helpers'
 import {useRouter} from 'next/navigation'
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 
+import ImagePerfil from "@/components/Manole/Perfil/imagePerfil.jsx";
+
+import Image from "next/image";
+
 export default function MeuPerfil() {
 
     const router = useRouter();
@@ -26,7 +30,7 @@ export default function MeuPerfil() {
             header={
                 <>
                     {header}
-                    <img className={styles.chevron} src="/manole/perfil/arrow-down.svg/" alt="Chevron Down" />
+                    <Image width={20} height={20} className={ `${styles.chevron } next_img`} src="/manole/perfil/arrow-down.svg" alt="Chevron Down" />
                 </>
             }
             className={styles.item}
@@ -55,25 +59,8 @@ export default function MeuPerfil() {
 
                         <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
                             <div>
-                                <div className={`${styles.box_image} `}>
-                                    <div
-                                        className={`${styles.img_user}`}
-                                        style={{
-                                            backgroundImage: `url("/manole/perfil/user_people.svg")`,
-                                        }}
-                                    ></div>
-                                    <div className={`${styles.box_image_upload} `}>
-                                        <label for="file-input">
-                                            <img src="/manole/perfil/botao_photo.svg"/>
-                                        </label>
 
-                                        <input
-                                            id="file-input"
-                                            className={`${styles.image_upload_input} `}
-                                            type="file"
-                                        />
-                                    </div>
-                                </div>
+                                <ImagePerfil />
 
                                 <div className={`${styles.box_start} `}>
                                     <div>
@@ -269,28 +256,28 @@ export default function MeuPerfil() {
                                     >
                                         <div>
                                             <div className="uk-flex uk-flex-center">
-                                                <img src="/manole/perfil/icone_mensagem.svg"/>
+                                                <Image width={35} height={35} className={`uk-position-relative next_img`} src="/manole/perfil/icone_mensagem.svg" alt={"Icon mensagem"}/>
                                             </div>
                                             <div>Mensagens no blog</div>
                                         </div>
 
                                         <div>
                                             <div className="uk-flex uk-flex-center">
-                                                <img src="/manole/perfil/mensagem_forun.svg"/>
+                                                <Image width={35} height={35} className={`uk-position-relative next_img`} src="/manole/perfil/mensagem_forun.svg" alt={"Icon forum"}/>
                                             </div>
                                             <div>Mensagens no fórum</div>
                                         </div>
 
                                         <div>
                                             <div className="uk-flex uk-flex-center">
-                                                <img src="/manole/perfil/plano_de_ensino.svg" alt="plano de ensino"/>
+                                                <Image width={35} height={35} className={`uk-position-relative next_img`} src="/manole/perfil/plano_de_ensino.svg" alt="plano de ensino"/>
                                             </div>
                                             <div>Planos de aprendizagem</div>
                                         </div>
 
                                         <div>
                                             <div className="uk-flex uk-flex-center">
-                                                <img src="/manole/perfil/icone_mensagem.svg" alt='mensagem'/>
+                                                <Image width={35} height={35} className={`uk-position-relative next_img`} src="/manole/perfil/icone_mensagem.svg" alt='mensagem'/>
                                             </div>
                                             <div>Mensagens no blog</div>
                                         </div>

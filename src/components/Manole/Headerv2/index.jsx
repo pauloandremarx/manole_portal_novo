@@ -4,22 +4,25 @@ import styles from "./headerv2.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getLocalStorage, removeStorage } from "../../../util/Helpers";
+import { getLocalStorage, removeStorage } from "@/util/Helpers";
 import { usePathname, useRouter } from "next/navigation";
 import {useEffect, useRef} from "react";
 
+import Notification from "@/components/Manole/Notification";
+
 const Header = () => {
+
   const pathname = usePathname();
   const router = useRouter();
 
   const url_painel =
-    pathname == "/meus-curso/" ? `uk-button ${styles.button_active}` : "";
+    pathname == "/painel/meus-curso/" ? `uk-button ${styles.button_active}` : "";
 
   const url_meus_cursos =
-    pathname == "/meus-curso/" ? `uk-button ${styles.button_active}` : "";
+    pathname == "/painel/meus-curso/" ? `uk-button ${styles.button_active}` : "";
 
   const url_cursos_disponiveis =
-    pathname == "/cursos-disponiveis/"
+    pathname == "/painel/cursos-disponiveis/"
       ? `uk-button ${styles.button_active}`
       : "";
 
@@ -32,7 +35,7 @@ const Header = () => {
     { name: "Meus cursos", href: "/painel/meus-cursos/", className: url_meus_cursos },
     {
       name: "Cursos disponiveis",
-      href: "/cursos-disponiveis/",
+      href: "/painel/cursos-disponiveis/",
       className: url_cursos_disponiveis,
     },
     { name: "Portal", href: "/", className: "" },
@@ -78,9 +81,11 @@ const Header = () => {
   };
 
 
+
+
   return (
     <>
-      <div className={`${styles.nav}   nav_stick`} ref={stickyHeader}>
+      <div className={`${styles.nav}  nav_stick`} ref={stickyHeader}>
         <div
           id={`${styles.id_nav}`}
 
@@ -228,25 +233,7 @@ const Header = () => {
                             <img src="/manole/perfil/sino.svg" />
                           </a>
                         </div>
-                        <aside
-                          hidden
-                          className={`${styles.username_dropdown} `}
-                          data-uk-dropdown="mode: click;pos: bottom-center"
-                        >
-                          <Link href="/painel/meus-cursos" legacyBehavior>
-                            <a>
-                              •<strong>"Novo aviso"</strong>
-                            </a>
-                          </Link>
-                          <a>"Novo post forum"</a>
-                          <a>"Nova mensagem privada"</a>
-                          <a>"Módulo liberado"</a>
-                          <a>"Atividade liberada"</a>
-                          <a onClick={handleLogout}>
-                            <img src="/manole/perfil/preferencias.svg" />{" "}
-                            Preferencias de notificações
-                          </a>
-                        </aside>
+                        <Notification className={`${styles.username_dropdown}`} />
                         <div className="uk-visible@m">
                           <a title="ajuda">
                             <img src="/manole/perfil/ajuda.svg" />

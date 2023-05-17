@@ -39,6 +39,10 @@
 }
 
 @media (max-width: 959px) {
+  .width_title .mytitle{
+    margin-top: 2em;
+  }
+
   .curso_min_card .img_mini_curso {
     background-position: top;
     background-size: cover;

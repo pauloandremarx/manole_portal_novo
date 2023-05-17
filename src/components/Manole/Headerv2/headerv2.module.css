@@ -286,6 +286,21 @@
 }
 
 
+
+.margin_itens > div{
+  margin-right: 25px;
+}
+
+.margin_itens:first-child{
+  margin-left: 30px;
+}
+
+.margin_itens:last-child{
+  margin-right: 0px;
+}
+
+
+
 .username_dropdown::before{
   /*
     content: "";
@@ -297,18 +312,18 @@
     border-right: 20px solid transparent;
     cursor:pointer;*/
 
-    content: "";
-    position: absolute;
-    bottom: calc(100% - 9.1px); /*i.e. half the height*/
-    right: calc(50% - 10px);
-    height: 20px;
-    width: 20px;
-    background: #f7eae5;
-    transform: rotate(225deg);
-    border-bottom:inherit;
-    border-right:inherit;
-    box-shadow:none;
- 
+  content: "";
+  position: absolute;
+  bottom: calc(100% - 9.1px); /*i.e. half the height*/
+  right: calc(50% - 10px);
+  height: 20px;
+  width: 20px;
+  background: #f7eae5;
+  transform: rotate(225deg);
+  border-bottom:inherit;
+  border-right:inherit;
+  box-shadow:none;
+
 }
 .username_dropdown{
   border: 1px solid  #EF7D52;
@@ -326,7 +341,7 @@
   user-select: none;
 }
 
- 
+
 .username_dropdown img{
   height: auto;
   width: 18px;
@@ -334,21 +349,6 @@
   position: relative;
   top: 0px;
 }
-
-
-.margin_itens > div{
-  margin-right: 25px;
-}
-
-.margin_itens:first-child{
-  margin-left: 30px;
-}
-
-.margin_itens:last-child{
-  margin-right: 0px;
-}
-
- 
 .username_dropdown a{
   position: relative;
   display: flex;
@@ -357,7 +357,7 @@
   border-bottom: 1px solid #045BC8;
   color: #045BC8 !important;
   margin-bottom: 10px;
-  padding: 5px 0px; 
+  padding: 5px 0px;
 }
 
 .username_dropdown a:last-child{

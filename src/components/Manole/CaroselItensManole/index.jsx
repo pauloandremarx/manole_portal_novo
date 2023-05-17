@@ -29,7 +29,7 @@ export function Carosel1() {
                    
                         >
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_1_item_1`}>
                                             <a className="uk-panel uk-position-relative"  href='https://solucoes.manole.com.br/' target='_blank'>
                                                 <div className={`${styles.thum_mail_home_card} `} >  <img className='uk-position-relative'  src="/manole/home/solutions-1.webp" alt="Picture of the author"  data-uk-cover />  </div>
                                                 <div className="uk-position-small uk-position-bottom-center ">
@@ -39,7 +39,7 @@ export function Carosel1() {
                                         </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_1_item_2`}>
                                             <a className="uk-panel" href='https://ebooks.manole.com.br/' target='_blank'>
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/solutions-3.webp" alt="Picture of the author"  data-uk-cover /> </div>
                                             
@@ -81,7 +81,7 @@ export function Carosel2() {
                    
                         >
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_2_item_1`}>
                                             <a className="uk-panel uk-position-relative"  href='https://solucoes.manole.com.br/' target='_blank'>
                                                 <div className={`${styles.thum_mail_home_card} `} >  <img className='uk-position-relative'  src="/manole/home/education-1.webp" alt="Picture of the author"  data-uk-cover />  </div>
                                                 <div className="uk-position-small uk-position-bottom-center ">
@@ -91,7 +91,7 @@ export function Carosel2() {
                                         </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_2_item_2`}>
                                             <a className="uk-panel" href='/podcast' target='_blank'>
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/education-2.webp" alt="Picture of the author"  data-uk-cover /> </div>
                                             
@@ -104,7 +104,7 @@ export function Carosel2() {
 
 
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_2_item_3`}>
                                     <Link href='/minicursos'  legacyBehavior>
                                             <a className="uk-panel">
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/education-3.webp" alt="Picture of the author"  data-uk-cover /> </div>
@@ -119,7 +119,7 @@ export function Carosel2() {
                     
 
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_2_item_4`}>
                                         <Link href='/aulas-gratuitas'  legacyBehavior>
                                             <a className="uk-panel">
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/education-4.webp" alt="Picture of the author"  data-uk-cover /> </div>
@@ -161,7 +161,7 @@ export function Carosel3() {
                    
                         >
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_3_item_1`}>
                                             <a className="uk-panel uk-position-relative"  href='https://www.manole.com.br/profissionais-e-universitarios/?order=OrderByTopSaleDESC' target='_blank'>
                                                 <div className={`${styles.thum_mail_home_card} `} >  <img className='uk-position-relative'  src="/manole/home/ieditora-1.webp" alt="Picture of the author"  data-uk-cover />  </div>
                                                 <div className="uk-position-small uk-position-bottom-center ">
@@ -171,7 +171,7 @@ export function Carosel3() {
                                         </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_3_item_2`}>
                                             <a className="uk-panel" href='https://www.manole.com.br/profissionais-e-universitarios/exatas-sociais-e-aplicadas?order=OrderByTopSaleDESC' target='_blank'>
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/ieditora-2.webp" alt="Picture of the author"  data-uk-cover /> </div>
                                             
@@ -184,7 +184,7 @@ export function Carosel3() {
 
 
                             <SwiperSlide>
-                            <div className={`${styles.h1_card} `}>
+                            <div className={`${styles.h1_card} `} key={`carousel_3_item_3`}>
                                             <a className="uk-panel" href='https://www.manole.com.br/livros/interesse-geral?order=OrderByReleaseDateDESC' target='_blank'>
                                             <div className={`${styles.thum_mail_home_card} `}  ><img className='uk-position-relative'  src="/manole/home/ieditora-3.webp" alt="Picture of the author"  data-uk-cover /> </div>
                                             

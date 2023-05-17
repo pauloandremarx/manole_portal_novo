@@ -21,7 +21,7 @@ const Footer = () => {
             <div className='container_padrao'>
                 <div data-uk-grid className='uk-grid uk-child-width-1-4@m uk-flex uk-flex-top'>
                     <div className='uk-position-relative uk-flex uk-flex-top'>
-                        <Image className='uk-position-relative uk-margin-large-top' src="/manole/footer/manole_logo.webp" width={200} height={200}  />
+                        <Image className='uk-position-relative uk-margin-large-top' src="/manole/footer/manole_logo.webp" width={200} height={200} alt={`logo do rodapé da Manole`} />
                     </div>
 
                     <div className='uk-flex uk-flex-top'>
@@ -55,27 +55,27 @@ const Footer = () => {
                             <div className='uk-grid uk-child-width-1-3 uk-grid-small grid-column-small uk-margin-top' data-uk-grid>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`} src="/manole/footer/icon-whats.svg" fill    />
+                                    <Image className={`uk-position-relative  ${styles.icons}`} src="/manole/footer/icon-whats.svg" fill   alt={`Icone do whatsapp da Manole`} />
                                 </div>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-telegran.svg" fill  />
+                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-telegran.svg" fill alt={`Icone do telegran da Manole`} />
                                 </div>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-instagran.svg" fill  />
+                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-instagran.svg" fill alt={`Icone do instagran da Manole`} />
                                 </div>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-youtube.svg" fill  />
+                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-youtube.svg" fill alt={`Icone do youtube da Manole`} />
                                 </div>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-facebook.svg" fill  />
+                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-facebook.svg" fill alt={`Icone do facebook da Manole`} />
                                 </div>
 
                                 <div>
-                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-linkdin.svg" fill  />
+                                    <Image className={`uk-position-relative  ${styles.icons}`}  src="/manole/footer/icon-linkdin.svg" fill alt={`Icone do Linkdin da Manole`} />
                                 </div>
                             </div>
                             

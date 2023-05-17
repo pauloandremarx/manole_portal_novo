@@ -80,7 +80,7 @@ const AulasSinglePost = ({ params: { id } }) => {
 
         { SingleAulas ?   
         
-        <div className="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-background-cover" uk-img="loading: eager">
+        <div className="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-background-cover" >
                 <div  className={`${styles.MasterVideo} `} dangerouslySetInnerHTML={createVideo()} />
             </div>   : <Skeleton height={450} /> 
             

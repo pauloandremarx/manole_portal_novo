@@ -58,35 +58,6 @@
   overflow-x: hidden !important;
 }
 
-.box_image {
-  max-width: 125px;
-  padding-bottom: 10px;
-  position: relative;
-  height: auto;
-  overflow: hidden;
-  margin-bottom: 2em;
-  margin-top: 2rem;
-}
-
-.img_user {
-  height: 6em;
-  width: 6em;
-  background-position: center;
-  background-size: cover;
-  border-radius: 100%;
-  margin-right: 10px;
-  border: 0.19em solid #045bc8;
-}
-
-.box_image_upload {
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
-}
-
-.image_upload_input {
-  display: none;
-}
 
 .box_start {
   max-width: 250px;

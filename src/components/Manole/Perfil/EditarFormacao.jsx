@@ -6,10 +6,10 @@ import 'react-responsive-modal/styles.css';
 import { useForm, Controller } from "react-hook-form";
 import Select from 'react-select';
 import styles from "@/components/Manole/Perfil/formPerfil.module.css";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Fragment} from "react";
 import { useQuery, useQueries, usersQuery } from "@tanstack/react-query";
 import { getFormacao, getInstituicoes, getMeuCursos, getPerfilAcademico } from "@/services/formProfile/useFormProfile";
-
+import Image from "next/image";
 export default function EditarFormacao(props) {
 
     const [minhaformacao, instituicoes, academicEducation, meus_cursos] =
@@ -36,13 +36,13 @@ export default function EditarFormacao(props) {
                 },
             ],
         });
-    const registerForm = () => {
+    const RegisterForm = () => {
         const { register, formState: { errors }, handleSubmit, control } = useForm();
         return { register, formState: { errors }, handleSubmit, control  };
     }
 
     const forms = {
-        profissao: registerForm(),
+        profissao: RegisterForm(),
     }
 
     const [formdataFormacao, setformdataFormacao] = useState({
@@ -81,19 +81,13 @@ export default function EditarFormacao(props) {
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao)
                 .then((response) => {
-                    response == 200
-                        ?
+
                         Swal.fire({
                             icon: "success",
                             title: "Formação!",
-                            text: "Formação adicionada com sucesso!",
+                            text:  response.status == 200 ? "Edição feita com sucesso!" : response.status + ": Não foi possivel editar, tente novamente mais tarde!",
                             confirmButtonText: "Confirmar",
-                        }) :
-                        Swal.fire({
-                            icon: "error",
-                            title: "Opps!",
-                            text: "Não foi possivel adicionada a formação, tente novamente mais tarde!",
-                        });
+                        })
                 })
                 .catch((error) => {
                     Swal.fire({
@@ -139,12 +133,12 @@ export default function EditarFormacao(props) {
 
     return (
             <>
-                <a className={`${styles.hover_icone} `}  onClick={ onOpenTModal }   > <img width={25} src="/manole/perfil/icons8-edit-67.png" /> </a>
+                <a className={`${styles.hover_icone} `}  onClick={ onOpenTModal }   > <Image width={25} height={25} src="/manole/perfil/icons8-edit-67.png" alt={"Icone Editar Imagem"} /> </a>
 
                 {minhaformacao.data?.formacaoAcademica.map(function(item, i){
                     if(item.id == props.id_formation){
                     return (
-                        <>
+                        <Fragment key={`editar_formacao_${item.id}`}>
                             {openTAdd && (
                             <Modal open={openTAdd} onClose={onCloseTModal }   >
                                 <div className=" ">
@@ -280,7 +274,7 @@ export default function EditarFormacao(props) {
                                 </div>
                             </Modal>
                             )}
-                        </>
+                        </Fragment>
                     );
                 }})}
             </>

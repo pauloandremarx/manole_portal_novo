@@ -33,16 +33,18 @@ export default function Painel() {
           <HeaderMeusCursos
             title={`Cursos acessados recentemente`}
             type={`full`}
+            page={"painel"}
           />
 
           <HeaderMinicursos
             title={`Minicursos:`}
             subtitle={`Aprenda de forma rápida e eficiente`}
             type={`mini`}
+            page={"painel"}
           />
 
 
-          <HeaderEventos title={`Próximos eventos`} />
+          <HeaderEventos title={`Próximos eventos`} type={`mini`} page={"painel"} />
         
         </section>
        

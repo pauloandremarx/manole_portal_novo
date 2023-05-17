@@ -46,6 +46,7 @@ export default function HeaderMeusEventos(props) {
     }
   }
 
+  const hashCode = s => s.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
   return (
     <>
       <div
@@ -58,11 +59,11 @@ export default function HeaderMeusEventos(props) {
         </div>
       </div>
 
-      <div className={`Myeventos ${styles.Myeventos} `}>
+      <div className={`Mycursos ${styles.Myeventos} `}>
         {error ? (
           <p>Oh no, there was an error:</p>
         ) : isLoading || isFetching ? (
-          <div class="loader-manole"></div> 
+          <div className="loader-manole"></div>
         ) : data ? (
           <Swiper
             modules={[Pagination, Scrollbar, A11y]}
@@ -80,9 +81,8 @@ export default function HeaderMeusEventos(props) {
             }}
           >
             {data.map((item, index) => (
-              
-                <SwiperSlide>
-                  <div className={`${styles.curso_min_card}`}>
+                <SwiperSlide key={`eventos_${item.webinar_id}_${props.page}`}>
+                  <div className={`${styles.curso_min_card}`}  key={hashCode(item.webinar_id.toString())}>
                     <div className={`${styles.padding}`}>
                       <h2>{item.webinar_theme}</h2>
                       <p> {item.webinar_location}</p>
@@ -102,7 +102,6 @@ export default function HeaderMeusEventos(props) {
                     </div>
                   </div>
                 </SwiperSlide>
-              
             ))}
           </Swiper>
         ) : (

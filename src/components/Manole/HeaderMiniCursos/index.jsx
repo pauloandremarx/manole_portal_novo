@@ -77,12 +77,12 @@ export default function HeaderMeusCursos( props ) {
     let data_logs = {
       usu_id: logado,
       tipo: "minicurso",
-      conteudo: e.target.attributes.getNamedItem("data-Id").value,
+      conteudo: e.target.attributes.getNamedItem("data-id").value,
     };
 
     let data_logado = {
       curso_id_moodle: e.target.attributes.getNamedItem("data-moddleid").value,
-      curso_id: e.target.attributes.getNamedItem("data-Id").value,
+      curso_id: e.target.attributes.getNamedItem("data-id").value,
       usu_id: getLocalStorage("userid"),
     };
 
@@ -110,6 +110,8 @@ export default function HeaderMeusCursos( props ) {
       });
   };
 
+  const hashCode = s => s.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+
   return (
     <>
       <div
@@ -126,13 +128,13 @@ export default function HeaderMeusCursos( props ) {
         {error ? (
           <p>Oh no, there was an error:</p>
         ) : isLoading || isFetching ? (
-          <div class="loader-manole"></div> 
+          <div className="loader-manole"></div>
         ) : data ? (
           <>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               navigation={{ clickable: true }}
-              pagination={{ clickable: true }}
+              pagination={{ clickable: true, dynamicBullets: true, }}
               spaceBetween={30}
               breakpoints={{
                 // when window width is >= 640px
@@ -147,9 +149,9 @@ export default function HeaderMeusCursos( props ) {
             >
               <>
                 {data.map((item, index) => (
-                  <>
-                    <SwiperSlide>
-                      <div className={`${styles.curso_min_card}`} key={index}>
+
+                    <SwiperSlide key={`minicursos_${index}_${props.page}`}>
+                      <div className={`${styles.curso_min_card}`}  key={ hashCode(index.toString()) + props.page}  >
                         <div className={`${styles.padding}`}>
                           <h2>
                             {item.curso_nome_completo?.substring(0, 50) ||
@@ -179,7 +181,7 @@ export default function HeaderMeusCursos( props ) {
                           className={`${styles.padding} uk-flex uk-flex-right`}
                         >
                           <a
-                            data-Id={item.curso_id}
+                            data-id={item.curso_id}
                             data-moddleid={item.curso_id_moodle}
                             onClick={salvar_id}
                           >
@@ -188,7 +190,7 @@ export default function HeaderMeusCursos( props ) {
                         </div>
                       </div>
                     </SwiperSlide>
-                  </>
+
                 ))}
               </>
             </Swiper>

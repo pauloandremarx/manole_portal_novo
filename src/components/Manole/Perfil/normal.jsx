@@ -169,7 +169,7 @@ export default function PerfilNormal() {
 
 
     {error ? ('erro de carregar') : isLoading || isFetching ? (
-      <div class="loader-manole"></div>
+      <div className="loader-manole"></div>
         ) :
 
         data ? (

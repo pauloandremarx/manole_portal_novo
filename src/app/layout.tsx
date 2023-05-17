@@ -5,7 +5,7 @@ import "uikit/dist/css/uikit.min.css";
 import './globals.css'
 import NextTopLoader from 'nextjs-toploader';
 import Script from 'next/script';
-  
+ 
  
 import Providers from "@/util/provider";
 
@@ -27,16 +27,17 @@ export  default function RootLayout({
      
       <body>
 
-            <NextTopLoader color="#E65B20"
-          initialPosition={0.08}
-          crawlSpeed={150}
-          height={4}
-          crawl={true}
-          showSpinner={true}
-          easing="ease"
-          speed={10} />
-          <Providers>    {children}   </Providers>
-   
+ 
+              <NextTopLoader color="#E65B20"
+            initialPosition={0.08}
+            crawlSpeed={150}
+            height={4}
+            crawl={true}
+            showSpinner={true}
+            easing="ease"
+            speed={10} />
+            <Providers>    {children}   </Providers>
+ 
         </body>
           <Script
               src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.16.17/js/uikit.min.js"

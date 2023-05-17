@@ -1,5 +1,5 @@
 'use client';
- 
+
 import Config from '@/util/Config'
 
 import {  useQueries } from "@tanstack/react-query";
@@ -23,7 +23,7 @@ async function getBanner() {
     return banners;
 }
 
-  
+
 
 export default function BannerHome( props ) {
 
@@ -34,10 +34,10 @@ export default function BannerHome( props ) {
                     queryKey: ["data-banners"],
                     queryFn: () =>  getBanner(),
                 },
-  
+
             ],
-    } ); 
-    
+    } );
+
     if (banners.isLoading)
         return  (
             <SkeletonTheme  baseColor="#A9A9A9" highlightColor="#444">
@@ -47,35 +47,32 @@ export default function BannerHome( props ) {
     </SkeletonTheme>);
 
     if (banners.error)
-        return "An error has occurred: " + banners.error.message;
+        return <div>"An error has occurred: " + banners.error.message;</div>
 
-  
+
   return <>
-      <header>
+      <header  >
 
           {banners.error ? (
                     "error"
                 ) : (
-                  <div className="uk-position-relative uk-slideshow" data-uk-slideshow="ratio: 8:3; min-height: 400;">
+                  <div className="uk-position-relative" data-uk-slider >
 
-                  <div className="uk-position-relative uk-visible-toggle uk-light" >
-                 
-                      <ul className="uk-slideshow-items">
+                  <div className="uk-position-relative  uk-width-1-1" >
+                      <ul className="uk-slider-items uk-width-1-1"  >
                           {
-
                               banners.data.map( ( item ) => (
-                                  <li key={ item.link }>
-                                      <a href={ item.href } target="_blank">
-                            
-                                          <img className="uk-visible@m" src={ item.link } alt={ item.titulo } data-uk-cover />
-                                          <img className="uk-hidden@m" src={ item.link_mobile } alt={ item.titulo } data-uk-cover />
+                                  <li key={ item.link } className="uk-width-1-1" >
+                                      <a href={ item.href } target="_blank"  className="uk-width-1-1 uk-display-block"  >
+                                          <img className="uk-visible@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link } alt={ item.titulo } data-uk-img   />
+                                          <img className="uk-hidden@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link_mobile } alt={ item.titulo } data-uk-img  />
                                       </a>
                                   </li>
 
                               ))
-                    
-                          } 
-             
+
+                          }
+
                       </ul>
 
                       <a className="uk-position-center-left uk-position-small uk-hidden-hover" href="#"
@@ -83,15 +80,14 @@ export default function BannerHome( props ) {
                       <a className="uk-position-center-right uk-position-small uk-hidden-hover" href="#"
                           data-uk-slideshow-item="next"></a>
                       <div className="uk-position-bottom">
-                          <ul className="uk-slideshow-nav  uk-dotnav uk-flex-center uk-margin"></ul>
+                          <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
                       </div>
                   </div>
-              </div> 
+              </div>
         )}
-            
+
 
 </header>
  </>
 }
- 
- 
+

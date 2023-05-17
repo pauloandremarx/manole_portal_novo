@@ -15,7 +15,7 @@ const Footer = () => {
                 <div data-uk-grid className='uk-grid uk-child-width-1-4@m uk-flex uk-flex-top'>
                     <div className='uk-position-relative uk-flex uk-flex-top'>
                         <div>
-                            <Image  className={`${styles.margin_top_small} uk-position-relative`} src="/manole/footer/manole_logo.webp" width={180} height={180}  />
+                            <Image width={180} height={180}  className={`${styles.margin_top_small} uk-position-relative next_img`} src="/manole/footer/manole_logo.webp"  alt="Manole logo footer" />
                             <p>Prover conteúdo essencial à formação do estudante, do profissional e do público em geral por meio de experiências únicas e excelentes. Manter um relacionamento sustentável com toda a cadeia produtiva e a comunidade.</p>
                             <h4>Copyright © 2022 - Manole Educação</h4>
                         </div>
@@ -41,17 +41,17 @@ const Footer = () => {
                         <h2>Contatos</h2>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <img src="/manole/perfil/fi_map-pin.svg" />
+                                    <Image src="/manole/perfil/fi_map-pin.svg" width={180} height={180} className='img_next' />
                                     <span>Av. Marcos Penteado de Ulhôa Rodrigues, 1119 - Tamboré, Barueri - SP, 06460-040</span>
                              </div>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <img src="/manole/perfil/u_phone.svg" />
+                                    <Image src="/manole/perfil/u_phone.svg" width={180} height={180} className='img_next'/>
                                     <span>Telefone : (11) 4196-6000</span>
                              </div>
 
                              <div className='uk-flex uk-flex-top'>
-                                    <img src="/manole/perfil/fi_mail.svg" />
+                                    <Image src="/manole/perfil/fi_mail.svg" width={180} height={180} className='img_next' />
                                     <span>E-mail : ead@manoleeducacao.com.br</span>
                              </div>
                         </div>
@@ -59,11 +59,11 @@ const Footer = () => {
 
                     <div className='uk-flex uk-flex-top'>
                         <div className={`${styles.container_redes_footer}`} > 
-                            <img src="/manole/perfil/youtube_bnt.svg" />
+                            <Image src="/manole/perfil/youtube_bnt.svg" width={180} height={180} className='img_next'/>
 
-                            <img src="/manole/perfil/instagran_bnt.svg" />
+                            <Image src="/manole/perfil/instagran_bnt.svg" width={180} height={180} className='img_next' />
 
-                            <img src="/manole/perfil/facebook_bnt.svg" />
+                            <Image src="/manole/perfil/facebook_bnt.svg" width={180} height={180} className='img_next'/>
 
                             
                         </div>

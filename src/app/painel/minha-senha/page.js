@@ -4,32 +4,21 @@ import Layoutv2 from "@/components/Manole/Layoutv2";
 import React, { useEffect, useState } from "react";
  
 import { useRouter } from 'next/navigation'
-import { getLocalStorage, removeStorage } from '@/util/Helpers'
+import { getLocalStorage } from '@/util/Helpers'
 
+import Image from "next/image";
 import styles from "./minha-senha.module.css";
 import Link from "next/link";
-import {
-  Input,
-  InputMasked,
-  Select,
-  InputHidden,
-} from "@/components/Manole/FormElements";
 
 
 export default function MeuPerfil() {
-
+  const router = useRouter();
 
    if (getLocalStorage('username') == null) {
-    const router = useRouter()
     router.push('/login')
    }
-  
-  
-  const [UFs, setUFs] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [selectUF, setSelectUF] = useState("");
-  const [selectCity, setSelectCity] = useState("");
-  const [statusForm, setStatusForm] = useState("nome");
+
+ 
 
   const [formdata, setFormdata] = useState({
     curso_id: "",
@@ -44,17 +33,8 @@ export default function MeuPerfil() {
     cep: "",
     nascimento: "",
   });
-
-  useEffect(() => {
-    const value = getUFsLocalJson();
-    setUFs(value);
-  }, []);
-
-  useEffect(() => {
-    if (selectUF !== "") {
-      fetchCitiesFromUF(Number(selectUF)).then((value) => setCities(value));
-    }
-  }, [selectUF]);
+ 
+ 
 
   const [disabledName, setDisabledName] = useState(true);
   const handleClickNome = (e) => {
@@ -83,7 +63,7 @@ export default function MeuPerfil() {
               </span>{" "}
               {">"} <span>Senha</span>
             </p>
-            <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><img width={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
+            <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><Image  width={40} height={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
             <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
               <div > 
                 <h1 className={`${styles.informacoes_perfil} `}>

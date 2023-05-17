@@ -1,0 +1,49 @@
+
+.box_image {
+  max-width: 110px;
+  padding-bottom: 10px;
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 2em;
+  margin-top: 2rem;
+}
+
+.img_user {
+  height: 6em;
+  width: 6em;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  margin-right: 10px;
+  border: 0.19em solid #045bc8;
+}
+
+.box_image_upload {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+
+}
+
+.image_upload_input {
+  display: none;
+}
+
+.input_img{
+    cursor: pointer;
+}
+
+.btn_confirmar{
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+  background: #ef7d52;
+  color: #fff;
+  box-sizinh: border box;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ef7d52;
+  transition: all ease-in-out 0.2s;
+}

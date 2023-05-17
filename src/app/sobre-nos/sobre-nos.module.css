@@ -20,6 +20,11 @@
 .container_historia{
     max-width: 1100px;
     padding: 0px 50px;
+    z-index: 2;
+}
+
+.z_index_10{
+    z-index: 2 !important;
 }
 
 @media (min-width:960px){

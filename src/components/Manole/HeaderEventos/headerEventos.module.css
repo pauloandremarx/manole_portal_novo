@@ -6,9 +6,9 @@
 }
 
  .Myeventos{
-  overflow: visible !important; 
+  overflow: visible !important;
   max-width: none;
- 
+
  }
 
 .width_title .mytitle span,.width_title{
@@ -93,7 +93,15 @@
         line-height: 19px;
         padding: 10px 15px;
         /* TEXT COLORS/White - 100 */
-
         color: #FFFFFF;
-
       }
+
+
+@media (max-width: 959px) {
+    .curso_min_card .img_mini_curso{
+        height: auto;
+    }
+    .width_title .mytitle {
+        margin-top: 2em;
+    }
+}

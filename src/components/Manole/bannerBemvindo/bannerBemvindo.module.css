@@ -65,6 +65,14 @@
             min-width: 100% !important;
     }
 
+    .tamanho_image_banner_perfil{
+        display: block;
+        width: 100%;
+        max-width: 29em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     
     .Bgbanner{ 
         margin-bottom: 110px;

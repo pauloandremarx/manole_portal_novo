@@ -90,7 +90,7 @@ export default function MiniCursosSinglePost( { params: { id } }) {
     <div  className={`container_padrao ${styles.container_thumb}`}>
 
 
-    {Singleminicursos?.curso_thumb ? <div className="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-background-cover " data-src={Singleminicursos?.curso_thumb || '' } uk-img="loading: eager"> </div>  : <Skeleton height={450} /> }
+    {Singleminicursos?.curso_thumb ? <div className="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-background-cover " data-src={Singleminicursos?.curso_thumb || '' }  > </div>  : <Skeleton height={450} /> }
 
 
 

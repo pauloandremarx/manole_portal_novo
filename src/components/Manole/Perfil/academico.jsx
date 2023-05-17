@@ -2,36 +2,36 @@
 
 import styles from "./formPerfil.module.css";
 import React, { useEffect, useState, useRef } from "react";
-import { useEffectX } from "use-effect-x";
+ 
 import { getLocalStorage } from "@/util/Helpers";
 import { SelectInstituicao, SelectTipoFormacao,
 } from "@/components/Manole/FormElements";
 import {atualizarPerfilAcademic, atualizarPerfil} from "@/services/atualizarPerfil/useAtualizarPerfil";
 import Swal from "sweetalert2";
 import { useQuery, useQueries, usersQuery } from "@tanstack/react-query";
-
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { getPerfilAcademico, getInstituicoes, getFormacao, getMeuCursos, getMeuSpecialty } from "@/services/formProfile/useFormProfile";
 import { yupResolver } from '@hookform/resolvers/yup';
+
 import * as yup from "yup";
 import Select from 'react-select';
-
 import AdicionarFormacao from "@/components/Manole/Perfil/AdicionarFormacao";
 import EditarFormacao from "@/components/Manole/Perfil/EditarFormacao";
 import {FaEdit} from "react-icons/fa";
 export default function PerfilAcademico() {
 
-    const registerForm = () => {
+    const RegisterForm = () => {
         const { register, formState: { errors }, handleSubmit, control } = useForm();
         return { register, formState: { errors }, handleSubmit, control  };
     }
 
 
     const forms = {
-        profissao: registerForm(),
-        perfil: registerForm(),
-        especialidade: registerForm(),
+        profissao: RegisterForm(),
+        perfil: RegisterForm(),
+        especialidade: RegisterForm(),
     }
 
 
@@ -111,7 +111,6 @@ export default function PerfilAcademico() {
                 ...formdata,
             };
 
-            alert(JSON.stringify(formdata));
 
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data)
@@ -119,7 +118,7 @@ export default function PerfilAcademico() {
                     Swal.fire({
                         icon: "success",
                         title: "Cadastro",
-                        text:  response == 200 ? "Cadastro atualizado com sucesso!" : "Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
+                        text:  response.status == 200 ? "Cadastro atualizado com sucesso!" : response.status + ": Não foi possivel atualizar o cadastro, tente novamente mais tarde!",
                         confirmButtonText: "Confirmar",
                     });
                 })
@@ -157,20 +156,12 @@ export default function PerfilAcademico() {
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
                 .then((response) => {
-
-                    response == 200
-                        ?
                     Swal.fire({
                         icon: "success",
                         title: "Formação!",
-                        text:  "Formação excluida com sucesso!",
+                        text:  response.status == 200 ? "Formação excluida com sucesso!" : response.status + ": Não foi possivel excluir, tente novamente mais tarde!",
                         confirmButtonText: "Confirmar",
-                    }) :
-                        Swal.fire({
-                            icon: "error",
-                            title: "Opps!",
-                            text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
-                        });
+                    })
                 })
                 .catch(() => {
                     Swal.fire({
@@ -187,53 +178,6 @@ export default function PerfilAcademico() {
     };
 
 
-
-    const EditarFormcao = async (event) => {
-
-        const formacaoExclude= {
-            formacaoAcademica: [
-                {
-                    id:  parseInt(event.target.dataset.exclude),
-                    delete: true
-                }
-            ]};
-
-        setTimeout(() => {
-            const data_formacao = {
-                ...formdataFormacao,
-            };
-
-            atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), formacaoExclude)
-                .then((response) => {
-
-                    response == 200
-                        ?
-                        Swal.fire({
-                            icon: "success",
-                            title: "Formação!",
-                            text:  "Formação excluida com sucesso!",
-                            confirmButtonText: "Confirmar",
-                        }) :
-                        Swal.fire({
-                            icon: "error",
-                            title: "Opps!",
-                            text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
-                        });
-                })
-                .catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Opps!",
-                        text: "Não foi possivel cadastrar a formação, tente novamente mais tarde!",
-                    });
-                });
-
-            setTimeout(() => {if (window && window.location) window.location.reload(); }, 1000);
-
-        }, 500);
-
-    };
 
     useEffect(() => {
         if(!minhaformacao.error && !minhaformacao.isLoading && !minhaformacao.isFetching && minhaformacao.data) {
@@ -317,13 +261,13 @@ export default function PerfilAcademico() {
                 {minhaformacao.data?.formacaoAcademica.map(function(item, i){
 
                     return (
-                        <>
-                            <h1 className={`uk-text-default  uk-flex uk-flex-between`}>
+                        <article key={`${item.id}_formacao_academica`}>
+                            <h1 className={`uk-text-default  uk-flex uk-flex-between`} key={`Item_${item.id}_formacao_academica`}>
                                     <span className={`uk-heading-bullet`}>
                                         Formação Acadêmica {i + 1}
                                     </span>
                                     <span>
-                                        <a className={styles.hover_icone} onClick={excluirFormcao} data-exclude={item.id}> <img width={25} src="/manole/perfil/icons8-x-67.png" /></a>
+                                        <a className={styles.hover_icone} onClick={excluirFormcao} data-exclude={item.id}> <Image width={25} height={25} className={`next_img`} src="/manole/perfil/icons8-x-67.png" alt={"Icone Excluir Imagem"} /></a>
                                           <EditarFormacao  id_formation={item.id}   />
                                     </span>
                             </h1>
@@ -378,7 +322,7 @@ export default function PerfilAcademico() {
                                 </div>
                             </div>
                             <hr />
-                        </>
+                        </article>
                     )
                 })}
             <form className={`${styles.container_form}`} onSubmit={submitAtualizar}>

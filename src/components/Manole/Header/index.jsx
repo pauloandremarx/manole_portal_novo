@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,6 +24,7 @@ const Header = () => {
         removeStorage("username");
         removeStorage("email");
         router.push("/login");
+        setTimeout(() => {if (window && window.location) window.location.reload(); }, 500);
     }
 
     const [logado, setLogado] = useState(false);
@@ -73,9 +74,11 @@ const Header = () => {
                                         <li>
                                             <Link href="/" legacyBehavior>
                                                 <a className="zero-min-height">
-                                                    <img
+                                                    <Image
+                                                        width={50}
+                                                        height={50}
                                                         src="/manole/header/logo.webp"
-                                                        className={`${styles.logo_navheader}`}
+                                                        className={`${styles.logo_navheader} next_img`}
                                                         alt="Logo Manole"
                                                     />
                                                 </a>
@@ -132,10 +135,11 @@ const Header = () => {
                                                     <a target="_blank" rel="noopener noreferrer">
                                                         <div>
                                                             <div className={`${styles.width_container_cart}`}>
-                                                                <img
+                                                                <Image
                                                                     src="/manole/header/carrinho-de-compra-branco.svg"
-                                                                    fill
-                                                                    className={`uk-position-relative  ${styles.filter_orange}`}
+                                                                    width={50}
+                                                                    height={50}
+                                                                    className={`uk-position-relative  ${styles.filter_white}`}
                                                                     sizes="4px"
                                                                     alt="Icone carrinho de compra"
                                                                 />
@@ -193,9 +197,9 @@ const Header = () => {
                                                                 >
                                                                     <Image
                                                                         src="/manole/header/livro-laranja.svg"
-                                                                        fill
-                                                                        className={`uk-position-relative  ${styles.filter_orange}`}
-                                                                        sizes="4px"
+                                                                         width={10}
+                                                                        height={10}
+                                                                        className={`uk-position-relative  ${styles.filter_orange} next_img`}
                                                                         alt="Icone livro laranja"
                                                                     />
                                                                 </div>
@@ -235,9 +239,10 @@ const Header = () => {
                             <div>
                                 <Image
                                     src="/manole/header/logo.webp"
-                                    fill
-                                    className="uk-position-relative"
-                                    sizes="50px"
+                                    width={50}
+                                    height={50}
+                                    className="uk-position-relative next_img"
+                                    alt={`Logo da manole`}
                                 />
                             </div>
                             <div className="uk-flex uk-flex-top">

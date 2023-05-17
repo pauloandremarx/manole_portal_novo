@@ -15,6 +15,9 @@ export async function getPerfilNormal(token) {
     return perfil_normal;
 }
 
+
+
+
 /*Perfil Academico*/
 
 export async function getPerfilAcademico(token) {

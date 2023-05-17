@@ -9,15 +9,15 @@ import HeaderMeusCursos from '@/components/Manole/HeaderMeusCursos'
 import useMeusCursos from '@/services/meusCursos/useMeusCursos' 
 
 import styles from './m_cursos.module.css';
-import Link from 'next/link'
-import { getLocalStorage, removeStorage } from '@/util/Helpers' 
+
+import { getLocalStorage } from '@/util/Helpers'
 import { useRouter } from 'next/navigation'
  
 
 export default function MeusCursos() {
+    const router = useRouter();
 
     if (getLocalStorage('username') == null) {
-    const router = useRouter()
     router.push('/login')
     }
   
@@ -43,11 +43,11 @@ export default function MeusCursos() {
 
   let return_filter = "";
  
-  const andamento =  <HeaderMeusCursos title={`Cursos em andamento `} subtitle={`Continue de onde parou e avance no seu aprendizado!`} break="true" type={`full`} data={meuscursos} /> 
+  const andamento =  <HeaderMeusCursos title={`Cursos em andamento `} subtitle={`Continue de onde parou e avance no seu aprendizado!`} break="true" type={`full`} data={meuscursos} page={"meus-cursos"} />
   
-  const comecado =  <HeaderMeusCursos title={`Cursos para começar `} subtitle={`Inicie seus cursos e comece a aprender!`} break="true" type={`full`} />
+  const comecado =  <HeaderMeusCursos title={`Cursos para começar `} subtitle={`Inicie seus cursos e comece a aprender!`} break="true" type={`full`} page={"meus-cursos"} />
 
-  const finalziado =  <HeaderMeusCursos title={`Cursos finalizados `} subtitle={`Parabéns por sua dedicação!`} break="true" type={`full`} complete={'true'} />
+  const finalziado =  <HeaderMeusCursos title={`Cursos finalizados `} subtitle={`Parabéns por sua dedicação!`} break="true" type={`full`} complete={'true'} page={"meus-cursos"} />
  
 
     if(options == "andamento"){

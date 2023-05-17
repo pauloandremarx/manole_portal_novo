@@ -2,52 +2,26 @@
 
  
 import Layoutv2 from '@/components/Manole/Layoutv2'
-
 import BannerCursosDisponiveis from '@/components/Manole/bannerCursosDisponiveis'
-import HeaderMeusCursos from '@/components/Manole/HeaderMeusCursos'
-import HeaderEventos from '@/components/Manole/HeaderEventos'
-
+ import { useRouter } from 'next/navigation'
 import styles from './cdisponiveis.module.css';
-import Link from 'next/link'
- 
-import { getLocalStorage, removeStorage } from '@/util/Helpers' 
-import { useRouter } from 'next/navigation'
- 
-   if (getLocalStorage('username') == null) {
-    const router = useRouter()
-    router.push('/login')
-    }
+import { getLocalStorage } from '@/util/Helpers'
 
 export default function CursosDisponiveis() {
- 
- 
+    const router = useRouter();
+
+    if (getLocalStorage('username') == null) {
+        router.push('/login')
+    }
 
   return (
     <Layoutv2>
       
-        <BannerCursosDisponiveis /> 
-
-        <section className={` uk-margin-large-top ${styles.container_painel}`} >
-
-                <HeaderMeusCursos title={`Cursos acessados recentemente`} type={`full`} />
-
-                <HeaderMeusCursos title={`Continue de onde parou`}  type={`full`} />
-
-               <HeaderMeusCursos title={`Minicursos:`}  subtitle={`Aprenda de forma rápida e eficiente`} type={`mini`}/> 
-             
-        </section>
+        <BannerCursosDisponiveis />
 
 
+            <div className={`${styles.widht_100Over}`}>
 
-    <div className={`${styles.widht_100Over}`}>        
-            <section className={` uk-margin-large-top ${styles.container_painel_enventos}`} >
-
-            
-            
-                        <HeaderEventos title={`Próximos eventos`} />
-                
-
-            </section>
             </div>
          
     </Layoutv2>

@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 
-export interface ICidade {
-  nome: string;
-  codigo_ibge: string;
-}
+ 
 
 export const useCidades = ({ uf }) => {
-  const [cidades, setCidades] = useState<ICidade[]>([]);
+  const [cidades, setCidades] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

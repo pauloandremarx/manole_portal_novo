@@ -462,13 +462,14 @@ const CardProduto = (props) => {
               </div>
 
               <div>
-                <a
+                <Link
                   className="btn_ja_e_aluno"
                   href="https://www.manoleeducacao.com.br/area-do-aluno/"
                   target="_blank"
+                  legacyBehavior
                 >
                   Já é aluno Manole? Fazer login
-                </a>
+                </Link>
               </div>
             </div>
           </FormCuston>

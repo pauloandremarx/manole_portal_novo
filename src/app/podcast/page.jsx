@@ -10,6 +10,8 @@ import Breadcrumb from '@/components/Manole/Breadcrumb'
 import CardPodcast from '@/components/Manole/CardPodcast'
 import usePodcast from '@/services/podcast/usePodcast'
 
+import Image from "next/image";
+
 export default function POdcast() {
  
     const {podcast, getPodcast} = usePodcast()
@@ -43,9 +45,9 @@ export default function POdcast() {
                     <div>
                       <aside   className={` ${styles.boder_branca} `}>
                         <div className="uk-child-width-1-3 uk-grid uk-grid-match" >
-                          <div className="uk-flex uk-flex-middle uk-flex-center"><div><img className=" "  src="/manole/Spotify-Logo.webp" /></div></div> 
-                          <div className="uk-flex uk-flex-middle  uk-flex-center"><div><img className=" "  src="/manole/deezer.webp" /></div></div> 
-                          <div className="uk-flex uk-flex-middle  uk-flex-center"><div> <img className="itunes_top"  src="/manole/Spotify-Logo.webp" /></div></div>
+                          <div className="uk-flex uk-flex-middle uk-flex-center"><div><Image fill={true} className={`uk-position-relative`}    src="/manole/Spotify-Logo.webp" /></div></div> 
+                          <div className="uk-flex uk-flex-middle  uk-flex-center"><div><Image fill={true} className={`uk-position-relative`}     src="/manole/deezer.webp" /></div></div> 
+                          <div className="uk-flex uk-flex-middle  uk-flex-center"><div> <Image fill={true} className={`uk-position-relative itunes_top`}   src="/manole/Spotify-Logo.webp" /></div></div>
                         </div>
                         </aside>
                     </div>

@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, {Fragment} from "react";
 import styles from "./headerMeusCursos.module.css";
 import { useQuery } from "@tanstack/react-query";
 import Config from "@/util/Config";
 
-
+import Image from "next/image";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -74,12 +74,12 @@ export default function HeaderMeusCursos(props) {
     let data_logs = {
       usu_id: getLocalStorage("userid"),
       tipo: "minicurso",
-      conteudo: e.target.attributes.getNamedItem("data-Id").value,
+      conteudo: e.target.attributes.getNamedItem("data-id").value,
     };
 
     let data_logado = {
       curso_id_moodle: e.target.attributes.getNamedItem("data-moddleid").value,
-      curso_id: e.target.attributes.getNamedItem("data-Id").value,
+      curso_id: e.target.attributes.getNamedItem("data-id").value,
       usu_id: getLocalStorage("userid"),
     };
 
@@ -107,6 +107,8 @@ export default function HeaderMeusCursos(props) {
       });
   };
 
+  const hashCode = s => s.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+
   return (
     <>
       <div
@@ -125,11 +127,14 @@ export default function HeaderMeusCursos(props) {
         {props.break ? (
           ""
         ) : (
-          <a className="uk-visible@m">
-            <span>
-              Ver todos <img src="/manole/perfil/right-md.svg" />{" "}
-            </span>
-          </a>
+
+              <Link  href={`/painel/meus-cursos/`} legacyBehavior >
+                <div className={`${styles.vertodos} uk-visible@m`}>
+                  <div>Ver todos</div>
+                  <Image width={10} height={10} className={`uk-position-relative next_img`} src="/manole/perfil/right-md.svg" alt="Setinha do acordion"/>
+                </div>
+              </Link>
+
         )}
       </div>
 
@@ -137,14 +142,15 @@ export default function HeaderMeusCursos(props) {
         {error ? (
           <p>Oh no, there was an error:</p>
         ) : isLoading || isFetching ? (
-           <div class="loader-manole"></div> 
+           <div className="loader-manole"></div>
         ) : data ? (
           <>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               navigation={{ clickable: true }}
-              pagination={{ clickable: true }}
+              pagination={{ clickable: true, dynamicBullets: true, }}
               spaceBetween={30}
+
               breakpoints={{
                 // when window width is >= 640px
                 0: {
@@ -157,15 +163,16 @@ export default function HeaderMeusCursos(props) {
               }}
             >
               {props.type == "full" ? (
-                <>
+                <Fragment>
                   {data.map((item, index) => (
-                    <>
-                      <SwiperSlide>
+
+                      <SwiperSlide key={`cursos_${index}_${props.page}`}  >
                         <a
                           className={`${styles.curso_card}`}
-                          data-Id={item.curso_id}
+                          data-id={item.curso_id}
                           data-moddleid={item.curso_id_moodle}
                           onClick={mandar_pro_curso}
+                          key={hashCode(index.toString()) + props.page}
                         >
                           <div>
                             <div className="uk-flex uk-flex-top">
@@ -203,9 +210,9 @@ export default function HeaderMeusCursos(props) {
                           </div>
                         </a>
                       </SwiperSlide>
-                    </>
+
                   ))}
-                </>
+                </Fragment>
               ) : (
                 <>
                   {data.map((item, index) => (

@@ -31,17 +31,27 @@ export default function AdicionarFormacao(props) {
                 },
             ],
         });
-    const registerForm = () => {
+    const RegisterForm = () => {
         const { register, formState: { errors }, handleSubmit, control } = useForm();
         return { register, formState: { errors }, handleSubmit, control  };
     }
 
     const forms = {
-        profissao: registerForm(),
+        profissao: RegisterForm(),
     }
 
+    const [openAdd, setOpenAdd] = useState(false);
+    const onOpenModal = () => setOpenAdd(true);
+    const onCloseModal = () => setOpenAdd(false);
 
-
+    const [formdataFormacao, setformdataFormacao] = useState({
+        formacaoAcademica: [{
+            inst_id: 0,
+            curso_id: 0,
+            ano_conclusao: 0,
+            tipo_formacao_id: 0,
+        }]
+    });
 
     const AdicionarFormacao = (props) => {
         //Remover este setTimeout
@@ -53,19 +63,13 @@ export default function AdicionarFormacao(props) {
             atualizarPerfilAcademic
                 .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao)
                 .then((response) => {
-                    response == 200
-                        ?
+
                         Swal.fire({
                             icon: "success",
                             title: "Formação!",
-                            text: "Formação adicionada com sucesso!",
+                            text:  response.status == 200 ? "Formação adicionada com sucesso!" : response.status + ": Não foi possível adicionar formação, tente novamente mais tarde!",
                             confirmButtonText: "Confirmar",
-                        }) :
-                        Swal.fire({
-                            icon: "error",
-                            title: "Opps!",
-                            text: "Não foi possivel adicionada a formação, tente novamente mais tarde!",
-                        });
+                        })
                 })
                 .catch((error) => {
                     Swal.fire({
@@ -82,9 +86,7 @@ export default function AdicionarFormacao(props) {
         }, 500);
     };
 
-    const [openAdd, setOpenAdd] = useState(false);
-    const onOpenModal = () => setOpenAdd(true);
-    const onCloseModal = () => setOpenAdd(false);
+
 
     if (instituicoes.isLoading) return "Caregando instituições...";
     if (academicEducation.isLoading) return "Caregando formação...";
@@ -108,14 +110,7 @@ export default function AdicionarFormacao(props) {
         label: item.nome
     }));
 
-    const [formdataFormacao, setformdataFormacao] = useState({
-        formacaoAcademica: [{
-            inst_id: 0,
-            curso_id: 0,
-            ano_conclusao: 0,
-            tipo_formacao_id: 0,
-        }]
-    });
+
 
     return (
         <>

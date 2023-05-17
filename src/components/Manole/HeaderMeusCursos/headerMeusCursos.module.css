@@ -48,14 +48,25 @@
   height: 0px;
 }
 
-.width_title a {
-  width: 125px;
-  display: flex;
+.width_title .vertodos {
+  width: 125px ;
+  height: 100px ;
+  display: flex ;
   justify-content: right;
-  align-items: center;
+  align-items: center ;
 }
 
-.width_title a {
+.width_title .vertodos:hover{
+  cursor: pointer;
+}
+
+.width_title .vertodos div{
+  width: 70%;
+  color: #0D5BC7;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.width_title .vertodos {
   padding: 0px;
   padding-left: 10px;
   margin-top: 12px;
@@ -65,6 +76,11 @@
   font-size: 16px;
   display: flex;
   justify-content: right;
+}
+
+.width_title .vertodos img {
+  max-width: 30px;
+
 }
 
 .curso_card {

@@ -5,16 +5,17 @@ import Newsletter from '@/components/Manole/Newsletter'
 import BannerHome from '@/components/Manole/BannerHome'
 import Config from '@/util/Config'
 import { cookies } from 'next/headers'; 
-
+import Image from 'next/image';
 
 import {Carosel1, Carosel2, Carosel3 } from '@/components/Manole/CaroselItensManole';   
 
 export default async function Home() {
  
 
-  return (
+  // @ts-ignore
+    return (
       <Layout>
-      
+
      <BannerHome  />
     
       <section className="uk-margin-large-top">
@@ -46,7 +47,7 @@ export default async function Home() {
 
                         <div className="uk-flex uk-flex-center">
                             <div>
-                                <a data-uk-toggle="target: #modal-video" >    <img  src="/manole/home/video-home.webp" alt="Picture of the author"  className='uk-position-relative'    />  </a>
+                                <a data-uk-toggle="target: #modal-video" >    <Image width={800} height={800} src="/manole/home/video-home.webp" alt="Video Manole"  className='uk-position-relative next_img'    />  </a>
                             </div>
                         </div>
 
@@ -76,7 +77,7 @@ export default async function Home() {
                             <div>
                                 <div className="uk-flex uk-flex-center">
                                  
-                                    <img  src="/manole/home/icon-home-1.webp" alt="Picture of the author"  className='uk-position-relative'    />
+                                    <Image width={300} height={300} src="/manole/home/icon-home-1.webp" alt="Icone de colaboradores da Manole"  className='uk-position-relative next_img'     />
                                     </div>
                                 <h3>+ de 900</h3>
                                 <p>colaboradores</p>
@@ -85,7 +86,7 @@ export default async function Home() {
 
                         <div>
                             <div>
-                                <div className="uk-flex uk-flex-center"> <img  src="/manole/home/icon-home-2.webp" alt="Picture of the author"  className='uk-position-relative'    /> </div>
+                                <div className="uk-flex uk-flex-center"> <Image width={300} height={300} src="/manole/home/icon-home-2.webp" alt="Icone de publicações da Manole"  className='uk-position-relative next_img'    /> </div>
                                 <h3>+ de 4000</h3>
                                 <p>publicações</p>
                             </div>
@@ -94,7 +95,7 @@ export default async function Home() {
 
                         <div>
                             <div>
-                                <div className="uk-flex uk-flex-center"><img  src="/manole/home/icon-home-3.webp" alt="Picture of the author"  className='uk-position-relative'    /> </div>
+                                <div className="uk-flex uk-flex-center"><Image width={300} height={300} src="/manole/home/icon-home-3.webp" alt="Icone de estudantes da Manole"  className='uk-position-relative next_img'    /> </div>
                                 <h3>+ de 3M</h3>
                                 <p>estudantes</p>
                             </div>
@@ -103,7 +104,7 @@ export default async function Home() {
 
                         <div>
                             <div>
-                                <div className="uk-flex uk-flex-center"><img  src="/manole/home/icon-home-4.webp" alt="Picture of the author"  className='uk-position-relative'    /> </div>
+                                <div className="uk-flex uk-flex-center"><Image width={300} height={300} src="/manole/home/icon-home-4.webp" alt="Icone de profissionais"  className='uk-position-relative next_img'    /> </div>
                                 <h3>+ de 900</h3>
                                 <p>profissionais de saúde</p>
                             </div>
@@ -116,11 +117,11 @@ export default async function Home() {
       
             <section className={`${styles.bg_branco} ${styles.bg_cinza_t1}`}> 
             
-                    <img className={`${styles.bg_home_patters_1} uk-position-absolute`}  src="/manole/home/bg_home_1.webp" alt="Picture of the author"    /> 
-                    <img className={`${styles.bg_home_patters_2} uk-position-absolute`}   src="/manole/home/bg_home_2.webp" alt="Picture of the author"   />
-                    <img className={`${styles.bg_home_patters_3} uk-position-absolute`}   src="/manole/home/bg_home_3.webp" alt="Picture of the author"   />  
-                    <img className={`${styles.bg_home_patters_4} uk-position-absolute`}   src="/manole/home/bg_home_4.webp" alt="Picture of the author"   /> 
-                    <img className={`${styles.bg_home_patters_5} uk-position-absolute`}   src="/manole/home/bg_home_5.webp" alt="Picture of the author"    /> 
+                    <Image width={300} height={300}  className={`${styles.bg_home_patters_1} uk-position-absolute`}  src="/manole/home/bg_home_1.webp" alt="Trinangulo da Manole como background"    />
+                    <Image width={300} height={300} className={`${styles.bg_home_patters_2} uk-position-absolute`}   src="/manole/home/bg_home_2.webp" alt="Trinangulo da Manole como background"   />
+                    <Image width={300} height={300} className={`${styles.bg_home_patters_3} uk-position-absolute`}   src="/manole/home/bg_home_3.webp" alt="Trinangulo da Manole como background"   />
+                    <Image width={300} height={300} className={`${styles.bg_home_patters_4} uk-position-absolute`}   src="/manole/home/bg_home_4.webp" alt="Trinangulo da Manole como background"   />
+                    <Image width={300} height={300} className={`${styles.bg_home_patters_5} uk-position-absolute`}   src="/manole/home/bg_home_5.webp" alt="Trinangulo da Manole como background"    />
 
                 <div    className={`${styles.bg_cinza} `}>
                     <div className="container_padrao" >

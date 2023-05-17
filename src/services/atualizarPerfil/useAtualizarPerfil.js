@@ -27,6 +27,7 @@ class AtualizarPerfilService{
 class AtualizarPerfilAcademicService{
     async atualizacaoPerfilAcademic( token, data ) {
 
+        let result;
 
         const requestOptions = {
             method: 'POST',
@@ -36,18 +37,46 @@ class AtualizarPerfilAcademicService{
 
         return fetch( Config.API_URL + 'auth/profile/academy', requestOptions)
             .then((response) => {
-                if(!response.ok) throw new Error(response.status);
-                else return 200;
+                console.log(response)
+                return response;
             })
             .catch((error) => {
                 return error;
             });
 
+
     }
 }
+
+class AtualizarAvatarService{
+    async atualizacaoAvatar( token, data ) {
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: {'Authorization': token },
+            body:  data
+        };
+
+        return fetch( Config.API_URL + 'auth/profile/uploadAvatar', requestOptions)
+            .then((response) => {
+                console.log(response)
+                return response;
+            })
+            .catch((error) => {
+                console.log(error)
+                return error;
+            });
+
+
+
+    }
+}
+
+
 
 const atualizarPerfil = new AtualizarPerfilService();
 const atualizarPerfilAcademic = new AtualizarPerfilAcademicService();
 
+const atualizarAvatar = new AtualizarAvatarService();
 
-export {atualizarPerfilAcademic, atualizarPerfil};
+export {atualizarPerfilAcademic, atualizarPerfil, atualizarAvatar};

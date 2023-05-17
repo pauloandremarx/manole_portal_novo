@@ -1,17 +1,18 @@
 'use client';
 import Layoutv2 from "@/components/Manole/Layoutv2";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
  
 import { useRouter } from 'next/navigation'
-import { getLocalStorage, removeStorage } from '@/util/Helpers'
+import { getLocalStorage } from '@/util/Helpers'
 import styles from "./notas.module.css";
 import Link from "next/link";
 
+import Image from "next/image";
 
 export default function MeuPerfil() {
- 
+
+  const router = useRouter()
     if (getLocalStorage('username') == null) {
-    const router = useRouter()
     router.push('/login')
   }
 
@@ -42,7 +43,7 @@ export default function MeuPerfil() {
               </span>{" "}
               {">"} <span>Notas</span>
             </p>
-            <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><img width={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
+            <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><Image  width={40} height={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
             <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
               <div > 
                 <h1 className={`${styles.informacoes_perfil} `}>
@@ -57,25 +58,25 @@ export default function MeuPerfil() {
                         <div className={`uk-accordion-content ${styles.acordion_content}`}>
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/cursoIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div> 
                           
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/cursoIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/cursoIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/cursoIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  
@@ -89,25 +90,25 @@ export default function MeuPerfil() {
                         <div className={`uk-accordion-content ${styles.acordion_content}`}>
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/completeIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div> 
                           
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/completeIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/completeIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  
 
                           <div className={`${styles.card_cursos_notas}`}>
-                            <div><img src="/manole/perfil/completeIcon.svg" /></div>
+                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
                             <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
                             <div>nota: <span>8,5</span></div>
                           </div>  

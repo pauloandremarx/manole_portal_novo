@@ -1,4 +1,4 @@
-import React, { SelectHTMLAttributes } from 'react';
+import React, { SelectHTMLAttributes, Fragment } from 'react';
 import { ErrorBlock, InputBlock, SelectContainer } from '../style';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -32,14 +32,14 @@ const SelectInstituicao: React.FC<SelectProps> = ({ label, name, options, placeh
         { ...rest }
         className={ error === true ? "error uk-select" : "uk-select" }
       >
-          <option selected disabled>Selecione a opção: </option>
+          <option  defaultValue={'Selecione a opção:'} disabled>Selecione a opção: </option>
         {
           options.map((item, index) => {
             return (
-              <>
+              <Fragment key={`inst_id_${item.id}`}>
                 {recover}
               { recover == item.id ? (
-                 <option key={item.id} value={item.id}  selected >
+                 <option key={item.id} value={item.id}  defaultValue={recover} >
                 {item.nome}
 
               </option>
@@ -50,7 +50,7 @@ const SelectInstituicao: React.FC<SelectProps> = ({ label, name, options, placeh
 
               </option>
               )}
-             </>
+             </Fragment>
             );
           })
         }

@@ -3,7 +3,7 @@
 import styles from './sobre-nos.module.css';
 import Layout from '@/components/Manole/Layout';
   
- 
+ import Image from 'next/image';
 
 export default function Sobrenos() { 
 
@@ -28,7 +28,7 @@ export default function Sobrenos() {
 
                 <div className='uk-flex uk-flex-middle uk-position-relative'>
                     <div>
-                        <img src="/manole/sobre_nos/Dinu_Manole.webp"  />
+                        <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/Dinu_Manole.webp" alt={`Dinu criador da Manole`} />
 
                        
                         <div className={`uk-position-bottom-right ${styles.fundador}`} ><strong>Dinu Manole</strong><br /> Fundador </div>
@@ -41,7 +41,7 @@ export default function Sobrenos() {
     </section> 
     <section   className={`${styles.bg_img}`}>
         <div   className={`container_padrao  ${styles.container_historia}`}>  
-            <div className="" uk-sticky="bottom: #acabou; offset: 150">
+            <div uk-sticky="bottom: #acabou; offset: 150"  className={styles.z_index_10}>
                 <div  className={`  ${styles.navigation_right}`}  >
                     <a href="#a1960" > 1960</a>
                     <a href="#a1967" > 1967</a>
@@ -65,7 +65,7 @@ export default function Sobrenos() {
                 </div>
             </div>
 
-            <div  className={` uk-flex uk-flex-center@m uk-flex-left   ${styles.logo_manole_linha}`} >  <img src="/manole/sobre_nos/manole_logo.webp"   /></div>
+            <div  className={` uk-flex uk-flex-center@m uk-flex-left   ${styles.logo_manole_linha}`} >  <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/manole_logo.webp"  alt={`Logo da Manole`}  /></div>
             <div   className={`uk-child-width-1-1   ${styles.master_line}`}>
                 <div    className={` uk-grid uk-child-width-1-2@m uk-grid-match   ${styles.linha_do_tempo}`} data-uk-grid >
                     <div className={`${styles.text}`} >
@@ -79,7 +79,7 @@ export default function Sobrenos() {
 
                     <div   className={`${styles.image}`}>
                         <div>
-                            <img  src="/manole/sobre_nos/linha_do_tempo_1.webp" />
+                            <Image width={800} height={800}  className={`uk-position-relative`}   src="/manole/sobre_nos/linha_do_tempo_1.webp" alt={`Linha do tempo`} />
                         </div>
                     </div> 
                 </div>
@@ -132,7 +132,7 @@ export default function Sobrenos() {
 
                     <div   className={`${styles.image}`}>
                         <div>
-                        <img src="/manole/sobre_nos/1981.png"  />
+                        <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/1981.png" alt={`Linha do 1981`} />
                         </div>
                     </div>
 
@@ -187,7 +187,7 @@ export default function Sobrenos() {
 
                     <div   className={`${styles.image}`}>
                         <div>
-                        <img src="/manole/sobre_nos/1993.png" />
+                        <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/1993.png" alt={`Manole 1993`} />
                         </div>
                     </div>
 
@@ -205,7 +205,7 @@ export default function Sobrenos() {
 
                     <div   className={` ${styles.image}  ${styles.padding_top}`}>
                         <div>
-                        <img src="/manole/sobre_nos/1994.png"  />
+                        <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/1994.png" alt={`Manole 1994`} />
                         </div>
                     </div>
 
@@ -283,7 +283,7 @@ export default function Sobrenos() {
 
                     <div   className={`${styles.image}`}>
                         <div>
-                        <img src="/manole/sobre_nos/2003.png"  />
+                        <Image width={800} height={800}  className={`uk-position-relative next_img`}  src="/manole/sobre_nos/2003.png" alt={`Manole 2003`}  />
                         </div>
                     </div>
 
