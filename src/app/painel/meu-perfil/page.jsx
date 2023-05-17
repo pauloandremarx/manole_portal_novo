@@ -15,12 +15,8 @@ import Image from "next/image";
 
 export default function MeuPerfil() {
 
-    const router = useRouter();
-
-    if (getLocalStorage('username') == null) {
-        router.push('/login');
-    }
-
+    
+ 
     /**
      * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
      */

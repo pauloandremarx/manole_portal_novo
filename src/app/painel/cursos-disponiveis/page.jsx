@@ -8,11 +8,7 @@ import styles from './cdisponiveis.module.css';
 import { getLocalStorage } from '@/util/Helpers'
 
 export default function CursosDisponiveis() {
-    const router = useRouter();
-
-    if (getLocalStorage('username') == null) {
-        router.push('/login')
-    }
+ 
 
   return (
     <Layoutv2>

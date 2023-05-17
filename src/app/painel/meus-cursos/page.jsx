@@ -15,11 +15,7 @@ import { useRouter } from 'next/navigation'
  
 
 export default function MeusCursos() {
-    const router = useRouter();
-
-    if (getLocalStorage('username') == null) {
-    router.push('/login')
-    }
+   
   
 
   const [key_username, set_key_username] = useState(getLocalStorage('username')); 

@@ -17,11 +17,7 @@ import { getLocalStorage } from '@/util/Helpers';
 import { useRouter } from 'next/navigation';
 
 export default function Painel() {
-  const router = useRouter();
-  if (getLocalStorage('username') == null) {
-
-    router.push('/login');
-  }
+ 
 
   return (
     <>

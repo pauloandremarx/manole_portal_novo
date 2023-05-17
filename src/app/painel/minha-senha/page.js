@@ -12,11 +12,7 @@ import Link from "next/link";
 
 
 export default function MeuPerfil() {
-  const router = useRouter();
-
-   if (getLocalStorage('username') == null) {
-    router.push('/login')
-   }
+ 
 
  
 

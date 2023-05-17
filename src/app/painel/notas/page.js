@@ -11,10 +11,7 @@ import Image from "next/image";
 
 export default function MeuPerfil() {
 
-  const router = useRouter()
-    if (getLocalStorage('username') == null) {
-    router.push('/login')
-  }
+ 
 
   const [disabledName, setDisabledName] = useState(true);
   const handleClickNome = (e) => {
