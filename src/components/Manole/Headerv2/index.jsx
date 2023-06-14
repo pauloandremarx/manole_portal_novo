@@ -4,11 +4,12 @@ import styles from "./headerv2.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-import { getLocalStorage, removeStorage } from "@/util/Helpers";
+
 import { usePathname, useRouter } from "next/navigation";
 import {useEffect, useRef} from "react";
-
+import {useSession, signOut} from "next-auth/react";
 import Notification from "@/components/Manole/Notification";
+import LogadoHeaderv2 from "@/components/Manole/Perfil_Images/header_v2";
 
 const Header = () => {
 
@@ -16,13 +17,13 @@ const Header = () => {
   const router = useRouter();
 
   const url_painel =
-    pathname == "/painel/meus-cursos" ? `uk-button ${styles.button_active}` : "";
+    pathname === "/painel/meus-cursos" ? `uk-button ${styles.button_active}` : "";
 
   const url_meus_cursos =
-    pathname == "/painel/meus-cursos" ? `uk-button ${styles.button_active}` : "";
+    pathname === "/painel/meus-cursos" ? `uk-button ${styles.button_active}` : "";
 
   const url_cursos_disponiveis =
-    pathname == "/painel/cursos-disponiveis"
+    pathname === "/painel/cursos-disponiveis"
       ? `uk-button ${styles.button_active}`
       : "";
 
@@ -41,28 +42,8 @@ const Header = () => {
     { name: "Portal", href: "/", className: "" },
   ];
 
-  function handleLogout(e) {
-    e.preventDefault();
 
-    removeStorage("token");
-    removeStorage("refleshToken");
-    removeStorage("username");
-    removeStorage("email");
-    removeStorage("userid");
-    router.push("/login");
-  }
 
-  var logado = false;
-
-  if (
-    getLocalStorage("username") == "undefined" ||
-    getLocalStorage("username") == null ||
-    getLocalStorage("username") == ""
-  ) {
-    logado = false;
-  } else {
-    logado = true;
-  }
 
 
   const stickyHeader = useRef();
@@ -78,8 +59,8 @@ const Header = () => {
     let fixedTop = 200;
     const header = document.querySelector('.nav_stick');
     window.pageYOffset > fixedTop && window.pageYOffset <= (document.body.offsetHeight - 1100) ? header.classList.add(`${styles.is_sticky}`) : header.classList.remove( `${styles.is_sticky}`);
-  }; 
- 
+  };
+
   return (
     <>
       <div className={`${styles.nav}  nav_stick`} ref={stickyHeader}>
@@ -113,7 +94,7 @@ const Header = () => {
                           className={`${styles.logo_navheader} next_img`}
                           alt="Logo Manole"
                           width={100} height={100}
-                          
+
                         />
                       </a>
                     </Link>
@@ -212,120 +193,7 @@ const Header = () => {
                   </li>
 
                   <li>
-                    <aside className={`${styles.flex_user}`}>
-                      <div
-                        className={`uk-flex uk-flex-middle ${styles.margin_itens}`}
-                      >
-                        <div className="uk-visible@m">
-                          <a uk-toggle="target: .toggle-search; animation: uk-animation-fade">
-                            <Image
-                              className={`toggle-search ${styles.close_lupa} next_img`}
-                              src="/manole/perfil/lupa.svg"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone da lupa"
-                            />
-                            <Image
-                              hidden
-                              className={`toggle-search ${styles.close_lupa} next_img`}
-                              src="/manole/perfil/close.svg"
-                                width={ 100 }
-                              height={ 100 }
-                              alt="Icone de fechar"
-                            />
-                          </a>
-                        </div>
-                        <div>
-                          <a>
-                            <Image src="/manole/perfil/sino.svg"
-                            className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone do sino" />
-                          </a>
-                        </div>
-                        <Notification className={`${styles.username_dropdown}`} />
-                        <div className="uk-visible@m">
-                          <a title="ajuda">
-                            <Image src="/manole/perfil/ajuda.svg"
-                            className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de ajudar"/>
-                          </a>
-                        </div>
-
-                        <div
-                          className={`${styles.img_user}`}
-                          style={{
-                            backgroundImage: `url("/manole/perfil/user_people.svg")`,
-                          }}
-                        ></div>
-                        <aside
-                          hidden
-                          className={`${styles.username_dropdown} uk-visible@m`}
-                          data-uk-dropdown="mode: click;pos: bottom-center"
-                        >
-                          <Link
-                            href={`/painel/meu-perfil`}
-                            legacyBehavior
-                          >
-                            <a>
-                              <Image src="/manole/perfil/meu_perfil.svg"
-                                className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de perfil"
-                              /> Meu
-                              Perfil <span className={`${styles.star}`}>9</span>
-                            </a>
-                          </Link>
-                          <Link
-                            href={`/painel/minha-senha`}
-                            legacyBehavior
-                          >
-                            <a>
-                              <Image src="/manole/perfil/minha_senha.svg"
-                              className="next_img"  
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone da minha senha" /> Minha
-                              Senha 
-                            </a>
-                          </Link>
-                          <a>
-                            <Image src="/manole/perfil/notas.svg"
-                              className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de notas" /> Notas 
-                          </a>
-                          <a>
-                            <Image src="/manole/perfil/mensagens.svg"
-                              className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de mensagem" /> 
-                            Menssagens 
-                          </a>
-                          <a>
-                            <Image src="/manole/perfil/arquivos.svg"
-                              className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de arquivos"/> Arquivos
-                            Privados 
-                          </a>
-                          <a onClick={handleLogout}>
-                            <Image src="/manole/perfil/fi_log-out.svg"
-                              className="next_img"
-                              width={ 100 }
-                              height={ 100 }
-                              alt="Icone de deslogar" /> Sair
-                          </a>
-                        </aside>
-                      </div>
-                    </aside>
+                     <LogadoHeaderv2 />
                   </li>
                 </ul>
               </div>
@@ -382,7 +250,7 @@ const Header = () => {
                 <Image
                   src="/manole/perfil/close.svg"
                   className={ `${ styles.close_offcnvas } next_img` }
-                  
+
                      width={ 100 }
                               height={ 100 }
                               alt="Icone  de fechar"
@@ -418,7 +286,7 @@ const Header = () => {
                   <div className={`${styles.meu_perfil_offcanvas}`}>
                     Meu Perfil
                     <div className={`${styles.nivel_off}`}>
-                      
+
                       Nivel<span className={`${styles.star}`}>9</span>
                     </div>
                   </div>
@@ -429,22 +297,26 @@ const Header = () => {
                   <aside
                     className={`${styles.username_dropdown} ${styles.username_dropdown_off_canvas}`}
                   >
-                    <a href="painel/meus-cursos">
+                    <Link href="painel/meus-cursos" legacyBehavior>
+                      <a>
                       <Image className="next_img" src="/manole/perfil/meu_perfil.svg"   width={ 100 }
                               height={ 100 }
                               alt="Icone  de meu perfil" /> Meu Perfil
-                    </a>
+                      </a>
+                    </Link>
                     <a href="painel/minha-senha">
                       <Image className="next_img" src="/manole/perfil/minha_senha.svg"
                         width={ 100 } height={ 100 }
                               alt="Icone  de minha senha"  /> Minha Senha
                     </a>
-                    <a>
+                    <Link href="painel/notas" legacyBehavior>
+                      <a>
                       <Image className="next_img" src="/manole/perfil/notas.svg"
                        width={ 100 } height={ 100 }
-                              alt="Icone  de notas" 
+                              alt="Icone  de notas"
                       /> Notas
-                    </a>
+                      </a>
+                    </Link>
                     <a>
                       <Image className="next_img" src="/manole/perfil/mensagens.svg"  width={ 100 } height={ 100 }
                               alt="Icone  de minha mensagem"  /> Menssagens
@@ -454,7 +326,7 @@ const Header = () => {
                               alt="Icone  de arquivos"  /> Arquivos
                       Privados
                     </a>
-                    <a onClick={handleLogout}>
+                    <a onClick={signOut}>
                       <Image className="next_img" src="/manole/perfil/preferencias.svg"  width={ 100 } height={ 100 }
                               alt="Icone  de deslogar"  />
                       Prefereências
@@ -483,7 +355,7 @@ const Header = () => {
             </li>
 
             <li className={`${styles.sem_bordinha}`}>
-              <a onClick={handleLogout}>
+              <a onClick={signOut}>
                 <Image className="next_img" src="/manole/perfil/fi_log-out.svg"
                   width={ 100 } height={ 100 }
                               alt="Icone  de deslogar" /> Sair

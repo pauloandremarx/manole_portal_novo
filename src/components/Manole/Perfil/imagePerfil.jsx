@@ -4,19 +4,21 @@ import {useRouter} from 'next/navigation'
 import { getPerfilNormal } from "@/services/formProfile/useFormProfile";
 import {atualizarAvatar } from "@/services/atualizarPerfil/useAtualizarPerfil";
 import styles from "./image-perfil.module.css";
-import Link from "next/link";
-import Image from "next/image";
+
 import {useQuery} from "@tanstack/react-query";
 import React, { useRef, useState, useEffect } from "react";
 import Swal from "sweetalert2";
-
+import {useSession, signOut} from "next-auth/react";
 
 export default function ImagePerfil() {
+    const { data: session, status } = useSession();
+    const refleshToken = session?.user?.refleshToken;
 
     const { data, isLoading, isFetching, error } = useQuery({
         queryKey: ["perfil-normal_upload_image"],
-        queryFn: () => getPerfilNormal(getLocalStorage("refleshToken")),
+        queryFn: () => getPerfilNormal(refleshToken),
         refetchOnWindowFocus: false,
+        enabled: !!refleshToken,
     });
 
     const fileInputRef = useRef();
@@ -66,7 +68,7 @@ export default function ImagePerfil() {
 
 return (
     <>
-    {error ? ('erro de carregar') : isLoading || isFetching ? (
+    {error ? (error.message) : isLoading || isFetching ? (
                 <div className="loader-manole"></div>
             ) :
             data ? (

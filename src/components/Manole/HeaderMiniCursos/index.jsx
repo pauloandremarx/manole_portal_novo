@@ -13,6 +13,7 @@ import useCadastroLogado from "@/services/cadastrarLogado/useCadastroLogado";
 
 import { getLocalStorage, removeStorage } from "@/util/Helpers";
 import { useState, useEffect } from "react";
+import {useSession} from "next-auth/react";
 
 async function getAllMinicursos() {
   const res = await fetch(
@@ -38,7 +39,8 @@ async function getAllMinicursos() {
 }
 
 export default function HeaderMeusCursos( props ) {
-  
+
+  const { data: session, status } = useSession()
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["initial-otthes-minicursos"],
     queryFn: () => getAllMinicursos(),
@@ -83,7 +85,7 @@ export default function HeaderMeusCursos( props ) {
     let data_logado = {
       curso_id_moodle: e.target.attributes.getNamedItem("data-moddleid").value,
       curso_id: e.target.attributes.getNamedItem("data-id").value,
-      usu_id: getLocalStorage("userid"),
+      usu_id: session?.user?.decode?.usu_id,
     };
 
     useCadastroLogado

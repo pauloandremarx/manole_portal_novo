@@ -6,6 +6,8 @@ import {  useQueries } from "@tanstack/react-query";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Image from 'next/image';
+import getUsername from "@/services/login/useLogin";
+import {useSession} from "next-auth/react";
 
 async function getBanner() {
     const res = await fetch(Config.API_URL + `banner/controllers/getBanners.php?limit=3`, {
@@ -27,6 +29,8 @@ async function getBanner() {
 
 
 export default function BannerHome( props ) {
+
+    const { data: session, status } = useSession();
 
  const [banners] =
     useQueries({
@@ -89,6 +93,8 @@ export default function BannerHome( props ) {
 
 
 </header>
+
+
  </>
 }
 

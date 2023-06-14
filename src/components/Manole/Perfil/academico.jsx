@@ -2,13 +2,10 @@
 
 import styles from "./formPerfil.module.css";
 import React, { useEffect, useState, useRef } from "react";
- 
-import { getLocalStorage } from "@/util/Helpers";
-import { SelectInstituicao, SelectTipoFormacao,
-} from "@/components/Manole/FormElements";
+
 import {atualizarPerfilAcademic, atualizarPerfil} from "@/services/atualizarPerfil/useAtualizarPerfil";
 import Swal from "sweetalert2";
-import { useQuery, useQueries, usersQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
@@ -23,8 +20,11 @@ import EditarFormacao from "@/components/Manole/Perfil/EditarFormacao";
 
 import EditarEspecialidade from "@/components/Manole/Perfil/EditarEspecialidade";
 import {FaEdit} from "react-icons/fa";
+import {useSession} from "next-auth/react";
 export default function PerfilAcademico() {
 
+    const { data: session, status } = useSession();
+    const refleshToken = session?.user?.refleshToken;
     const RegisterForm = () => {
         const { register, formState: { errors }, handleSubmit, control } = useForm();
         return { register, formState: { errors }, handleSubmit, control  };
@@ -43,7 +43,8 @@ export default function PerfilAcademico() {
             queries: [
                 {
                     queryKey: ["minhaformacao"],
-                    queryFn: () => getPerfilAcademico(getLocalStorage("refleshToken")),
+                    queryFn: () => getPerfilAcademico(refleshToken),
+                    enabled: !!refleshToken,
                 },
 
                 {
@@ -99,10 +100,6 @@ export default function PerfilAcademico() {
         },
     });
 
-
-
-
-
     const submitAtualizar = async (event) => {
         event.preventDefault();
         //Remover este setTimeout
@@ -111,7 +108,7 @@ export default function PerfilAcademico() {
                 ...formdata,
             };
             atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data)
+                .atualizacaoPerfilAcademic(refleshToken, data)
                 .then((response) => {
                     Swal.fire({
                         icon: "success",
@@ -148,16 +145,12 @@ export default function PerfilAcademico() {
               }
           ]};
 
-
-
-        alert(JSON.stringify( formacaoExclude));
-
         setTimeout(() => {
             const data_formacao_exclude = {
                 ...formacaoExclude,
             };
             atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
+                .atualizacaoPerfilAcademic(refleshToken, data_formacao_exclude)
                 .then((response) => {
                     Swal.fire({
                         icon: "success",
@@ -194,7 +187,7 @@ export default function PerfilAcademico() {
                 ...formacaoExclude,
             };
             atualizarPerfilAcademic
-                .atualizacaoPerfilAcademic(getLocalStorage("refleshToken"), data_formacao_exclude)
+                .atualizacaoPerfilAcademic(refleshToken, data_formacao_exclude)
                 .then((response) => {
                     Swal.fire({
                         icon: "success",
@@ -263,16 +256,15 @@ export default function PerfilAcademico() {
     if (meu_specialty.isLoading) return "Caregando cursos...";
 
 
-    if (minhaformacao.error)
-        return "An error has occurred: " + minhaformacao.error.message;
+    if (minhaformacao.error) return  minhaformacao.error.message;
     if (instituicoes.error)
-        return "An error has occurred: " + instituicoes.error.message;
+        return instituicoes.error.message;
     if (academicEducation.error)
-        return "An error has occurred: " + academicEducation.error.message;
+        return  academicEducation.error.message;
     if (meus_cursos.error)
-        return "An error has occurred: " + academicEducation.error.message;
+        return academicEducation.error.message;
     if (meu_specialty.error)
-        return "An error has occurred: " + meu_specialty.error.message;
+        return  meu_specialty.error.message;
 
 
 

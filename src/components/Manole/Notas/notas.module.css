@@ -1,0 +1,30 @@
+.acordion_content {
+    padding-bottom: 1.6em;
+    border-bottom: 0.1em solid #cdcdcd;
+}
+
+
+.card_cursos_notas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2em 1em;
+    margin-bottom: 1em;
+}
+
+.card_cursos_notas {
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(#ef7d52, #49c5b1) 27;
+}
+
+.card_cursos_notas .text_curso {
+    font-size: 0.9em;
+    width: 60%;
+    box-sizing: border-box;
+    padding-right: 2em;
+}
+
+.card_cursos_notas span {
+    color: #ef7d52;
+}

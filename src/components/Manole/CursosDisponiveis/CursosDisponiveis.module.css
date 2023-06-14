@@ -1,0 +1,296 @@
+.width_title div {
+  width: calc(100% - 126px);
+}
+
+@media (max-width: 960px) {
+  .width_title div {
+    width: 100%;
+  }
+}
+
+.width_title .myLine span,
+.width_title {
+  line-height: 100%;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.width_title .myLine span {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.width_title .myLine span span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.myLine > ::before,
+.myLine > ::after {
+  content: '';
+  /* 1 */
+  position: absolute;
+  top: calc(50% - (calc(-1px + 0.05em) / 2));
+  /* 2 */
+  width: 2000px;
+  /* 3 */
+
+  height: 1.5px;
+  background: linear-gradient(90deg, #ef7d52 0%, #49c5b1 50%, #49c5b1 100%);
+}
+
+.not_border > ::after,
+.not_border > ::before {
+  width: 0px;
+  height: 0px;
+}
+
+.width_title .vertodos {
+  width: 125px ;
+  height: 100px ;
+  display: flex ;
+  justify-content: right;
+  align-items: center ;
+}
+
+.width_title .vertodos:hover{
+  cursor: pointer;
+}
+
+.width_title .vertodos div{
+  width: 70%;
+  color: #0D5BC7;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.width_title .vertodos {
+  padding: 0px;
+  padding-left: 10px;
+  margin-top: 12px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: right;
+}
+
+.width_title .vertodos img {
+  max-width: 30px;
+
+}
+
+.curso_card {
+  /* Neutral Colors - HIGH/Light-50 */
+  background: #ffffff;
+  /* BRAND COLORS/2/Pure - 500 - 2 */
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+  border-color: #ef7d52;
+  border-radius: 4px;
+  padding: 10px 20px;
+  -webkit-box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  margin: 4px;
+  display: block;
+  color: #000;
+}
+
+
+.curso_card:hover{
+  text-decoration: none;
+    color: #000;
+}
+
+.curso_card > div{
+  pointer-events: none;
+}
+
+/* 16px/Regular */
+.curso_card h2 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0px;
+  line-height: 19px;
+  min-height: 45px;
+  margin-top: 12px;
+}
+
+.min_width_icon {
+  min-width: 60px;
+}
+
+.curso_card p {
+  margin: 0px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #777777;
+  margin-top: 10px;
+}
+
+.min_height_40 {
+  height: 40px;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  margin: 10px 0px;
+  margin-top: 50px;
+}
+
+.min_height_40 span {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.min_height_40 .myprogress {
+  margin-bottom: 0px;
+  border-radius: 1px;
+  height: 10px;
+}
+
+* + .myprogress {
+  margin: 0px;
+}
+
+.myprogress::-webkit-progress-value {
+  background-color: #110982;
+  transition: width 0.6s ease;
+}
+.myprogress::-moz-progress-bar {
+  background-color: #110982;
+  /* 1 */
+  transition: width 0.6s ease;
+}
+
+.curso_min_card {
+  /* Neutral Colors - HIGH/Light-50 */
+  background: #ffffff;
+  /* BRAND COLORS/2/Pure - 500 - 2 */
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+  border-color: #ef7d52;
+  border-radius: 4px;
+  padding: 14px 0px;
+  -webkit-box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.05);
+  margin: 4px;
+}
+
+.curso_min_card .padding {
+  padding: 0px 12px;
+}
+
+.curso_min_card .img_mini_curso {
+  background-position: center;
+  background-size: cover;
+  height: 130px;
+  width: 100%;
+}
+
+.curso_min_card h2 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  /* identical to box height, or 21px */
+  margin: 0px;
+  text-align: center;
+
+  /* TEXT COLORS/Pure - 500 */
+
+  color: #353535;
+}
+
+.curso_min_card h3 {
+  margin: 0px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+  /* TEXT COLORS/Pure - 500 */
+
+  color: #353535;
+}
+
+.curso_min_card a {
+  background: #045bc8;
+  border-radius: 8px;
+  margin-top: 30px;
+  color: #fff;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 10px 15px;
+  /* TEXT COLORS/White - 100 */
+
+  color: #ffffff;
+}
+
+
+.card{
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+  border-color: #EF7D52;
+  border-radius: 4px;
+
+
+}
+
+.card .titulo{
+  padding: 10px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 19px;
+  text-align: center;
+  color: #353535;
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+}
+
+.thumbmail{
+  width: 100%;
+  height: 180px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ef7d52;
+}
+
+.saber_mais{
+  border: 1px solid #045BC8;
+  border-radius: 8px;
+  display: block;
+  color: #FFFFFF;
+  background-color: #045BC8;
+  max-width: 100px;
+  text-align: center;
+  padding: 4px 6px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+}

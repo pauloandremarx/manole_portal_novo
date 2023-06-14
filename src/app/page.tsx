@@ -4,20 +4,23 @@ import YoutubeEmbed from '@/components/Manole/Youtube'
 import Newsletter from '@/components/Manole/Newsletter'
 import BannerHome from '@/components/Manole/BannerHome'
 import Config from '@/util/Config'
-import { cookies } from 'next/headers'; 
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 
-import {Carosel1, Carosel2, Carosel3 } from '@/components/Manole/CaroselItensManole';   
 
-export default async function Home() {
- 
+
+import {Carosel1, Carosel2, Carosel3 } from '@/components/Manole/CaroselItensManole';
+
+
+export default  function Home() {
+
 
   // @ts-ignore
     return (
-      <Layout>
+        <Layout>
 
-     <BannerHome  />
-    
+            <BannerHome />
+
       <section className="uk-margin-large-top">
                 <div className="container_padrao ">
                     <div className={`${styles.sobre_nos} uk-child-width-1-2@m  uk-grid`} data-uk-grid>
@@ -42,7 +45,7 @@ export default async function Home() {
                             áreas da saúde e científica ao longo de toda sua jornada.
                             </p>
 
-                       
+
                         </div>
 
                         <div className="uk-flex uk-flex-center">
@@ -56,18 +59,18 @@ export default async function Home() {
 
             </section>
 
- 
 
-            
+
+
             <div id="modal-video"   className={`${styles.youtube_modal}`} data-uk-modal>
                 <div className="uk-modal-dialog uk-modal-body">
-                    <button className="uk-modal-close-default" type="button"   ></button> 
+                    <button className="uk-modal-close-default" type="button"   ></button>
                     <YoutubeEmbed embedId='aY59ZZ5nXEY' />
                 </div>
             </div>
-                    
 
-            
+
+
             <section>
                 <div className={`${styles.container_icons} uk-margin-large-bottom`}>
                     <h1 className={`${styles.title} uk-margin-large-bottom uk-margin-large-top uk-margin-medium-bottom`}  >Nosso impacto</h1>
@@ -76,7 +79,7 @@ export default async function Home() {
                         <div>
                             <div>
                                 <div className="uk-flex uk-flex-center">
-                                 
+
                                     <Image width={300} height={300} src="/manole/home/icon-home-1.webp" alt="Icone de colaboradores da Manole"  className='uk-position-relative next_img'     />
                                     </div>
                                 <h3>+ de 900</h3>
@@ -114,9 +117,9 @@ export default async function Home() {
                 </div>
             </section>
 
-      
-            <section className={`${styles.bg_branco} ${styles.bg_cinza_t1}`}> 
-            
+
+            <section className={`${styles.bg_branco} ${styles.bg_cinza_t1}`}>
+
                     <Image width={300} height={300}  className={`${styles.bg_home_patters_1} uk-position-absolute`}  src="/manole/home/bg_home_1.webp" alt="Trinangulo da Manole como background"    />
                     <Image width={300} height={300} className={`${styles.bg_home_patters_2} uk-position-absolute`}   src="/manole/home/bg_home_2.webp" alt="Trinangulo da Manole como background"   />
                     <Image width={300} height={300} className={`${styles.bg_home_patters_3} uk-position-absolute`}   src="/manole/home/bg_home_3.webp" alt="Trinangulo da Manole como background"   />
@@ -153,12 +156,12 @@ export default async function Home() {
                     <div className={`${styles.container_slider} ${styles.slider_container_direita} slider_container_direita`} >
 
 
-                    
+
                         <Carosel1 />
-                        
+
                     </div>
 
-                    
+
 
                     <div className="container_padrao uk-margin-xlarge-top" >
                         <span id='educacao'></span>
@@ -191,13 +194,13 @@ export default async function Home() {
                     <div className={`${styles.container_slider} `}>
 
 
-                    
+
 
                         <Carosel2 />
 
-                  
+
                     </div>
- 
+
 
 
                     <div className="container_padrao uk-margin-xlarge-top" >
@@ -227,16 +230,14 @@ export default async function Home() {
                     <div className={`${styles.container_slider} `}>
 
                           <Carosel3 />
-              
+
                     </div>
                   </div>
 
-             
-                  <Newsletter />  
-                </section>    
 
-                           
-    
+                  <Newsletter />
+                </section>
+
 
 
     </Layout>
@@ -244,4 +245,4 @@ export default async function Home() {
 }
 
 
- 
+

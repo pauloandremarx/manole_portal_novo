@@ -130,8 +130,10 @@ export default function AdicionarFormacao(props) {
                             <label>Ano de conclusão</label>
                             <div className="uk-inline uk-width-1-1">
                                 <input
+
                                     className={`uk-input ${styles.input_perfil} `}
                                     type="number"
+                                    name={`ano_conclusao`}
                                     {...forms.profissao.register("ano", { required: true, max: 2100, min: 1900, valueAsNumber: true })}
                                     aria-invalid={forms.profissao.formState.errors.ano ? "true" : "false"}
                                     onChange={(e) => {

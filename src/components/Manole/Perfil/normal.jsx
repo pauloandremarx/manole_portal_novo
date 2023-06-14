@@ -2,7 +2,7 @@
 
 import styles from "./formPerfil.module.css";
 import React, {useEffect, useState} from "react";
-import { getLocalStorage} from "@/util/Helpers";
+
 import { useQuery } from "@tanstack/react-query";
 import { InputMaskedUnico } from "@/components/Manole/FormElements";
 import { atualizarPerfil as useAtualizarPerfil } from "@/services/atualizarPerfil/useAtualizarPerfil";
@@ -13,14 +13,18 @@ import Config from "@/util/Config";
 import Select from "react-select";
 import { getPerfilNormal } from "@/services/formProfile/useFormProfile";
 import { FaEdit } from "react-icons/fa";
+import {useSession} from "next-auth/react";
 
 
 export default function PerfilNormal() {
+  const { data: session, status } = useSession();
+  const refleshToken = session?.user?.refleshToken;
 
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["perfil-normal"],
-    queryFn: () => getPerfilNormal(getLocalStorage("refleshToken")),
+    queryFn: () => getPerfilNormal(refleshToken),
     refetchOnWindowFocus: false,
+    enabled: !!refleshToken,
   });
 
 
@@ -106,7 +110,6 @@ export default function PerfilNormal() {
     event.preventDefault();
 
 
-
     const data = {
       ...formdata,
     };
@@ -115,7 +118,7 @@ export default function PerfilNormal() {
     //Remover este setTimeout
     setTimeout( () => {
       useAtualizarPerfil
-        .atualizacaoPerfil( getLocalStorage( "refleshToken" ), data )
+        .atualizacaoPerfil( refleshToken, data )
         .then( ( response ) => {
           Swal.fire( {
             icon: "success",
@@ -250,21 +253,21 @@ export default function PerfilNormal() {
                         onClick={handleClickTelefone}
 
                     >   <FaEdit />  </a>
-                    <InputMaskedUnico
-                        label="Telefone"
-                        name="telefone"
-                        disabled={disabledTelefone}
-                        value={data.telefone}
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                          const { value } = e.target;
-                          setFormdata({
-                            ...formdata,
-                            telefone: value,
-                          });
-                        }}
-                        mask={"+(99) 99 9 9999-99999"}
-                    />
+                      <InputMaskedUnico
+                          label="Telefone"
+                          name="telefone"
+                          disabled={disabledTelefone}
+                          value={data.telefone}
+                          onChange={(e) => {
+                            setPhone(e.target.value);
+                            const { value } = e.target;
+                            setFormdata({
+                              ...formdata,
+                              telefone: value,
+                            });
+                          }}
+                          mask={"+(99) 99 9 9999-99999"}
+                      />
                   </div>
                 </div>
 

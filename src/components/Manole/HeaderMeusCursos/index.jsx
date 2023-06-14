@@ -11,56 +11,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import usePostLogs from "@/services/Postlogs/usePostLogs";
 import useCadastroLogado from "@/services/cadastrarLogado/useCadastroLogado";
-import { getLocalStorage, removeStorage } from "@/util/Helpers";
-
-  
-async function getDifference() {
-  const res1 = await fetch(
-    Config.API_URL +
-      "aulas-gratuitas/minicurso/?filtro=&currentPage=1&perPage=99",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: Config.API_KEY,
-      },
-    }
-  );
-
-  const minicursos_total = await res1.json();
-  const minicursos = minicursos_total.data;
-
-  const res = await fetch(
-    Config.API_URL +
-      `auth/logs?filter=&usu_id=${getLocalStorage("userid")}&qtde=5`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: Config.API_KEY,
-      },
-    }
-  );
-
-  if (!res.ok) {
-    throw new Error("Logs Failed to fetch data");
-  }
-
-  const logs = await res.json();
-
-  return minicursos.filter((object1) => {
-    return logs.some((object2) => {
-      return object1.curso_id == object2.conteudo_acessado;
-    });
-  });
-}
+import {getLogs} from "@/services/GetLogs/useGetLogs";
+import {useSession} from "next-auth/react";
 
 export default function HeaderMeusCursos(props) {
+  const { data: session, status } = useSession()
 
+  const usu_id = session?.user?.decode?.usu_id;
 
   const { data, isLoading, isFetching, error } = useQuery({
-    queryKey: ["initial-minicursos"],
-    queryFn: () => getDifference(),
+    queryKey: ["logos-dos-minicursos"],
+    queryFn: () => getLogs(usu_id, 5),
+    enabled: !!usu_id,
   });
 
   var cont = 0;
@@ -72,7 +34,7 @@ export default function HeaderMeusCursos(props) {
 
   const mandar_pro_curso = (e) => {
     let data_logs = {
-      usu_id: getLocalStorage("userid"),
+      usu_id: usu_id,
       tipo: "minicurso",
       conteudo: e.target.attributes.getNamedItem("data-id").value,
     };
@@ -80,7 +42,7 @@ export default function HeaderMeusCursos(props) {
     let data_logado = {
       curso_id_moodle: e.target.attributes.getNamedItem("data-moddleid").value,
       curso_id: e.target.attributes.getNamedItem("data-id").value,
-      usu_id: getLocalStorage("userid"),
+      usu_id: usu_id,
     };
 
     useCadastroLogado
@@ -117,8 +79,7 @@ export default function HeaderMeusCursos(props) {
         <div>
           <h2 className={`uk-heading-line   ${styles.myLine}  ${not_border}`}>
             <span>
-              {" "}
-              {props.title} {props.break ? <br /> : ""}{" "}
+              {props.title} {props.break ? <br /> : ""}
               <span> {props.subtitle ? props.subtitle : ""}</span>
             </span>
           </h2>

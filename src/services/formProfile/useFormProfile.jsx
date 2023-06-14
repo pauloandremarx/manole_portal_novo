@@ -1,8 +1,8 @@
 import Config from '@/util/Config'
 
-
 /*Perfil normal*/
 export async function getPerfilNormal(token) {
+
     const res = await fetch(Config.API_URL + `auth/profile`, {
         method: "GET",
         headers: {
@@ -16,11 +16,11 @@ export async function getPerfilNormal(token) {
 }
 
 
-
-
 /*Perfil Academico*/
 
 export async function getPerfilAcademico(token) {
+
+
     const res = await fetch(Config.API_URL + `auth/profile/academy`, {
         method: "GET",
         headers: {

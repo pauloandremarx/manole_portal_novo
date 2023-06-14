@@ -6,8 +6,8 @@ class AtualizarPerfilService{
 
     async atualizacaoPerfil( token, data ) { 
         
-        const headers = { 
-            'Content-Type': 'application/json',     
+        const headers = {
+            'Content-Type': 'application/json',
             'Authorization': token,
         };
 
@@ -27,8 +27,6 @@ class AtualizarPerfilService{
 class AtualizarPerfilAcademicService{
     async atualizacaoPerfilAcademic( token, data ) {
 
-        let result;
-
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': token },
@@ -45,6 +43,25 @@ class AtualizarPerfilAcademicService{
             });
 
 
+    }
+}
+
+class AtualizarPerfilPasswordService{
+    async atualizacaoPerfilPassword( token, data ) {
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Authorization': token, 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+        return fetch( Config.API_URL + 'auth/profile/password', requestOptions)
+            .then((response) => {
+                console.log(response)
+                return response;
+            })
+            .catch((error) => {
+                return error;
+            });
     }
 }
 
@@ -79,4 +96,6 @@ const atualizarPerfilAcademic = new AtualizarPerfilAcademicService();
 
 const atualizarAvatar = new AtualizarAvatarService();
 
-export {atualizarPerfilAcademic, atualizarPerfil, atualizarAvatar};
+const atualizarPerfilPassword  = new AtualizarPerfilPasswordService();
+
+export {atualizarPerfilAcademic, atualizarPerfil, atualizarAvatar, atualizarPerfilPassword};

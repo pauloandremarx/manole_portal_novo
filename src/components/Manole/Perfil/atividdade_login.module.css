@@ -1,0 +1,65 @@
+.card_title {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #353535;
+}
+
+
+
+.barra_login {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 0.9em;
+  background-color: #f8c3af;
+  border-radius: 0.5em;
+  margin-bottom: 8em;
+}
+
+.barra_login > div {
+  position: relative;
+  padding-bottom: 3em;
+}
+
+.barra_login > div:after {
+  content: '';
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  top: -0.3em;
+  background-color: #f29977;
+  left: -0.75em;
+  border-radius: 50em;
+}
+
+.barra_login > div:before {
+  content: '';
+  position: absolute;
+  width: 0.2em;
+  height: 3em;
+  top: 2em;
+  background-color: #f29977;
+  left: calc(-0.1em - 50%);
+}
+
+.barra_login .absolute_data {
+  width: 8em;
+  position: absolute;
+  display: block;
+  left: calc(50% - 4em);
+  top: 5.4em;
+  text-align: left;
+}
+
+.barra_login .absolute_data span{
+  display: block;
+  font-size: 0.65em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}

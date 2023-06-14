@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getLocalStorage, removeStorage } from "@/util/Helpers";
+import LogadoHeaderv1 from "@/components/Manole/Perfil_Images/header_v1";
+import {useSession, signOut} from "next-auth/react";
 
 const navigation = [
     { name: "Soluções", href: "/#solucoes" },
@@ -14,223 +16,164 @@ const navigation = [
 ];
 
 const Header = () => {
-
     const router = useRouter();
-    function handleLogout(e) {
-        e.preventDefault();
-        removeStorage("token");
-        removeStorage("userid");
-        removeStorage("refleshToken");
-        removeStorage("username");
-        removeStorage("email");
-        router.push("/login");
-        setTimeout(() => {if (window && window.location) window.location.reload(); }, 500);
-    }
-
-    const [logado, setLogado] = useState(false);
-
-    useEffect(() => {
-        if (
-            getLocalStorage("username") == "undefined" ||
-            getLocalStorage("username") == null ||
-            getLocalStorage("username") == ""
-        ) {
-            setLogado(false);
-        } else {
-            setLogado(true);
-        }
-    }, [getLocalStorage("username")]);
-
+    const { data: session, status } = useSession()
 
     const stickyHeader = useRef();
 
     // Sticky Menu Area
     useEffect(() => {
-        window.addEventListener('scroll', isSticky);
-
+        window.addEventListener("scroll", isSticky);
     });
 
     /* Method that will fix header after a specific scrollable */
     const isSticky = (e) => {
         let fixedTop = 200;
-        var header = document.querySelector('.nav_stick');
-        if( header =! null) {
-            const header = document.querySelector('.nav_stick');
-            window.pageYOffset > fixedTop && window.pageYOffset <= (document.body.offsetHeight - 1100) ? header.classList.add(`${styles.is_sticky}`) : header.classList.remove(`${styles.is_sticky}`);
+        var header = document.querySelector(".nav_stick");
+        if ((header = !null)) {
+            const header = document.querySelector(".nav_stick");
+            window.pageYOffset > fixedTop &&
+            window.pageYOffset <= document.body.offsetHeight - 1100
+                ? header.classList.add(`${styles.is_sticky}`)
+                : header.classList.remove(`${styles.is_sticky}`);
         }
     };
 
     return (
         <>
-                <div className={`${styles.nav} nav_stick`}  ref={stickyHeader}>
-                    <div id={`${styles.id_nav} id_nav` }>
-                        <div className={`${styles.bg_stick} bg_active`} >
-                            <nav
-                                className={`uk-navbar-container uk-navbar-transparent container_padrao uk-navbar  ${styles.color_nav} `}
-                                data-uk-navbar
-                            >
-                                <div className="uk-navbar-left">
-                                    <ul className="uk-navbar-nav  uk-flex uk-flex-middle uk-height-1-1">
-                                        <li>
-                                            <Link href="/" legacyBehavior>
-                                                <a className="zero-min-height">
-                                                    <Image
-                                                        width={50}
-                                                        height={50}
-                                                        src="/manole/header/logo.webp"
-                                                        className={`${styles.logo_navheader} next_img`}
-                                                        alt="Logo Manole"
-                                                    />
+            <div className={`${styles.nav} nav_stick`} ref={stickyHeader}>
+                <div id={`${styles.id_nav} id_nav`}>
+                    <div className={`${styles.bg_stick} bg_active`}>
+                        <nav
+                            className={`uk-navbar-container uk-navbar-transparent container_padrao uk-navbar  ${styles.color_nav} `}
+                            data-uk-navbar
+                        >
+                            <div className="uk-navbar-left">
+                                <ul className="uk-navbar-nav  uk-flex uk-flex-middle uk-height-1-1">
+                                    <li>
+                                        <Link href="/" legacyBehavior>
+                                            <a className="zero-min-height">
+                                                <Image
+                                                    width={150}
+                                                    height={150}
+                                                    src="/manole/header/logo.webp"
+                                                    className={`${styles.logo_navheader} next_img`}
+                                                    alt="Logo Manole"
+                                                />
+                                            </a>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="uk-navbar-right">
+                                <ul className="uk-navbar-nav uk-flex uk-flex-middle uk-height-1-1 uk-visible@m">
+                                    <li>
+                    <span className={`${styles.navborder}`}>
+                      <Link href="/" legacyBehavior>
+                        <a title="Home" className="uk-button uk-button-text">
+                          Home
+                        </a>
+                      </Link>
+                    </span>
+                                    </li>
+
+                                    <li>
+                    <span className={`${styles.navborder}`}>
+                      <Link href="/sobre-nos" legacyBehavior>
+                        <a
+                            title="Sobre-nos"
+                            className="uk-button uk-button-text"
+                        >
+                          Sobre-nos
+
+                        </a>
+                      </Link>
+                    </span>
+                                    </li>
+
+                                    {navigation.map((item, index) => (
+                                        <li key={index}>
+                      <span className={`${styles.navborder}`}>
+                        <a
+                            href={item.href}
+                            title={item.name}
+                            className="uk-button uk-button-text"
+                        >
+                          {item.name}
+                        </a>
+                      </span>
+                                        </li>
+                                    ))}
+
+                                    <li>
+                                        <div className={`${styles.btn} ${styles.loja_virtual}`}>
+                                            <Link href={"https://www.manole.com.br/"} legacyBehavior>
+                                                <a target="_blank" rel="noopener noreferrer">
+                                                    <div>
+                                                        <div className={`${styles.width_container_cart}`}>
+                                                            <Image
+                                                                src="/manole/header/carrinho-de-compra-branco.svg"
+                                                                width={50}
+                                                                height={50}
+                                                                className={`uk-position-relative  ${styles.filter_white}`}
+                                                                sizes="4px"
+                                                                alt="Icone carrinho de compra"
+                                                            />
+                                                        </div>
+                                                        Loja virtual
+                                                    </div>
                                                 </a>
                                             </Link>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        </div>
+                                    </li>
 
-                                <div className="uk-navbar-right">
-                                    <ul className="uk-navbar-nav uk-flex uk-flex-middle uk-height-1-1 uk-visible@m">
+                                    {status === "authenticated" ? (
                                         <li>
-                      <span className={`${styles.navborder}`}>
-                        <Link href="/" legacyBehavior>
-                          <a title="Home" className="uk-button uk-button-text">
-                            Home
-                          </a>
-                        </Link>
-                      </span>
+                                             <LogadoHeaderv1 />
                                         </li>
-
+                                    ) : (
                                         <li>
-                      <span className={`${styles.navborder}`}>
-                        <Link href="/sobre-nos" legacyBehavior>
-                          <a
-                              title="Sobre-nos"
-                              className="uk-button uk-button-text"
-                          >
-                            Sobre-nos
-                          </a>
-                        </Link>
-                      </span>
-                                        </li>
-
-                                        {navigation.map((item, index) => (
-                                            <li key={index}>
-                        <span className={`${styles.navborder}`}>
-                          <a
-                              href={item.href}
-                              title={item.name}
-                              className="uk-button uk-button-text"
-                          >
-                            {item.name}
-                          </a>
-                        </span>
-                                            </li>
-                                        ))}
-
-                                        <li>
-                                            <div className={`${styles.btn} ${styles.loja_virtual}`}>
-                                                <Link
-                                                    href={"https://www.manole.com.br/"}
-                                                    legacyBehavior
-                                                >
-                                                    <a target="_blank" rel="noopener noreferrer">
+                                            <div className={`${styles.btn} ${styles.area_aluno}`}>
+                                                <Link href="/login/" legacyBehavior>
+                                                    <a>
                                                         <div>
                                                             <div className={`${styles.width_container_cart}`}>
                                                                 <Image
-                                                                    src="/manole/header/carrinho-de-compra-branco.svg"
-                                                                    width={50}
-                                                                    height={50}
-                                                                    className={`uk-position-relative  ${styles.filter_white}`}
-                                                                    sizes="4px"
-                                                                    alt="Icone carrinho de compra"
+                                                                    src="/manole/header/livro-laranja.svg"
+                                                                    width={10}
+                                                                    height={10}
+                                                                    className={`uk-position-relative  ${styles.filter_orange} next_img`}
+                                                                    alt="Icone livro laranja"
                                                                 />
                                                             </div>
-                                                            Loja virtual
+                                                            Área do Aluno
                                                         </div>
                                                     </a>
                                                 </Link>
                                             </div>
                                         </li>
+                                    )}
+                                </ul>
 
-                                        {logado ? (
-                                            <li>
-                                                <aside className={`${styles.flex_user}`}>
-                                                    <div className="uk-flex uk-flex-middle">
-                                                        <div className={`${styles.img_user}`}></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <p className={`${styles.seja_bemvindo}`}>
-                                                            Seja Bem-vindo
-                                                        </p>
-                                                        <span className={`${styles.username}`}>
-                              {" "}
-                                                            {getLocalStorage("username")}{" "}
-                                                            <span data-uk-icon="icon: chevron-down; ratio: 1"></span>
-                            </span>
-                                                    </div>
-                                                </aside>
-
-                                                <div
-                                                    className={`${styles.username_dropdown}`}
-                                                    data-uk-dropdown="mode: click"
-                                                >
-                                                    <Link href={`/painel/`} legacyBehavior>
-                                                        <a>Painel</a>
-                                                    </Link>
-                                                    <Link href={`/painel/meu-perfil `} legacyBehavior>
-                                                        <a>Meu perfil</a>
-                                                    </Link>
-
-                                                    <a>Alterar Senha</a>
-                                                    <div className={`${styles.laranja}`}> </div>
-                                                    <a onClick={handleLogout}>Sair</a>
-                                                </div>
-                                            </li>
-                                        ) : (
-                                            <li>
-                                                <div className={`${styles.btn} ${styles.area_aluno}`}>
-                                                    <Link href="/login/" legacyBehavior>
-                                                        <a>
-                                                            <div>
-                                                                <div
-                                                                    className={`${styles.width_container_cart}`}
-                                                                >
-                                                                    <Image
-                                                                        src="/manole/header/livro-laranja.svg"
-                                                                         width={10}
-                                                                        height={10}
-                                                                        className={`uk-position-relative  ${styles.filter_orange} next_img`}
-                                                                        alt="Icone livro laranja"
-                                                                    />
-                                                                </div>
-                                                                Área do Aluno
-                                                            </div>
-                                                        </a>
-                                                    </Link>
-                                                </div>
-                                            </li>
-                                        )}
-                                    </ul>
-
-                                    <div className="uk-navbar-nav uk-hidden@m">
-                                        <div className={`${styles.padding_right_h}`}>
-                                            <a
-                                                className="uk-navbar-toggle"
-                                                data-uk-toggle="target: #my-mobile-nav"
-                                            >
-                        <span
-                            className={`${styles.hamburgue}`}
-                            data-uk-icon="icon: menu; ratio: 2"
-                        ></span>
-                                            </a>
-                                        </div>
+                                <div className="uk-navbar-nav uk-hidden@m">
+                                    <div className={`${styles.padding_right_h}`}>
+                                        <a
+                                            className="uk-navbar-toggle"
+                                            data-uk-toggle="target: #my-mobile-nav"
+                                        >
+                      <span
+                          className={`${styles.hamburgue}`}
+                          data-uk-icon="icon: menu; ratio: 2"
+                      ></span>
+                                        </a>
                                     </div>
                                 </div>
-                            </nav>
-                        </div>
+                            </div>
+                        </nav>
                     </div>
-
                 </div>
+            </div>
 
             <div id="my-mobile-nav" data-uk-offcanvas="overlay: true; flip:true;">
                 <div className={`uk-offcanvas-bar  uk-offcanvas-bar_v1`}>

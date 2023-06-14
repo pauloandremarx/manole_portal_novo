@@ -1,7 +1,7 @@
- 
 
-.nav{ 
-  z-index: 900 !important;   
+
+.nav{
+  z-index: 900 !important;
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
@@ -21,7 +21,7 @@
   box-shadow: 0px 0px 05px 5px rgba(0, 0, 0, 0.09);
 }
 
-  
+
 .logo_navheader{
   box-sizing: border-box;
   width: 100%;
@@ -41,7 +41,7 @@
 }
 
 .color_nav{
-  max-width: 1400px; 
+  max-width: 1400px;
   padding: 0px 0.5em;
 }
 
@@ -50,7 +50,7 @@
 .color_nav li .navborder a{
   padding: 0px;
   color: #045BC8;
-  font-family: 'Open Sans', sans-serif; 
+  font-family: 'Open Sans', sans-serif;
   font-size: clamp(11px, 1vw, 14px);
   font-weight: 600;
   text-transform: inherit;
@@ -70,7 +70,7 @@
 }
 
 .color_nav li .navborder a:hover{
-  color: #E65B20; 
+  color: #E65B20;
 }
 
 .color_nav li .navborder a:hover:before{
@@ -103,7 +103,7 @@
   padding: 0px;
   font-weight: 600;
   text-decoration: none;
-  
+
 }
 
 .area_aluno div {
@@ -114,7 +114,7 @@
 }
 
 .width_container_cart{
-  width: 30px; 
+  width: 30px;
   position: relative;
 }
 
@@ -135,7 +135,7 @@
 .area_aluno:hover div{
   color:#fff;
 }
- 
+
 
 .loja_virtual{
   border: 1px solid #110D82;
@@ -177,7 +177,7 @@
     margin-bottom: -10px;
     margin-top: -10px;
    }
-   
+
   .logo{
       width: 80px;
       margin: 0px;
@@ -196,14 +196,14 @@
 
 .uk-offcanvas-bar{
   width: 100vw;
-  background-color: rgba(17, 13, 130, 0.95); 
- 
+  background-color: rgba(17, 13, 130, 0.95);
+
   backdrop-filter: blur(20px);
 }
 
 .uk-offcanvas-flip .uk-offcanvas-bar {
   right: -100vw;
- 
+
 }
 
 .nav_mobile_header_container{
@@ -220,7 +220,7 @@
 
 .nav_mobile_container li{
   text-align: center;
- 
+
 }
 
 .nav_mobile_container li .mobile_a{
@@ -230,7 +230,7 @@
 .nav_mobile_container li a{
   display: block;
   margin-bottom: 20px;
-} 
+}
 
 .nav_mobile_container  .orange{
   color: #FF7E4F;
@@ -276,12 +276,15 @@
 }
 
 .img_user{
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
+
   background-position: center;
   background-size: cover;
   border-radius: 100%;
+  margin-left: 5px;
   margin-right: 10px;
+
  border: 3px solid #045BC8;
 }
 
@@ -365,7 +368,7 @@
   margin-bottom: 0px;
 }
 
-.star{ 
+.star{
   position: absolute !important;
   align-items: center;
   justify-content: center;
@@ -376,7 +379,7 @@
   height: 26px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin: 0px; 
+  margin: 0px;
   font-size: 72%;
   padding: 1px;
   color: #fff;
@@ -391,9 +394,9 @@
 }
 
 .button_active{
-  background: rgba(248, 195, 175, 0.25); 
+  background: rgba(248, 195, 175, 0.25);
   border-bottom: 1px solid #F8C3AF;
-  border-radius: 4px; 
+  border-radius: 4px;
   padding: 0 30px !important;
 }
 
@@ -402,19 +405,19 @@
 }
 
 .button_active a:hover{
-  color: #045BC8 !important; 
+  color: #045BC8 !important;
 }
 
 .button_active:hover{
-  color: #045BC8 !important; 
+  color: #045BC8 !important;
 }
 
 .button_active a:after, .button_active a:before{
   width: 0px !important;
   border: none !important;
 }
- 
- 
+
+
 .close_lupa{
   width: 30px;
   height: auto;
@@ -439,14 +442,14 @@
 
 .off_canvas_flip_id .my_off_canvas{
   background-color: #fff;
-  z-index: 500 ;   
-  left: auto ; 
+  z-index: 500 ;
+  left: auto ;
   width: 100vw;
-  right: -100vw; 
+  right: -100vw;
 }
 
 .off_canvas_flip_id .my_off_canvas *{
-  color: #045BC8 !important; 
+  color: #045BC8 !important;
 }
 
  .logo_off_canvas{
@@ -467,13 +470,13 @@
 
 
 .nivel_off{
-  position: relative; 
+  position: relative;
   display: flex;
   align-items: center;
   margin-top: 5px;
 }
 
-.nivel_off .star{ 
+.nivel_off .star{
   left: calc(100% - 20px);
   top: -3px;
   color: #fff !important;
@@ -497,11 +500,11 @@
   margin-top: 20px;
   margin-bottom: 7px;
 
-  
+
 }
 
 
-.username_dropdown_off_canvas::before{ 
+.username_dropdown_off_canvas::before{
     content: "";
     position: absolute;
     bottom: calc(100% - 9.1px); /*i.e. half the height*/
@@ -514,7 +517,7 @@
     border-bottom:inherit;
     border-right:inherit;
     box-shadow:none;
- 
+
 }
 
 .username_dropdown_off_canvas a{
@@ -541,9 +544,9 @@
 
 
 @media (max-width:959px){
-  .flex_user{ 
+  .flex_user{
     margin-left: auto;
-    margin-right: 0px;  
+    margin-right: 0px;
   }
 
   .flex_user > div{
@@ -552,7 +555,7 @@
     right: -10px;
   }
 
-    
+
   .margin_itens > div{
     margin-right: 0px;
     margin-left: 30px;
@@ -563,6 +566,6 @@
     padding: 13px;
     padding-top: 20px;
   }
- 
-  
+
+
 }

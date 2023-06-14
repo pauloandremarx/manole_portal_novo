@@ -58,27 +58,6 @@
   font-size: 0.8em;
 }
 
-.card_cursos_notas {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.2em 1em;
-  margin-bottom: 1em;
-}
-
-.card_cursos_notas {
-  border-width: 3px;
-  border-style: solid;
-  border-image: linear-gradient(#ef7d52, #49c5b1) 27;
-}
-
-.card_cursos_notas .text_curso {
-  font-size: 0.9em;
-}
-
-.card_cursos_notas span {
-  color: #ef7d52;
-}
 
 .accordion_title {
   font-weight: 500;
@@ -91,7 +70,48 @@
   text-decoration: none !important;
 }
 
-.acordion_content {
-  padding-bottom: 1.6em;
-  border-bottom: 0.1em solid #cdcdcd;
+.item {
+  border-bottom: 0px solid #ccc;
+
+}
+
+.itemBtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 1em 0rem;
+  padding-right: 1rem;
+  font-size: 1.3rem;
+  text-align: left;
+  font-weight: 700;
+  color: #000;
+  background-color: transparent;
+  border: none;
+}
+
+.itemBtn:hover {
+  background-color: #f3f3f3;
+}
+
+.itemBtnExpanded {
+  background-color: #e7e7e7;
+}
+
+.itemContent {
+  transition: height 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.itemPanel {
+  padding: 0rem;
+}
+
+.chevron {
+  margin-left: auto;
+  transition: transform 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.itemBtnExpanded .chevron {
+  transform: rotate(180deg);
 }

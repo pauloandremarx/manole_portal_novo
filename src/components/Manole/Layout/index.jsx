@@ -1,12 +1,11 @@
 
-'use client'
+
 
 import React from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
-   
+export default  function Layout( { children } ) {
 
-const Layout = ({children}) => {
   return (
     <div>
         <Header />
@@ -16,4 +15,3 @@ const Layout = ({children}) => {
   )
 }
 
-export default Layout

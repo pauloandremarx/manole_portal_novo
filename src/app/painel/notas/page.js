@@ -1,130 +1,85 @@
+
 'use client';
 import Layoutv2 from "@/components/Manole/Layoutv2";
 import React, {useState } from "react";
- 
-import { useRouter } from 'next/navigation'
-import { getLocalStorage } from '@/util/Helpers'
 import styles from "./notas.module.css";
 import Link from "next/link";
-
 import Image from "next/image";
+import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 
+import ComponenteNotas from "@/components/Manole/Notas";
 export default function MeuPerfil() {
 
- 
 
-  const [disabledName, setDisabledName] = useState(true);
-  const handleClickNome = (e) => {
-    setDisabledName(!disabledName);
-  };
 
-  const [isHidePass, setHidePass] = useState(true);
-    const toggleClass = () => {
-        setHidePass(!isHidePass);
-      };
+  /**
+   * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
+   */
+  const AccordionItem = ({ header, ...rest }) => (
+      <Item
+          {...rest}
+          header={
+            <>
+              {header}
+              <Image width={15} height={15} className={ `${styles.chevron } next_img`} src="/manole/perfil/arrow-down.svg" alt="Chevron Down" />
+            </>
+          }
+          className={styles.item}
+          buttonProps={{
+            className: ({ isEnter }) =>
+                `${styles.itemBtn} ${isEnter && styles.itemBtnExpanded}`
+          }}
+          contentProps={{ className: styles.itemContent }}
+          panelProps={{ className: styles.itemPanel }}
+      />
+  );
 
-  
-  var classHide = isHidePass ? 'uk-block' : 'uk-hidden'
-  
-  var classBlock = isHidePass ? 'uk-hidden' : 'uk-block' 
+
   return (
-    <Layoutv2>
-      <>
-        <div className={`  ${styles.padding_top_large} `}>
-          <section className={`  ${styles.container_painel} `}>
-            <p className={`${styles.breadcrumb }`}>
+      <Layoutv2>
+        <>
+          <div className={`   `}>
+            <section className={`  ${styles.container_painel} `}>
+              <p className={`${styles.breadcrumb }`}>
               <span>
                 <Link href="/painel/" legacyBehavior>
                   <a>Painel do aluno</a>
                 </Link>{" "}
               </span>{" "}
-              {">"} <span>Notas</span>
-            </p>
-            <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><Image  width={40} height={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
-            <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
-              <div > 
-                <h1 className={`${styles.informacoes_perfil} `}>
-                  Minhas notas
-                </h1>
+                {">"} <span>Notas</span>
+              </p>
+              <Link href="/painel/" legacyBehavior><a className={`${styles.voltar_perfil}`}><Image  width={40} height={40} src="/manole/perfil/left-sm.svg" />Voltar para meu perfil</a></Link>
+              <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
+                <div >
+                  <h1 className={`${styles.informacoes_perfil} uk-margin-large-top`}>
+                    Minhas notas
+                  </h1>
 
-                <div className={`${styles.container_form} `}>
-                  <div>
-                    <ul data-uk-accordion>
-                      <li>
-                        <a   className={`uk-accordion-title ${styles.accordion_title}`} href="#">Cursos em andamento</a>
-                        <div className={`uk-accordion-content ${styles.acordion_content}`}>
+                  <div className={`${styles.container_form} `}>
+                    <div className={`uk-margin`}>
+                      <Accordion>
+                        <AccordionItem header="Notas de cursos">
+                          <ComponenteNotas />
+                        </AccordionItem>
 
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div> 
-                          
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
+                        <AccordionItem header="Notas de cursos concluidos">
 
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
-
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
-
-                        </div>
-                      </li>
+                        </AccordionItem>
+                      </Accordion>
+                    </div>
 
 
-                      <li>
-                        <a   className={`uk-accordion-title ${styles.accordion_title}`} href="#">Cursos em concluidos</a>
-                        <div className={`uk-accordion-content ${styles.acordion_content}`}>
-
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div> 
-                          
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
-
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
-
-                          <div className={`${styles.card_cursos_notas}`}>
-                            <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/completeIcon.svg" /></div>
-                            <div className={`${styles.text_curso}`}>Curso de Obstetrícia e Ginecologia </div>
-                            <div>nota: <span>8,5</span></div>
-                          </div>  
-
-                        </div>
-                      </li>
-                    </ul>
                   </div>
- 
-                 
-                </div>
- 
-              </div>
 
-           
-            </div>
-          </section>
-        </div>
-      </>
-    </Layoutv2>
+                </div>
+
+
+              </div>
+            </section>
+          </div>
+        </>
+      </Layoutv2>
   );
 }
+
+

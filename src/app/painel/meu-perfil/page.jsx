@@ -3,20 +3,17 @@
 import Layoutv2 from "@/components/Manole/Layoutv2";
 import PerfilNormal from "@/components/Manole/Perfil/normal.jsx";
 import PerfilAcademico from "@/components/Manole/Perfil/academico.jsx";
+import AtividadeLogin from "@/components/Manole/Perfil/atividade_login";
+
 import styles from "./meu-perfil.module.css";
 import Link from "next/link";
-import {getLocalStorage} from '@/util/Helpers'
-import {useRouter} from 'next/navigation'
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
-
 import ImagePerfil from "@/components/Manole/Perfil/imagePerfil.jsx";
-
 import Image from "next/image";
+import {useSession, signOut} from "next-auth/react";
+
 
 export default function MeuPerfil() {
-
-    
- 
     /**
      * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
      */
@@ -48,9 +45,10 @@ export default function MeuPerfil() {
                   <span>
                     <Link href="/painel/" legacyBehavior>
                       <a>Painel do aluno</a>
-                    </Link>{" "}
-                  </span>{" "}
-                            {">"} <span>Meu perfil</span>
+                    </Link>
+                  </span>
+                            {" ❯ "}
+                              <span>Meu perfil</span>
                         </p>
 
                         <div className="uk-grid uk-grid-large uk-child-width-1-2@m">
@@ -69,24 +67,24 @@ export default function MeuPerfil() {
                                         <div
                                             className={`uk-text-center ${styles.ex} ${styles.color_azul} `}
                                         >
-                                            58<span>XP</span>{" "}
+                                            58<span>XP</span>
                                         </div>
                                         <div className={`${styles.barcontent} `}>
-                                            {" "}
+
                                             <div
                                                 className={`${styles.barcontentColor} `}
                                                 style={{width: "40%"}}
                                             ></div>
                                         </div>
                                         <div className={`${styles.padding_l_r} `}>
-                                            {" "}
+
                                             <div className={`${styles.ex} `}>
-                                                10<span>XP</span>{" "}
+                                                10<span>XP</span>
                                             </div>
-                                            {" "}
+
                                             <span className={`${styles.para_nivel} `}>
                             Para o nivel 7
-                          </span>{" "}
+                          </span>
                                         </div>
                                     </div>
                                 </div>
@@ -193,21 +191,21 @@ export default function MeuPerfil() {
                                                         className={`${styles.box_experiencia} ${styles.box_margin_top}`}
                                                     >
                                                         <div className={`${styles.barcontent} `}>
-                                                            {" "}
+
                                                             <div
                                                                 className={`${styles.barcontentColor} `}
                                                                 style={{width: "40%"}}
                                                             ></div>
                                                         </div>
                                                         <div className={`${styles.padding_l_r} `}>
-                                                            {" "}
+
                                                             <div className={`${styles.ex} `}>
-                                                                10<span>XP</span>{" "}
+                                                                10<span>XP</span>
                                                             </div>
-                                                            {" "}
+
                                                             <span className={`${styles.para_nivel} `}>
                                     Para o nivel 7
-                                  </span>{" "}
+                                  </span>
                                                         </div>
                                                     </div>
 
@@ -224,29 +222,15 @@ export default function MeuPerfil() {
                                     </div>
 
                                     <div>
-                                        <h2 className={`${styles.card_title}`}>
-                                            Atividades de login
-                                        </h2>
-
-                                        <div className={`${styles.barra_login}`}>
-                                            <div>
-                                                <span>Primeiro acesso ao site</span>
-                                            </div>
-
-                                            <div>
-                                                <span>Primeiro acesso ao site</span>
-                                            </div>
-
-                                            <div>
-                                                <span>ultimo acesso ao site</span>
-                                            </div>
-                                        </div>
+                                        <AtividadeLogin />
                                     </div>
 
-                                    <h2 className={`${styles.card_title}`}>
-                                        Atividades de login
-                                    </h2>
+                                    <div className={`${styles.interacoes}`}>
 
+                                        <h2 className={`${styles.card_title} `}>
+                                            Minhas interações
+                                        </h2>
+                                    </div>
                                     <div
                                         className={`${styles.card_branco} uk-child-width-1-4 uk-grid ${styles.text_msg} `}
                                     >

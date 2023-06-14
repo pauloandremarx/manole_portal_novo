@@ -10,14 +10,16 @@ import React, {useEffect, useState, Fragment} from "react";
 import { useQuery, useQueries, usersQuery } from "@tanstack/react-query";
 import { getFormacao, getInstituicoes, getMeuCursos, getPerfilAcademico } from "@/services/formProfile/useFormProfile";
 import Image from "next/image";
+import {useSession} from "next-auth/react";
 export default function EditarFormacao(props) {
+    const { data: session, status } = useSession();
 
     const [minhaformacao, instituicoes, academicEducation, meus_cursos] =
         useQueries({
             queries: [
                 {
                     queryKey: ["minhaformacao_edit"],
-                    queryFn: () => getPerfilAcademico(getLocalStorage("refleshToken")),
+                    queryFn: () => getPerfilAcademico(session?.user.refleshToken),
                 },
 
                 {

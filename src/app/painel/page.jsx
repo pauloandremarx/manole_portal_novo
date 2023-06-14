@@ -1,25 +1,21 @@
-'use client' 
+'use client'
 
 
 import Layoutv2 from "@/components/Manole/Layoutv2";
-
 import BannerBemvindo from "@/components/Manole/bannerBemvindo";
-
-import HeaderMeusCursos from "@/components/Manole/HeaderMeusCursos"; 
+import HeaderMeusCursos from "@/components/Manole/HeaderMeusCursos";
 import HeaderMinicursos from "@/components/Manole/HeaderMiniCursos";
 import HeaderEventos from "@/components/Manole/HeaderEventos";
 
- 
+
 import styles from "./painel.module.css";
-
- 
-
 export default function Painel() {
- 
+
+
 
   return (
-    <>  
-      <Layoutv2> 
+    <>
+      <Layoutv2>
         <BannerBemvindo />
 
         <section className={` uk-margin-large-top ${styles.container_painel}`}>
@@ -38,12 +34,12 @@ export default function Painel() {
 
 
           <HeaderEventos title={`Próximos eventos`} type={`mini`} page={"painel"} />
-        
+
         </section>
-       
+
     </Layoutv2>
       </>
 
     );
-  
+
 }
