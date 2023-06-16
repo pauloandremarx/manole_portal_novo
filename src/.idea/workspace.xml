@@ -5,62 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3232b381-f89e-45fd-9fea-301f230ee4d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/hello/auth/[...nextauth].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/session/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/LoginBtn/buttons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/HeaderCursosFinalizados/headerMeusCursosF.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/HeaderCursosFinalizados/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Login/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Login/login.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Notas/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Notas/notas.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil/atividade_login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil/atividdade_login.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v1.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v1_mobile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2_mobile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/GetLogs/useGetLogs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/notas/useNotas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/login.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/painel/cursos-disponiveis/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/cursos-disponiveis/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/meu-perfil/meu-perfil.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/meu-perfil/meu-perfil.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/meu-perfil/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/meu-perfil/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/meus-cursos/m_cursos.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/meus-cursos/m_cursos.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/meus-cursos/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/meus-cursos/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/minha-senha/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/minha-senha/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/notas/notas.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/notas/notas.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/notas/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/notas/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/BannerHome/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/BannerHome/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Header/header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Header/header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Header/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/HeaderMeusCursos/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/HeaderMeusCursos/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/HeaderMiniCursos/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/HeaderMiniCursos/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Headerv2/headerv2.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Headerv2/headerv2.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/CursosDisponiveis/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/CursosDisponiveis/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Manole/Headerv2/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Headerv2/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Notification/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Notification/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Notification/notification.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Notification/notification.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil/AdicionarFormacao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil/AdicionarFormacao.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil/EditarFormacao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil/EditarFormacao.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil/academico.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil/academico.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil/imagePerfil.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil/imagePerfil.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil/normal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil/normal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/GetLogs/useGetLogs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/atualizarPerfil/useAtualizarPerfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/atualizarPerfil/useAtualizarPerfil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/formProfile/useFormProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/services/formProfile/useFormProfile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/login/useLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/login/useLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/Config.js" beforeDir="false" afterPath="$PROJECT_DIR$/util/Config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/Layoutv2/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Layoutv2/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +67,7 @@
       <workItem from="1685012085433" duration="10597000" />
       <workItem from="1686333175816" duration="4265000" />
       <workItem from="1686589529508" duration="6313000" />
+      <workItem from="1686829711459" duration="695000" />
     </task>
     <servers />
   </component>

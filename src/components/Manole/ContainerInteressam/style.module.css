@@ -1,0 +1,97 @@
+
+.subtitulo{
+    color: #353535 !important;
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.card{
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+  border-color: #EF7D52;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+.card .titulo{
+  padding: 10px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 19px;
+  text-align: center;
+  color: #353535;
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+}
+
+.thumbmail{
+  width: 100%;
+  height: 180px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ef7d52;
+}
+
+.saber_mais{
+  border: 1px solid #045BC8;
+  border-radius: 8px;
+  display: block;
+  color: #FFFFFF;
+  background-color: #045BC8;
+  max-width: 100px;
+  text-align: center;
+  padding: 4px 6px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.saber_mais:hover{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.bgGrey{
+  background-color: #7F8991;
+  margin-bottom: 10px;
+}
+
+.bgHeightSmall{
+  height: 50px;
+}
+
+.bgHeight{
+  height: 150px;
+}
+
+.bgHeightLarge{
+  height: 200px;
+}
+
+.btnCarregarMais{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding_x{
+  padding: 0 2em;
+}
+
+.circleShadow{
+  border-radius: 100px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}

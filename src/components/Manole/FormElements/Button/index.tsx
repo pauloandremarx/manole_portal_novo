@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Btn, BtnInfo } from './styles';
 import { BsQuestion } from 'react-icons/bs';
-import { Popover, PopoverBody } from 'reactstrap';
 
 interface Props extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -29,11 +28,7 @@ export const ButtonInformation: React.FC<ButtonInfoProps> = ({ message }) => {
         <BsQuestion />
       </BtnInfo>
 
-      <Popover placement="bottom" isOpen={ popoverOpen } target={ "popover" } toggle={ toggle }>
-        <PopoverBody>
-          { message }
-        </PopoverBody>
-      </Popover>
+
     </React.Fragment>
   );
 };

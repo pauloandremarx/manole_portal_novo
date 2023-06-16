@@ -267,7 +267,7 @@
   color: #353535;
   display: flex;
   align-items: center;
-  min-height: 100px;
+  min-height: 120px;
 }
 
 .thumbmail{
@@ -292,5 +292,32 @@
   margin-right: 10px;
   margin-top: 1em;
   margin-bottom: 1em;
+}
 
+.saber_mais:hover{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.bgGrey{
+  background-color: #7F8991;
+  margin-bottom: 10px;
+}
+
+.bgHeightSmall{
+  height: 50px;
+}
+
+.bgHeight{
+  height: 150px;
+}
+
+.bgHeightLarge{
+  height: 200px;
+}
+
+.btnCarregarMais{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

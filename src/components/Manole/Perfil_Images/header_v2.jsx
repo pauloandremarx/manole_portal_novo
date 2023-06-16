@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from "react";
 import styles from "@/components/Manole/Headerv2/headerv2.module.css";
 
@@ -8,12 +9,9 @@ import {useRouter} from "next/navigation";
 import Image from "next/image";
 import Notification from "@/components/Manole/Notification";
 import {useSession, signOut, getSession } from "next-auth/react";
-import ContentLoader from "react-content-loader";
 
-
-export default function LogadoHeaderv2() {
+export default function LogadoHeaderv2(props) {
     const { data: session } = useSession();
-
     const refleshToken = session?.user?.refleshToken;
 
         const [meuperfilheader] =
@@ -28,19 +26,27 @@ export default function LogadoHeaderv2() {
             });
 
         if (meuperfilheader.isLoading) return (
-            <ContentLoader
-                speed={12}
-                width={150}
-                height={70}
-                viewBox="0 0 150 60"
-                backgroundColor="#f3f3f3"
-                foregroundColor="#ecebeb"
-            >
-                <circle cx="13" cy="33" r="8" />
-                <circle cx="39" cy="34" r="8" />
-                <circle cx="69" cy="34" r="8" />
-                <circle cx="114" cy="32" r="29" />
-            </ContentLoader>
+            <aside className={`${styles.flex_user}`}>
+                <div
+                    className={`uk-flex uk-flex-middle ${styles.margin_itens}`}
+                >
+                    <div className={`uk-position-relative`}>
+                        <div style={{background:'#ddd', width:25, height:25, borderRadius:'50px'}}></div>
+                    </div>
+
+                    <div className={`uk-position-relative`}>
+                        <div style={{background:'#ddd', width:25, height:25, borderRadius:'50px'}}></div>
+                    </div>
+                    <div className="uk-visible@m">
+                        <div style={{background:'#ddd', width:25, height:25, borderRadius:'50px'}}> </div>
+                    </div>
+                    <div
+                        className={`${styles.img_user}`}
+                        style={{background:'#ddd'}}
+                    >
+                    </div>
+                </div>
+            </aside>
         );
         if (meuperfilheader.error)
             return meuperfilheader.error.message;
@@ -52,7 +58,7 @@ export default function LogadoHeaderv2() {
                     className={`uk-flex uk-flex-middle ${styles.margin_itens}`}
                 >
                     <div className="uk-visible@m">
-                        <a uk-toggle="target: .toggle-search; animation: uk-animation-fade">
+                        <a data-uk-toggle="target: .toggle-search; animation: uk-animation-fade">
                             <Image
                                 className={`toggle-search ${styles.close_lupa} next_img`}
                                 src="/manole/perfil/lupa.svg"
