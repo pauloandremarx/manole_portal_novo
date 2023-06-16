@@ -2,7 +2,7 @@
 
 
 import Layoutv2 from "@/components/Manole/Layoutv2";
-import BannerBemvindo from "@/components/Manole/bannerBemvindo";
+import BannerBenvindo from "@/components/Manole/bannerBemvindo";
 import HeaderMeusCursos from "@/components/Manole/HeaderMeusCursos";
 import HeaderMinicursos from "@/components/Manole/HeaderMiniCursos";
 import HeaderEventos from "@/components/Manole/HeaderEventos";
@@ -11,12 +11,10 @@ import HeaderEventos from "@/components/Manole/HeaderEventos";
 import styles from "./painel.module.css";
 export default function Painel() {
 
-
-
   return (
     <>
       <Layoutv2>
-        <BannerBemvindo />
+        <BannerBenvindo />
 
         <section className={` uk-margin-large-top ${styles.container_painel}`}>
           <HeaderMeusCursos

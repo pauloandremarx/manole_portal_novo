@@ -6,7 +6,7 @@ import { BsQuestion } from 'react-icons/bs';
 interface Props extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   text: string;
   type: "submit" | "button" | "reset";
-};
+}
 
 interface ButtonInfoProps {
   message: string;

@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3232b381-f89e-45fd-9fea-301f230ee4d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/painel/cursos-disponiveis/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/cursos-disponiveis/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/CursosDisponiveis/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/CursosDisponiveis/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Headerv2/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Headerv2/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Layoutv2/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Layoutv2/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Perfil_Images/header_v2.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/aulas-gratuitas/[id]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/aulas-gratuitas/[id]/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/painel/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/painel/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/ContainerInteressam/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/ContainerInteressam/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/FormElements/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/FormElements/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Manole/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Manole/Layout/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,23 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1v\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "copyright",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1v\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,6 +77,7 @@
       <workItem from="1686333175816" duration="4265000" />
       <workItem from="1686589529508" duration="6313000" />
       <workItem from="1686829711459" duration="695000" />
+      <workItem from="1686942987935" duration="3174000" />
     </task>
     <servers />
   </component>
