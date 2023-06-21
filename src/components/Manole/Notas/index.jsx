@@ -48,7 +48,7 @@ return (
 
         {minhas_notas?.data.map(function(item, i){
             return (
-                <div className={`${styles.card_cursos_notas}`}>
+                <div className={`${styles.card_cursos_notas}`} key={item.course+'_id_notas'}>
                     <div><Image fill={true} className={`uk-position-relative`}  src="/manole/perfil/cursoIcon.svg" /></div>
                     <div className={`${styles.text_curso}`}> {item.course} </div>
                     <div>nota: <span>{item.grade}</span></div>

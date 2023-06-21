@@ -52,7 +52,7 @@ export default function BannerHome( props ) {
     </SkeletonTheme>);
 
     if (banners.error)
-        return <div>"An error has occurred: " + banners.error.message;</div>
+        return <div>An error has occurred: {banners.error.message};</div>
 
 
   return <>

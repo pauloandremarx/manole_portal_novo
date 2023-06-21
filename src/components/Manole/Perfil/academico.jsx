@@ -359,8 +359,8 @@ export default function PerfilAcademico() {
             <AdicionarEspecialidade   />
             {minhaformacao.data?.especialidades.map(function(item, i){
                 return (
-                    <section className={`uk-margin`}>
-                        <h1 className={`uk-text-default  uk-flex uk-flex-between`} key={`Item_${item.id}_formacao_academica`}>
+                    <section className={`uk-margin`} key={`Item_${item.id}_formacao_academica`}>
+                        <h1 className={`uk-text-default  uk-flex uk-flex-between`} >
                                     <span className={`uk-heading-bullet`}>
                                        Especialidades {i + 1}
                                     </span>
