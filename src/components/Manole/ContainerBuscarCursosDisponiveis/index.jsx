@@ -37,20 +37,14 @@ export default function ContainerBuscaCursosDispo(props) {
                 },
             ],
         });
+ 
 
-
-    if (categorias.error) return  categorias.error.message;
-    if (categorias.error)  return instituicoes.error.message;
     const search = props.search.replaceAll("-", " ");
     const search_parans = categorias?.data?.find(word => word.nome ===  search ).grupo_cat;
 
-
-
-    const [pageNumber, setPageNumber] = useState(0 );
-
     const fetchCursosDisponiveis = async () => {
 
-        if(!!usu_id && !!search_parans) {
+        if(!!usu_id && !!search_parans && categorias.status === 'success') {
             const res = await fetch(
                 `https://nwlax96g00.execute-api.us-east-1.amazonaws.com/recomendacao/busca?user=${usu_id}&category=${search_parans}`,
                 {

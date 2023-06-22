@@ -14,7 +14,7 @@ export default function  bannerCursosDisponiveis (props)  {
             <div className="uk-child-width-expand uk-grid uk-grid-small uk-grid-match">
                 <div className={`uk-flex uk-flex-middle ${styles.text_perfil}`}>
                         <div>
-                            <h1>{titulo ? titulo   : 'Título'}</h1> 
+                            <h1>{titulo ? titulo   : 'Título'}</h1>
                             <p>A Manole Educação oferece cursos <strong>livres e de atualização</strong> em áreas como Saúde, Direito e Negócios para estudantes universitários e profissionais.
 
                                 <span className="uk-visible@m"> Os cursos são produzidos em <strong>parceria com sociedades de classe, renomadas instituições e professores que são referências científicas nacionais</strong> em suas diversas especialidades.</span></p>

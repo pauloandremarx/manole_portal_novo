@@ -23,6 +23,13 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'manole-certificados.s3.amazonaws.com',
+                port: '',
+                pathname: '/**',
+
+            }
         ],
     },
 }
