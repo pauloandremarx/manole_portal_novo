@@ -37,9 +37,9 @@ export default function ContainerBuscaCursosDispo(props) {
                 },
             ],
         });
- 
 
-    const search = props.search.replaceAll("-", " ");
+
+    const search = props?.search?.replaceAll("-", " ");
     const search_parans = categorias?.data?.find(word => word.nome ===  search ).grupo_cat;
 
     const fetchCursosDisponiveis = async () => {
