@@ -53,8 +53,6 @@ const AulasSinglePost = ({ params: { id } }) => {
       }
 
 
-
-
   return (
     <Layout>
         <header className={`${styles.bg_single_post} `}>

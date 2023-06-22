@@ -96,8 +96,8 @@ export default function ContainerCursosDispo(props) {
                     className={`uk-slider-items uk-child-width-1-5@l uk-child-width-1-4@m uk-flex-center uk-margin-large-top  uk-grid`}
                 >
                     {data.map((recomendation_item, i) => (
-                        <React.Fragment key={`${i}_pages`}>
-                            <div key={recomendation_item.product_id + i}>
+                        <React.Fragment key={`container_interessam${i}_pages`}>
+                            <div key={'container_interessam'+recomendation_item.product_id + i}>
                                 <div className={`${styles.card}`}>
                                     <h1 className={`${styles.titulo}`}>
                                         {recomendation_item.name}

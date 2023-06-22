@@ -3,7 +3,7 @@
     border-radius: 64px;
     background: rgba( 255, 255, 255, 0.20 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.27 );
-    backdrop-filter: blur( 33.5px ); 
+    backdrop-filter: blur( 33.5px );
     margin-top:25px;
     margin-bottom:75px;
 }
@@ -45,7 +45,7 @@
     padding: 16px 25px;
     border: 1px solid #fff;
     border-radius: 15px;
-    
+
 }
 
 .lista_epsodios li:not(:last-child){
@@ -53,7 +53,7 @@
 }
 
 .iconPodcast{
-    width: 35px;
+    max-width: 50px;
     height:auto;
     margin-right: 5px;
 }

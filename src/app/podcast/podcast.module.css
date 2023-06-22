@@ -2,7 +2,7 @@
     background-image: linear-gradient(to right, #FD5F5F, #110D82);
     padding: 50px 0px;
 
- 
+
 }
 
 .bg_podcast h2{
@@ -46,4 +46,9 @@
 .itunes_top{
     position:relative;
     top:-5px;
+}
+
+.icon_small{
+    width: 100%;
+    max-width: 50px !important;
 }

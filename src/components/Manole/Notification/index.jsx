@@ -29,14 +29,14 @@ const Notification = (props) => {
 
     var contador = 0;
 
-/*
+
     if (!notification.error) {
         notification?.data?.forEach(notificacao => {
             if (notificacao.timeread === null) {
                 contador++;
             }
         });
-    }*/
+    }
 
     // @ts-ignore
     return (
@@ -57,7 +57,7 @@ const Notification = (props) => {
                 data-uk-dropdown="mode: click;pos: bottom-center"
             >
 
-                {/*}
+
                 {notification.data !== undefined && notification.data.length !== 0 && (
                     // Use parênteses em vez de chaves aqui
                     notification.data?.slice(0, 6).map(function (item, i) {
@@ -67,7 +67,7 @@ const Notification = (props) => {
                             </a>
                         );
                     })
-                )} */}
+                )}
 
                 <a className={`uk-text-center uk-flex-center`} target="_blank" href="https://m4.manole.h.codely.com.br/message/output/popup/notifications.php">
                     Ver mais

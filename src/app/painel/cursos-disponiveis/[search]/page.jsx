@@ -4,19 +4,20 @@ import Layoutv2 from '@/components/Manole/Layoutv2'
 import BannerCursosDisponiveis from '@/components/Manole/bannerCursosDisponiveis'
 import ContainerCursosDisponiveis from '@/components/Manole/ContainerCursosDisponiveis'
 import ContainerInteressam from '@/components/Manole/ContainerInteressam'
-import styles from './cdisponiveis.module.css';
+import styles from '.././cdisponiveis.module.css';
 import React from "react";
 import CategoriasCursosDisponiveis from "@/components/Manole/CategoriasCursosDisponiveis";
+import ContainerBuscaCursosDispo from "@/components/Manole/ContainerBuscarCursosDisponiveis";
 
-export default function TodosOsCursos() {
+export default function TodosOsCursos({ params: { search } }) {
 
   return (
     <Layoutv2>
-        <BannerCursosDisponiveis />
+        <BannerCursosDisponiveis title={search} />
 
             <div className={`uk-container uk-container-large`}>
                 <CategoriasCursosDisponiveis />
-                <ContainerCursosDisponiveis />
+                <ContainerBuscaCursosDispo search={search} />
                 <ContainerInteressam />
             </div>
 

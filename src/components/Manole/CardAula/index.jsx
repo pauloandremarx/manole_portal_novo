@@ -49,10 +49,6 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
         }
      }, [logado] );
 
-
-
-
-
         const [ texto_card, settexto_card ] = useState( 'Saiba Mais');
 
              const cadastrar = (e) => {
@@ -65,16 +61,11 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
                 }else{
                     error = 0;
                     document.getElementById("nome").classList.remove("uk-form-danger");
-
-
                 }
 
                 if(email == "" ){
                     error = error + 1;
                     document.getElementById("email").classList.add("uk-form-danger");
-
-
-
                 }else{
                     error = 0;
                     document.getElementById("email").classList.remove("uk-form-danger");
@@ -83,14 +74,10 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
                 if(telefone == "" ){
                     error = error + 1;
                     document.getElementById("tel").classList.add("uk-form-danger");
-
-
-
                 }else{
                     error = 0;
                     document.getElementById("tel").classList.remove("uk-form-danger");
                 }
-
 
                  e.preventDefault();
                  let data = {
@@ -121,9 +108,6 @@ const CardAula = ({url_img="", titulo, professores, link=null, modal_link=null})
 
                  })
                } }
-
-
-
 
                  const [modalIsOpen, setIsOpen] = React.useState(false);
 
