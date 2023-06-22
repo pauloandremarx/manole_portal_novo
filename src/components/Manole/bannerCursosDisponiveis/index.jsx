@@ -5,7 +5,8 @@ import Image
     from 'next/image';
 export default function  bannerCursosDisponiveis (props)  {
 
-    const titulo = props.title.replaceAll("-", " ");
+
+        const titulo = !!props?.title?.replaceAll("-", " ");
 
   return (
     <header className={`${styles.Bgbanner}`}>

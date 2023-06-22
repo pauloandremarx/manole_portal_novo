@@ -1,5 +1,5 @@
 
-
+'use client';
 import Layoutv2 from '@/components/Manole/Layoutv2'
 import BannerCursosDisponiveis from '@/components/Manole/bannerCursosDisponiveis'
 import ContainerCursosDisponiveis from '@/components/Manole/ContainerCursosDisponiveis'
