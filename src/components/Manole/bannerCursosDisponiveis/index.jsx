@@ -6,7 +6,7 @@ import Image
 export default function  bannerCursosDisponiveis (props)  {
 
 
-        const titulo = !!props?.title?.replaceAll("-", " ");
+        const titulo = props?.title?.replaceAll("-", " ");
 
   return (
     <header className={`${styles.Bgbanner}`}>

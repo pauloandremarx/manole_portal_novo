@@ -56,7 +56,7 @@ export default function CategoriasCursosDisponiveis() {
                         cursos_categorias.data?.map(function (item, i) {
                             return (
                                     <div  key={'Swiper_Cursos_category_'+item.grupo_cat} className={`${styles.card_categoria}`}>
-                                        <Link href={ `/painel/cursos-disponiveis/${ item?.nome?.replaceAll(" ", "-") }` } legacyBehavior>
+                                        <Link href={ `/painel/cursos-disponiveis/${ item?.nome?.replaceAll(" ", "-").replaceAll("/", "_") }` } legacyBehavior>
                                             <a className={'uk-box-shadow-small'}>
                                                 {item.nome}
                                             </a>

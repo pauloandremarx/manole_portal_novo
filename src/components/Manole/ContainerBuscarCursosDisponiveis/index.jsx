@@ -39,14 +39,14 @@ export default function ContainerBuscaCursosDispo(props) {
         });
 
 
-    const search = props?.search?.replaceAll("-", " ");
+    const search = props?.search?.replaceAll("-", " ").replaceAll("_", "/");
     const search_parans = categorias?.data?.find(word => word.nome ===  search ).grupo_cat;
 
     const fetchCursosDisponiveis = async () => {
 
         if(!!usu_id && !!search_parans && categorias.status === 'success') {
             const res = await fetch(
-                `https://nwlax96g00.execute-api.us-east-1.amazonaws.com/recomendacao/busca?user=${usu_id}&category=${search_parans}`,
+                `https://nwlax96g00.execute-api.us-east-1.amazonaws.com/recomendacao/products?from=0&to=20&category=${search_parans}&user=${usu_id}`,
                 {
                     method: "GET",
                     headers: {
@@ -72,7 +72,6 @@ export default function ContainerBuscaCursosDispo(props) {
     return status === 'loading' ? (
 
         <div className={`uk-child-width-1-5 uk-grid uk-margin-large-top uk-flex-center`}>
-            <div>{search} - {search_parans}</div>
             <div>
                 <div className={`${styles.bgGrey} ${styles.bgHeightSmall} uk-width-1-1 uk-border-rounded`}>
 
