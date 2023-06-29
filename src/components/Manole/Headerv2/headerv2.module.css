@@ -8,6 +8,13 @@
   box-shadow: 0px 0px 05px 5px rgba(0, 0, 0, 0.09);
 }
 
+.btn_pure{
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .nav.is_sticky{
   top: 0px;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
@@ -191,9 +198,6 @@
   }
 }
 
-
-
-
 .uk-offcanvas-bar{
   width: 100vw;
   background-color: rgba(17, 13, 130, 0.95);
@@ -248,8 +252,6 @@
   left: -15px;
 }
 
-
-
 .seja_bemvindo{
   font-size: 14px;
   color: #E65B20;
@@ -278,16 +280,13 @@
 .img_user{
   height: 50px;
   width: 50px;
-
   background-position: center;
   background-size: cover;
   border-radius: 100%;
   margin-left: 5px;
   margin-right: 10px;
-
- border: 3px solid #045BC8;
+  border: 3px solid #045BC8;
 }
-
 
 
 .margin_itens > div{
@@ -302,18 +301,7 @@
   margin-right: 0px;
 }
 
-
-
 .username_dropdown::before{
-  /*
-    content: "";
-    top: 0px;
-    position: absolute;
-    width: 0;
-    border-bottom: 20px solid black;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    cursor:pointer;*/
 
   content: "";
   position: absolute;
@@ -352,7 +340,8 @@
   position: relative;
   top: 0px;
 }
-.username_dropdown a{
+.username_dropdown button, .username_dropdown a{
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -363,7 +352,7 @@
   padding: 5px 0px;
 }
 
-.username_dropdown a:last-child{
+.username_dropdown button:last-child{
   border-bottom: none;
   margin-bottom: 0px;
 }
@@ -373,7 +362,7 @@
   align-items: center;
   justify-content: center;
   display: flex !important;
-  left: calc(100% - 20px);
+  right: 0px;
   background: url('../../../../public/manole/perfil/star.svg');
   width: 26px;
   height: 26px;
@@ -566,6 +555,7 @@
     padding: 13px;
     padding-top: 20px;
   }
+
 
 
 }

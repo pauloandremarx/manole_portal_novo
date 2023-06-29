@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body>
+      <body >
         <NextAuthProvider>
           <NextTopLoader
             color="#E65B20"

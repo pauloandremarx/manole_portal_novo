@@ -122,9 +122,9 @@ export default function ContainerBuscaCursosDispo(props) {
     ) : (
         <>
 
-            <div className={`uk-child-width-1-5@l uk-child-width-1-4@m uk-flex-center uk-margin-large-top`} data-uk-grid>
+            <div className={`uk-child-width-1-4@l uk-child-width-1-1@s uk-flex-center uk-margin-large-top`} data-uk-grid>
 
-                    <React.Fragment >
+
                         {data.map((recomendation_item, i) => (
                             <div key={'cursos_'+recomendation_item.product_id + i}>
                                 <div className={`${styles.card}`}>
@@ -142,7 +142,7 @@ export default function ContainerBuscaCursosDispo(props) {
                                 </div>
                             </div>
                         ))}
-                    </React.Fragment>
+
 
             </div>
 

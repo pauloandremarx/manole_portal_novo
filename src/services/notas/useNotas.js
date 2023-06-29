@@ -1,6 +1,7 @@
+import Config from '@/util/Config'
 export async function getNotas(user_email) {
 
-        const res = await fetch( `https://m4.manole.h.codely.com.br/webservice/rest/server.php?wstoken=c0b544cef4039864667726553336548a&moodlewsrestformat=json&wsfunction=theme_manole_get_grades&user=${user_email}`, {
+        const res = await fetch( `https://m4.manole.h.codely.com.br/webservice/rest/server.php?wstoken=${Config.WS_TOKEN}&moodlewsrestformat=json&wsfunction=theme_manole_get_grades&user=${user_email}`, {
             method: "GET",
         });
 

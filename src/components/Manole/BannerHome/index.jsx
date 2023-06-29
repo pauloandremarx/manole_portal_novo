@@ -6,7 +6,6 @@ import {  useQueries } from "@tanstack/react-query";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Image from 'next/image';
-import getUsername from "@/services/login/useLogin";
 import {useSession} from "next-auth/react";
 
 async function getBanner() {
@@ -69,8 +68,8 @@ export default function BannerHome( props ) {
                               banners.data.map( ( item ) => (
                                   <li key={ item.link } className="uk-width-1-1" >
                                       <a href={ item.href } target="_blank"  className="uk-width-1-1 uk-display-block"  >
-                                          <Image className="uk-visible@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link } alt={ item.titulo }  width={3000} height={1500}   />
-                                          <Image className="uk-hidden@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link_mobile } alt={ item.titulo }  width={3000} height={1500}  />
+                                          <Image priority={false}  className="uk-visible@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link } alt={ item.titulo }  width={3000} height={1500}   />
+                                          <Image priority={false}  className="uk-hidden@m uk-width-1-1 uk-display-block min-width-1-1" src={ item.link_mobile } alt={ item.titulo }  width={3000} height={1500}  />
                                       </a>
                                   </li>
 

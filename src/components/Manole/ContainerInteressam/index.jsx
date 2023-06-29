@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 import { useSession } from "next-auth/react";
@@ -28,14 +28,22 @@ export default function ContainerCursosDispo(props) {
         }
         return await res.json();
     };
+    const [ enabled, setEnabled ] = useState(true);
 
     const { data, isLoading, isFetching, error, status } = useQuery({
         queryKey: ["Cursos-Recomendados"],
         queryFn: () => fetchRecomendacoes(usu_id),
         refetchOnWindowFocus: false,
-        enabled: !!usu_id,
-        retry: 2,
+        refetchInterval: 0.1,
+        enabled: enabled && !!usu_id,
+
     });
+
+    useEffect(() => {
+        if (data?.length > 4) {
+            setEnabled(false)
+        }
+    }, [ data ])
 
     return status === "loading" ? (
         <div
@@ -123,25 +131,23 @@ export default function ContainerCursosDispo(props) {
                     ))}
                 </div>
             </div>
-            <a
-                className="uk-position-center-left uk-position-small  "
-                href="#"
+            <button
+                className={`uk-position-center-left uk-position-small  ${styles.btn_pure}`}
                 data-uk-slider-item="previous"
-            >
+                >
                 <div className={styles.circleShadow}>
                     <img src="/manole/perfil/left-sm.svg" />
                 </div>
-            </a>
-            <a
-                className="uk-position-center-right uk-position-small  "
-                href="#"
+            </button>
+            <button
+                className={`uk-position-center-right uk-position-small ${styles.btn_pure}`}
                 data-uk-slider-item="next"
             >
                 <img
                     className={styles.circleShadow}
                     src="/manole/perfil/right-md.svg"
                 />
-            </a>
+            </button>
         </div>
     );
 }

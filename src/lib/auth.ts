@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
           headers['Authorization'] = Config.API_KEY;
         }
 
-        const res = await fetch(Config.API_URL + `auth`, {
+        const res = await fetch( `https://l09wpoj3oc.execute-api.us-east-1.amazonaws.com/auth`, {
           method: 'POST',
           body: JSON.stringify(payload),
           headers: headers,

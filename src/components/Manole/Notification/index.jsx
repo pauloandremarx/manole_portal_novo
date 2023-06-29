@@ -42,13 +42,13 @@ const Notification = (props) => {
     return (
         <>
             <div className={`uk-position-relative`}>
-                <a>
+                <button className={styles.btn_pure}>
                     <Image src="/manole/perfil/sino.svg"
                            className="next_img"
                            width={ 100 }
                            height={ 100 }
                            alt="Icone do sino" />
-                </a>
+                </button>
                 <span className={styles.contador}>{contador}</span>
             </div>
             <aside
@@ -69,9 +69,11 @@ const Notification = (props) => {
                     })
                 )}
 
-                <a className={`uk-text-center uk-flex-center`} target="_blank" href="https://m4.manole.h.codely.com.br/message/output/popup/notifications.php">
-                    Ver mais
-                </a>
+                {contador > 0 && (
+                    <a className={`uk-text-center uk-flex-center`} target="_blank" href="https://m4.manole.h.codely.com.br/message/output/popup/notifications.php">
+                        Ver mais
+                    </a>
+                )}
 
                 <a target="_blank" href="https://m4.manole.h.codely.com.br/message/notificationpreferences.php">
                     <Image src="/manole/perfil/preferencias.svg" className="next_img" width={500} height={500} />

@@ -1,21 +1,38 @@
-import PropTypes from "prop-types";
+'use client';
+import React from "react";
+import YouTube from "react-youtube";
 
-const YoutubeEmbed = ({ embedId }) => (
-  <div className="video-responsive">
-    <iframe
-      className="uk-width-1-1 youtube_height"
-      src={`https://www.youtube.com/embed/${embedId}`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Embedded youtube"
-    />
-  </div>
-);
+  export default class YoutubeEmbed
+      extends React.Component {
 
-YoutubeEmbed.propTypes = {
-  embedId: PropTypes.string.isRequired
-};
 
-export default YoutubeEmbed
+      render() {
+          const opts = {
+              width: '100%',
+              height: '500px',
+              src: `https://www.youtube.com/embed/${this.props.embedId}`,
+              playerVars: {
+                  autoplay: 1,
+                  host: 'https://www.youtube.com',
+              },
+          };
+
+          return (
+              <div  className="video-responsive">
+                  <YouTube videoId="sTnm5jvjgjM"
+                           opts={opts} onReady={this._onReady} />
+              </div>
+          );
+      }
+
+      _onReady(event) {
+          event.target.pauseVideo();
+      }
+  }
+
+
+
+
+
+
 

@@ -17,10 +17,9 @@ export default function SignIn() {
                 initialValues={{email: "", password: "", tenantKey: ""}}
                 validationSchema={Yup.object({
                     email: Yup.string()
-                        .max(30, "Must be 30 characters or less")
-                        .email("Invalid email address")
-                        .required("Please enter your email"),
-                    password: Yup.string().required("Please enter your password"),
+                        .email("Endereço de e-mail inválido.")
+                        .required("Por favor digite o e-mail."),
+                    password: Yup.string().required("Por favor digite a senha."),
                 })}
                 onSubmit={async (values, {setSubmitting}) => {
                     const res = await signIn("credentials", {

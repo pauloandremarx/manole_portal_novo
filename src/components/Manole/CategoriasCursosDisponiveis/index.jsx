@@ -44,7 +44,7 @@ export default function CategoriasCursosDisponiveis() {
             ],
         });
 
-    if (cursos_categorias.isLoading) return 'carregando';
+    if (cursos_categorias.isLoading) return '';
     if (cursos_categorias.error)  return "An error has occurred: " + cursos_categorias.error.message;
 
     return (

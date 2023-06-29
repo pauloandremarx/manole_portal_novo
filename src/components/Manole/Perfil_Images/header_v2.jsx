@@ -58,7 +58,7 @@ export default function LogadoHeaderv2(props) {
                     className={`uk-flex uk-flex-middle ${styles.margin_itens}`}
                 >
                     <div className="uk-visible@m">
-                        <a data-uk-toggle="target: .toggle-search; animation: uk-animation-fade">
+                        <button className={styles.btn_pure} data-uk-toggle="target: .toggle-search; animation: uk-animation-fade">
                             <Image
                                 className={`toggle-search ${styles.close_lupa} next_img`}
                                 src="/manole/perfil/lupa.svg"
@@ -74,17 +74,17 @@ export default function LogadoHeaderv2(props) {
                                 height={ 100 }
                                 alt="Icone de fechar"
                             />
-                        </a>
+                        </button>
                     </div>
                     <Notification className={`${styles.username_dropdown}`} />
                     <div className="uk-visible@m">
-                        <a title="ajuda">
+                        <button className={styles.btn_pure}  title="ajuda">
                             <Image src="/manole/perfil/ajuda.svg"
                                    className="next_img"
                                    width={ 100 }
                                    height={ 100 }
                                    alt="Icone de ajudar"/>
-                        </a>
+                        </button>
                     </div>
 
                     <div
@@ -102,7 +102,7 @@ export default function LogadoHeaderv2(props) {
                             href={`/painel/meu-perfil`}
                             legacyBehavior
                         >
-                            <a>
+                            <a className={styles.btn_pure} >
                                 <Image src="/manole/perfil/meu_perfil.svg"
                                        className="next_img"
                                        width={ 100 }
@@ -116,7 +116,7 @@ export default function LogadoHeaderv2(props) {
                             href={`/painel/minha-senha`}
                             legacyBehavior
                         >
-                            <a>
+                            <a >
                                 <Image src="/manole/perfil/minha_senha.svg"
                                        className="next_img"
                                        width={ 100 }
@@ -128,7 +128,7 @@ export default function LogadoHeaderv2(props) {
                         <Link
                             href={`/painel/notas`}
                             legacyBehavior>
-                            <a>
+                            <a  >
                                 <Image src="/manole/perfil/notas.svg"
                                        className="next_img"
                                        width={ 100 }
@@ -136,29 +136,29 @@ export default function LogadoHeaderv2(props) {
                                        alt="Icone de notas" /> Notas
                             </a>
                         </Link>
-                        <a>
+                        <button className={styles.btn_pure} >
                             <Image src="/manole/perfil/mensagens.svg"
                                    className="next_img"
                                    width={ 100 }
                                    height={ 100 }
                                    alt="Icone de mensagem" />
                             Menssagens
-                        </a>
-                        <a>
+                        </button>
+                        <button className={styles.btn_pure} >
                             <Image src="/manole/perfil/arquivos.svg"
                                    className="next_img"
                                    width={ 100 }
                                    height={ 100 }
                                    alt="Icone de arquivos"/> Arquivos
                             Privados
-                        </a>
-                        <a onClick={signOut}>
+                        </button>
+                        <button className={styles.btn_pure}  onClick={signOut}>
                             <Image src="/manole/perfil/fi_log-out.svg"
                                    className="next_img"
                                    width={ 100 }
                                    height={ 100 }
                                    alt="Icone de deslogar" /> Sair
-                        </a>
+                        </button>
                     </aside>
                 </div>
             </aside>

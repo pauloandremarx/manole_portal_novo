@@ -8,8 +8,16 @@ import styles from '.././cdisponiveis.module.css';
 import React from "react";
 import CategoriasCursosDisponiveis from "@/components/Manole/CategoriasCursosDisponiveis";
 import ContainerBuscaCursosDispo from "@/components/Manole/ContainerBuscarCursosDisponiveis";
+import {useSession} from "next-auth/react";
+import {redirect} from "next/navigation";
 
 export default function TodosOsCursos({ params: { search } }) {
+
+    const { data: session, status } = useSession();
+
+    if (!session) {
+        redirect("/api/auth/signin");
+    }
 
   return (
     <Layoutv2>

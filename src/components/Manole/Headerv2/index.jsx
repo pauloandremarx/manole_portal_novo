@@ -65,6 +65,13 @@ const Header = () => {
         : header.classList.remove(`${styles.is_sticky}`);
   };
 
+
+  const searchFrom = (e) => {
+    e.preventDefault();
+    const search = e.target.search.value;
+    router.push(`/painel/${search}`);
+  }
+
   return (
       <>
         <div className={`${styles.nav}  nav_stick`} ref={stickyHeader}>
@@ -77,8 +84,8 @@ const Header = () => {
                 <div className="uk-navbar-left">
                   <ul className="uk-navbar-nav  uk-flex uk-flex-middle uk-height-1-1 uk-">
                     <li className="padding_right_h uk-hidden@m">
-                      <a
-                          className="uk-navbar-toggle"
+                      <button
+                          className={`uk-navbar-toggle ${styles.btn_pure}`}
                           data-uk-toggle="target: #my-mobile-nav"
                       >
                         <Image
@@ -88,7 +95,7 @@ const Header = () => {
                             width={100}
                             height={100}
                         />
-                      </a>
+                      </button>
                     </li>
                     <li className="uk-visible@m">
                       <Link href={`/painel`} legacyBehavior>
@@ -200,7 +207,7 @@ const Header = () => {
                   className="uk-container uk-container-small toggle-search"
                   hidden
               >
-                <form className="uk-flex uk-flex-center">
+                <form className="uk-flex uk-flex-center" onSubmit={searchFrom}>
                   <div className="uk-margin uk-width-1-1">
                     <div className="uk-inline uk-width-1-1">
                     <span
@@ -212,6 +219,7 @@ const Header = () => {
                           type="search"
                           aria-label="Not clickable icon"
                           placeholder="O que você procura?"
+                          name="search"
                       />
                       <a
                           uk-toggle="target: .toggle-search; animation: uk-animation-fade"
@@ -244,7 +252,7 @@ const Header = () => {
                   />
                 </div>
 
-                <a className="uk-position-absolute uk-offcanvas-close">
+                <button className={`uk-position-absolute uk-offcanvas-close ${styles.btn_pure}`}>
                   <Image
                       src="/manole/perfil/close.svg"
                       className={`${styles.close_offcnvas} next_img`}
@@ -252,7 +260,7 @@ const Header = () => {
                       height={100}
                       alt="Icone  de fechar"
                   />
-                </a>
+                </button>
               </div>
 
               <div className="uk-inline uk-width-1-1">

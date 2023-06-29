@@ -95,3 +95,10 @@
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+.btn_pure{
+  cursor: pointer;
+  display: block;
+  background: transparent;
+  border: none;
+}
