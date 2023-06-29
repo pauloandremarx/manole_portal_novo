@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import{ useEffect, useState } from "react";
 import styles from "./Cardaula.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -108,7 +108,7 @@ const CardAula = ({
         }
     };
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
         setIsOpen(true);

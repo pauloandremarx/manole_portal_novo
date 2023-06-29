@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getLocalStorage, removeStorage } from "@/util/Helpers";
 import LogadoHeaderv1 from "@/components/Manole/Perfil_Images/header_v1";
-import {useSession, signOut} from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const navigation = [
     { name: "Soluções", href: "/#solucoes" },
@@ -17,7 +17,7 @@ const navigation = [
 
 const Header = () => {
     const router = useRouter();
-    const { data: session, status } = useSession()
+    const { data: session, status } = useSession();
 
     const stickyHeader = useRef();
 
@@ -86,7 +86,6 @@ const Header = () => {
                             className="uk-button uk-button-text"
                         >
                           Sobre-nos
-
                         </a>
                       </Link>
                     </span>
@@ -130,7 +129,7 @@ const Header = () => {
 
                                     {status === "authenticated" ? (
                                         <li>
-                                             <LogadoHeaderv1 />
+                                            <LogadoHeaderv1 />
                                         </li>
                                     ) : (
                                         <li>
@@ -162,10 +161,13 @@ const Header = () => {
                                             className="uk-navbar-toggle"
                                             data-uk-toggle="target: #my-mobile-nav"
                                         >
-                      <span
-                          className={`${styles.hamburgue}`}
-                          data-uk-icon="icon: menu; ratio: 2"
-                      ></span>
+                                          <span  className={`${styles.hamburgue}`} >
+                                              <svg viewBox="0 0 100 80" width="40" height="40">
+                                                  <rect width="100" height="15"></rect>
+                                                  <rect y="30" width="100" height="15"></rect>
+                                                  <rect y="60" width="100" height="15"></rect>
+                                                </svg>
+                                          </span>
                                         </a>
                                     </div>
                                 </div>

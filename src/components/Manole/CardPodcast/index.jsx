@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from'./podecastcard.module.css';
- import Image from 'next/image';
+import Image from 'next/image';
 
 
 const CardPodcast = ({titulo, lista, resumo, img, spotify }) => {
