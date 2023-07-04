@@ -1,5 +1,5 @@
 
-import styles from './cardBusca.module.css';
+import styles from './cardbusca.module.css';
 import {useSession} from "next-auth/react";
 import {useQueries} from "@tanstack/react-query";
 import Config from "@/util/Config";
