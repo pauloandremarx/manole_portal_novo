@@ -1,5 +1,4 @@
-
-import styles from './cardBusca.module.css';
+import styles from './cardBuscav2.module.css';
 import React from "react";
 
 export default function CardBusca(props) {
